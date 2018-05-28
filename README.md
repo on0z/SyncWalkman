@@ -8,16 +8,16 @@ walkman(動作確認済): NW-A47
 
 Requires: 
 
-    - /bin/rm
-    - /usr/bin/ditto
-    - /usr/local/bin/nkf
-        - you can install with brew.
-    - ☑ Keep iTunes Media folder organized
-    - ☑ Share iTunes Library XML with other applications
+- /bin/rm
+- /usr/bin/ditto
+- /usr/local/bin/nkf
+    - you can install with brew.
+- ☑ Keep iTunes Media folder organized
+- ☑ Share iTunes Library XML with other applications
 
 Recommends:
 
-    - ☑ Copy files to iTunes Media folder when adding to library
+- ☑ Copy files to iTunes Media folder when adding to library
 
 # How to Build
 
