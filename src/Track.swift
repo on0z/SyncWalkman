@@ -1,0 +1,39 @@
+//
+//  Track.swift
+//  SyncWalkman
+//
+//  Created by 原園征志 on 2018/05/26.
+//  Copyright © 2018年 on0z. All rights reserved.
+//
+
+import Foundation
+
+class Track{
+    
+    var id: Int
+    var path: String
+    
+    var name: String?
+    
+    var sendTargetPath: String?
+    
+    /**
+     自身のiTunes Music Folderからの相対パスを返します
+     
+     正しい iTunesLibraryDataStore.shared.musicFolder がセット済である必要があります
+     */
+    var relativePath: String{
+        get{
+            if self.path.hasPrefix(iTunesLibraryDataStore.shared.musicFolder + "/" + "Music/"){
+                return String(self.path.dropFirst((iTunesLibraryDataStore.shared.musicFolder + "/" + "Music/").count))
+            } else {
+                return (self.path as NSString).lastPathComponent
+            }
+        }
+    }
+    
+    init(id: Int, path: String){
+        self.id = id
+        self.path = path
+    }
+}
