@@ -74,18 +74,14 @@ extension SyncWalkman {
                 break
             case .update:
                 if FileManager.default.fileExists(atPath: track.sendTargetPath!){
-                    do {
-                        if let shafrom = sha(data: try Data(contentsOf: URL(fileURLWithPath: track.sendTargetPath!))),
-                            let shato = sha(data: try Data(contentsOf: URL(fileURLWithPath: track.path))),
-                            shafrom == shato{
-                            if self.config.printState{
-                                stdout("\rskipped:", track.path, "\nsent Songs \(Int(Double(sentCount)/Double(willSendCount)*100))% (\(sentCount)/\(willSendCount))", terminator: "")
-                            }else{
-                                stdout("\rsent Songs \(Int(Double(sentCount)/Double(willSendCount)*100))% (\(sentCount)/\(willSendCount))", terminator: "")
-                            }
-                            continue
+                    if sha(path: track.sendTargetPath!) == sha(path: track.path){
+                        if self.config.printStateSkipped{
+                            stdout("\rskipped:", track.path, "\nsent Songs \(Int(Double(sentCount)/Double(willSendCount)*100))% (\(sentCount)/\(willSendCount))", terminator: "")
+                        }else{
+                            stdout("\rsent Songs \(Int(Double(sentCount)/Double(willSendCount)*100))% (\(sentCount)/\(willSendCount))", terminator: "")
                         }
-                    }catch{}
+                        continue
+                    }
                 }
                 break
             case .overwrite:
