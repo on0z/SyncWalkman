@@ -13,14 +13,20 @@ extension SyncWalkman{
     /**
      必要なコマンドが揃っているか確認します
      
-     - Version: 0.0
+     - Version: 0.1
      
      必要なコマンド
      - /usr/bin/ditto
+     - /usr/bin/shasum
+     - /bin/rm
      */
     func requiresCheck(){
         guard FileManager.default.fileExists(atPath: "/usr/bin/ditto") else {
             stderr("!Error: Not found ditto in \"/usr/bin/ditto\"")
+            exit(1)
+        }
+        guard FileManager.default.fileExists(atPath: "/usr/bin/shasum") else {
+            stderr("!Error: Not found shasum in \"/usr/bin/shasum\"")
             exit(1)
         }
         guard FileManager.default.fileExists(atPath: "/bin/rm") else {
