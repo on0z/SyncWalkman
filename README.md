@@ -9,6 +9,7 @@ walkman(動作確認済): NW-A47
 Requires: 
 
 - /bin/rm
+- /usr/bin/shasum
 - /usr/bin/ditto
 - /usr/local/bin/nkf
     - you can install with brew.
