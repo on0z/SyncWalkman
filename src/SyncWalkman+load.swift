@@ -58,7 +58,7 @@ extension SyncWalkman{
      - version: 0.0
      */
     func enumerateExistsTrackFiles(){
-        if self.config.printState{
+        if self.config.printStateFunction{
             stdout("start enumerate exists song files")
         }
         guard let subpaths = FileManager.default.subpaths(atPath: self.config.walkmanPath + "/MUSIC/") else {
@@ -73,14 +73,14 @@ extension SyncWalkman{
                 || ext == "aif"
                 || ext == "mp4"
                 || ext == "flac"{
-                if self.config.printState{
+                if self.config.printStateFound{
                     stdout("found:", self.config.walkmanPath + "/MUSIC/" + path)
                 }
                 self.existsTrackFiles.append(self.config.walkmanPath + "/MUSIC/" + path)
             }
         }
         stdout("found: \(self.existsTrackFiles.count)")
-        if self.config.printState{
+        if self.config.printStateFunction{
             stdout("finish enumerate exists song files")
         }
     }
@@ -93,7 +93,7 @@ extension SyncWalkman{
      - version: 0.0
      */
     func enumerateExistsPlaylistFiles(){
-        if self.config.printState{
+        if self.config.printStateFunction{
             stdout("start enumerate exists playlist files")
         }
         guard let subpaths = FileManager.default.subpaths(atPath: self.config.walkmanPath + "/MUSIC/") else {
@@ -104,14 +104,14 @@ extension SyncWalkman{
             let ext = (path as NSString).pathExtension
             if ext == "m3u"
                 || ext == "m3u8"{
-                if self.config.printState{
+                if self.config.printStateFound{
                     stdout("found:", self.config.walkmanPath + "/MUSIC/" + path)
                 }
                 self.existsPlaylistFiles.append(self.config.walkmanPath + "/MUSIC/" + path)
             }
         }
         stdout("found: \(self.existsPlaylistFiles.count)")
-        if self.config.printState{
+        if self.config.printStateFunction{
             stdout("finish enumerate exists playlist files")
         }
     }

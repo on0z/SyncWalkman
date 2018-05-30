@@ -64,7 +64,7 @@ extension SyncWalkman {
             switch self.config.sendMode{
             case .normal:
                 if FileManager.default.fileExists(atPath: track.sendTargetPath!){
-                    if self.config.printState{
+                    if self.config.printStateSkipped{
                         stdout("\rskipped:", track.path, "\nsent Songs \(Int(Double(sentCount)/Double(willSendCount)*100))% (\(sentCount)/\(willSendCount))", terminator: "")
                     }else{
                         stdout("\rsent Songs \(Int(Double(sentCount)/Double(willSendCount)*100))% (\(sentCount)/\(willSendCount))", terminator: "")
@@ -91,7 +91,7 @@ extension SyncWalkman {
             case .overwrite:
                 break
             }
-            if self.config.printState{
+            if self.config.printStateSent{
                 stdout("\rsent:", track.path, "\nto:", track.sendTargetPath!)
             }
             stdout("\rsent Songs \(Int(Double(sentCount)/Double(willSendCount)*100))% (\(sentCount)/\(willSendCount))", terminator: "")
@@ -118,7 +118,7 @@ extension SyncWalkman {
                 task.waitUntilExit()
             }
             deletedCount += 1
-            if self.config.printState{
+            if self.config.printStateDeleted{
                 stdout("\rdeleted:", p, "\ndeleted songs \(Int(Double(deletedCount)/Double(self.existsTrackFiles.count)*100))% (\(deletedCount)/\(self.existsTrackFiles.count))", terminator: "")
             }else{
                 stdout("\rdeleted songs \(Int(Double(deletedCount)/Double(self.existsTrackFiles.count)*100))% (\(deletedCount)/\(self.existsTrackFiles.count))", terminator: "")

@@ -29,7 +29,7 @@ $ swiftc main.swift src/*.swift -import-objc-header src/BridgeHeader.h -o SyncWa
 # Usage
 
 ```
-Usage:      $ SyncWalkman [-s] [-p] [-u | -o] [-d] [-v] [-w /Volumes/WALKMAN] -f "/path/to/iTunes Library.xml"
+Usage:      $ SyncWalkman [-s] [-p] [-u | -o] [-d] [-v | -v .found|.sent|.skipped|.deleted|.func] [-w /Volumes/WALKMAN] -f "/path/to/iTunes Library.xml"
         Show Version:
             $ SyncWalkman --version
         Show Help:
@@ -38,11 +38,24 @@ Argments:   -f iTunes XML Path: Path to iTunes Library XML File
             -w Walkman Path:    Path to Walkman root
 Options:    -s: send song
             -p: send playlists
-            -u: Update
-            -o: Override
-            -d: Delete songs will not be sent
+            -u: send mode Update
+            -o: send mode Overwrite
+            -d: Delete songs that are not sent
             -v: Print a line of status
+                Individual options
+                 .found
+                 .sent
+                 .skipped
+                 .deleted
+                 .func
             -n: dry do
+```
+
+## Example
+
+```
+$ SyncWalkman -spudv -f ~/Music/iTunes/iTunes\ Library.xml
+$ SyncWalkman -pudn -v .sent.deleted -f ~/Music/iTunes/iTunes\ Library.xml -w /Volumes/WALKMAN
 ```
 
 # Messages

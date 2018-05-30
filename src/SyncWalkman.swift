@@ -10,9 +10,9 @@ import Foundation
 
 class SyncWalkman{
     
-    static let version: String = "0.0.0-b1 (1)\nMIT Lisence  2018 原園 征志"
+    static let version: String = "0.0.0-b2 (2)\nMIT Lisence  2018 原園 征志"
     static let usage: String = """
-Usage:      $ SyncWalkman [-s] [-p] [-u | -o] [-d] [-v] [-w /Volumes/WALKMAN] -f "/path/to/iTunes Library.xml"
+Usage:      $ SyncWalkman [-s] [-p] [-u | -o] [-d] [-v | -v [(.found)|(.sent)|(.skip)|(.del)|(.func)]] [-w /Volumes/WALKMAN] -f "/path/to/iTunes Library.xml"
         Show Version:
             $ SyncWalkman --version
         Show Help:
@@ -21,10 +21,16 @@ Argments:   -f iTunes XML Path: Path to iTunes Library XML File
             -w Walkman Path:    Path to Walkman root
 Options:    -s: send song
             -p: send playlists
-            -u: Update
-            -o: Override
-            -d: Delete songs will not be sent
+            -u: send mode Update
+            -o: send mode Overwrite
+            -d: Delete songs that are not sent
             -v: Print a line of status
+                Individual options
+                 .found
+                 .sent
+                 .skip
+                 .del
+                 .func
             -n: dry do
 """
     

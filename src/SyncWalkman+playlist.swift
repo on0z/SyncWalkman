@@ -76,7 +76,7 @@ extension SyncWalkman{
             switch self.config.sendMode{
             case .normal:
                 if FileManager.default.fileExists(atPath: pl.sendTargetPath!){
-                    if self.config.printState{
+                    if self.config.printStateSkipped{
                         stdout("\rskipped:", pl.sendTargetPath!, "\nsent playlists \(Int(Double(sentCount)/Double(willSendCount)*100))% (\(sentCount)/\(willSendCount))", terminator: "")
                     }else{
                         stdout("\rsent playlists \(Int(Double(sentCount)/Double(willSendCount)*100))% (\(sentCount)/\(willSendCount))", terminator: "")
@@ -87,7 +87,7 @@ extension SyncWalkman{
             case .update, .overwrite:
                 break
             }
-            if self.config.printState{
+            if self.config.printStateSent{
                 stdout("\rsent:", pl.sendTargetPath!)
             }
             
@@ -111,7 +111,7 @@ extension SyncWalkman{
         stdout("start delete")
         var deletedCount: Int = 0
         for p in self.existsPlaylistFiles{
-            if self.config.printState{
+            if self.config.printStateDeleted{
                 stdout("\rdeleted:", p)
             }
             if !self.config.dryDo{

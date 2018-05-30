@@ -13,23 +13,42 @@ class SyncWalkmanConfig{
     var itunesXmlPath: String
     var walkmanPath: String
 
-    var sendTrack: Bool = false
-    var sendPlaylist: Bool = false
+    var sendTrack: Bool
+    var sendPlaylist: Bool
     
-    var sendMode: sendMode = .normal
-    var doDelete: Bool = false
+    var sendMode: sendMode
+    var doDelete: Bool
 
-    var printState: Bool = false
-    var dryDo: Bool = false
+    var printStateFound: Bool
+    var printStateSent: Bool
+    var printStateSkipped: Bool
+    var printStateDeleted: Bool
+    var printStateFunction: Bool
+    var dryDo: Bool
 
-    init(xmlPath: String, walkmanPath: String, sendTrack: Bool = true, sendPlaylist: Bool = false, mode: sendMode = .normal, doDelete: Bool = false, printState: Bool = false, dryDo: Bool = false){
+    init(xmlPath: String,
+         walkmanPath: String,
+         sendTrack: Bool,
+         sendPlaylist: Bool,
+         mode: sendMode,
+         doDelete: Bool,
+         printStateFound: Bool,
+         printStateSent: Bool,
+         printStateSkipped: Bool,
+         printStateDeleted: Bool,
+         printStateFunction: Bool,
+         dryDo: Bool){
         self.itunesXmlPath = xmlPath
         self.walkmanPath = walkmanPath
         self.sendTrack = sendTrack
         self.sendPlaylist = sendPlaylist
         self.sendMode = mode
         self.doDelete = doDelete
-        self.printState = printState
+        self.printStateFound = printStateFound
+        self.printStateSent = printStateSent
+        self.printStateSkipped = printStateSkipped
+        self.printStateDeleted = printStateDeleted
+        self.printStateFunction = printStateFunction
         self.dryDo = dryDo
     }
 
@@ -44,23 +63,54 @@ class SyncWalkmanConfig{
         var writeMode: sendMode = .normal
         var doDelete: Bool = false
 
-        var printState: Bool = false
+        var printStateFound: Bool = false
+        var printStateSent: Bool = false
+        var printStateSkipped: Bool = false
+        var printStateDeleted: Bool = false
+        var printStateFunction: Bool = false
+        
         var dryDo: Bool = false
         // ---
 
         var argfFlag = false
         var argwFlag = false
+        var argvFlag = false
 
         for arg in argv.dropFirst(){
             if argfFlag{
                 optxmlPath = arg
             }else if argwFlag{
                 optwalkmanPath = arg
+            }else if argvFlag && arg.hasPrefix("."){
+                if arg.contains(".found"){
+                    printStateFunction = true
+                }
+                if arg.contains(".sent"){
+                    printStateSent = true
+                }
+                if arg.contains(".skip"){
+                    printStateSkipped = true
+                }
+                if arg.contains(".del"){
+                    printStateDeleted = true
+                }
+                if arg.contains(".func"){
+                    printStateFunction = true
+                }
+            }else if argvFlag && !arg.hasPrefix("."){
+                printStateFound = true
+                printStateSent = true
+                printStateSkipped = true
+                printStateDeleted = true
+                printStateFunction = true
             }else if arg == "-f"{
                 argfFlag = true
                 continue
             }else if arg == "-w"{
                 argwFlag = true
+                continue
+            }else if arg == "-v"{
+                argvFlag = true
                 continue
             }else if arg == "--version"{
                 stdout(SyncWalkman.version)
@@ -85,7 +135,11 @@ class SyncWalkmanConfig{
                     doDelete = true
                 }
                 if arg.contains("v"){ //print status
-                    printState = true
+                    printStateFound = true
+                    printStateSent = true
+                    printStateSkipped = true
+                    printStateDeleted = true
+                    printStateFunction = true
                 }
                 if arg.contains("n"){
                     dryDo = true
@@ -100,6 +154,7 @@ class SyncWalkmanConfig{
             }
             argfFlag = false
             argwFlag = false
+            argvFlag = false
         }
         
         guard let xmlPath = optxmlPath else{
@@ -172,7 +227,7 @@ class SyncWalkmanConfig{
             sendTrack = true
         }
 
-        self.init(xmlPath: xmlPath, walkmanPath: walkmanPath, sendTrack: sendTrack, sendPlaylist: sendPlaylist, mode: writeMode, doDelete: doDelete, printState: printState, dryDo: dryDo)
+        self.init(xmlPath: xmlPath, walkmanPath: walkmanPath, sendTrack: sendTrack, sendPlaylist: sendPlaylist, mode: writeMode, doDelete: doDelete, printStateFound: printStateFound, printStateSent: printStateSent, printStateSkipped: printStateSkipped, printStateDeleted: printStateDeleted, printStateFunction: printStateFunction, dryDo: dryDo)
         _ = sayConfig()
     }
 
@@ -185,7 +240,12 @@ Imported Config:
     send playlists      \(self.sendPlaylist)
     send mode:          \(self.sendMode.rawValue) \(self.sendMode.str)
     do delete:          \(self.doDelete)
-    print status        \(self.printState)
+    print status
+        found           \(self.printStateFound)
+        sent            \(self.printStateSent)
+        skipped         \(self.printStateSkipped)
+        deleted         \(self.printStateDeleted)
+        function        \(self.printStateFunction)
     dry do              \(self.dryDo)
 """
         stdout(str)
