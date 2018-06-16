@@ -24,13 +24,13 @@ Recommends:
 
 ```
 $ cd path/to/SyncWalkman
-$ swiftc main.swift src/*.swift -import-objc-header src/BridgeHeader.h -o SyncWalkman
+$ swiftc main.swift src/*.swift -o SyncWalkman
 ```
 
 # Usage
 
 ```
-Usage:      $ SyncWalkman [-s] [-p] [-u | -o] [-d] [-v | -v .found|.sent|.skipped|.deleted|.func] [-w /Volumes/WALKMAN] -f "/path/to/iTunes Library.xml"
+Usage:      $ SyncWalkman [-s] [-p] [-u | -o] [-d] [-v | -v .found|.sent|.skipped|.del|.func] [-w /Volumes/WALKMAN] -f "/path/to/iTunes Library.xml"
         Show Version:
             $ SyncWalkman --version
         Show Help:
@@ -43,7 +43,7 @@ Options:    -s: send song
             -o: send mode Overwrite
             -d: Delete songs that are not sent
             -v: Print a line of status
-                Individual options
+                Individual options for each situation.
                  .found
                  .sent
                  .skipped
@@ -56,7 +56,7 @@ Options:    -s: send song
 
 ```
 $ SyncWalkman -spudv -f ~/Music/iTunes/iTunes\ Library.xml
-$ SyncWalkman -pudn -v .sent.deleted -f ~/Music/iTunes/iTunes\ Library.xml -w /Volumes/WALKMAN
+$ SyncWalkman -pudn -v .sent.del -f ~/Music/iTunes/iTunes\ Library.xml -w /Volumes/WALKMAN
 ```
 
 # Messages
