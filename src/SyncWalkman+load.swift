@@ -91,7 +91,7 @@ extension SyncWalkman{
                 self.existsTrackFiles.append(self.config.walkmanPath + "/MUSIC/" + path)
             }
         }
-        stdout("found: \(self.existsTrackFiles.count)")
+        stdout("found songs: \(self.existsTrackFiles.count)")
         if self.config.printStateFunction{
             stdout("finish enumerate exists song files")
         }
@@ -122,7 +122,7 @@ extension SyncWalkman{
                 self.existsPlaylistFiles.append(self.config.walkmanPath + "/MUSIC/" + path)
             }
         }
-        stdout("found: \(self.existsPlaylistFiles.count)")
+        stdout("found playlists: \(self.existsPlaylistFiles.count)")
         if self.config.printStateFunction{
             stdout("finish enumerate exists playlist files")
         }

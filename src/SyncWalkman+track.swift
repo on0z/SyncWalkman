@@ -31,7 +31,7 @@ extension SyncWalkman {
                 continue
             }
             
-            stdout("selected playlists: \(i): \(self.itl.playlists[i].name)")
+            stdout("selected playlist: \(i): \(self.itl.playlists[i].name)")
             
             if !askOK(){
                 stdout("↓転送する曲のプレイリストを選択してください")
