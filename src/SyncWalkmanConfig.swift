@@ -223,9 +223,8 @@ class SyncWalkmanConfig{
             exit(1)
         }
         
-        if sendTrack == false && sendPlaylist == false{
-            sendTrack = true
-        }
+        // sendTrackもsendPlaylistもfalseのとき、sendTrackをtrueにします。
+        sendTrack = sendTrack || !sendPlaylist
 
         self.init(xmlPath: xmlPath, walkmanPath: walkmanPath, sendTrack: sendTrack, sendPlaylist: sendPlaylist, mode: writeMode, doDelete: doDelete, printStateFound: printStateFound, printStateSent: printStateSent, printStateSkipped: printStateSkipped, printStateDeleted: printStateDeleted, printStateFunction: printStateFunction, dryDo: dryDo)
         _ = sayConfig()
