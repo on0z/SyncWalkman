@@ -3,7 +3,7 @@ This is an intelligent app for synchronizing Walkman.
 
 (作者は英語ができません。)
 
-language: swift4.1  
+language: swift4.1, Xcode9.4.1
 walkman(動作確認済): NW-A47
 
 Requires: 
