@@ -51,9 +51,15 @@ extension SyncWalkman{
             exit(2)
         }
         let delegate = iTunesXMLParserDelegate()
+        delegate.config = self.config
         parser.delegate = delegate
-        parser.parse()
-        
+        let succeeded: Bool = parser.parse()
+        if succeeded{
+            self.itl = delegate.itl
+        }else{
+            stderr("!Error: Couldn't parse XML")
+            exit(2)
+        }
     }
     
     /**

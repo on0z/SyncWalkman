@@ -22,13 +22,18 @@ class Track{
      
      正しい iTunesLibraryDataStore.shared.musicFolder がセット済である必要があります
      */
+    func getRelativePath(_ musicFolder: String) -> String{
+        if self.path.hasPrefix(musicFolder + "/" + "Music/"){
+            return String(self.path.dropFirst((musicFolder + "/" + "Music/").count))
+        } else {
+            return (self.path as NSString).lastPathComponent
+        }
+    }
+    
+    @available(*, unavailable)
     var relativePath: String{
         get{
-            if self.path.hasPrefix(iTunesLibraryDataStore.shared.musicFolder + "/" + "Music/"){
-                return String(self.path.dropFirst((iTunesLibraryDataStore.shared.musicFolder + "/" + "Music/").count))
-            } else {
-                return (self.path as NSString).lastPathComponent
-            }
+            return ""
         }
     }
     

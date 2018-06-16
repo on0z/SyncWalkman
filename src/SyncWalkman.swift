@@ -35,7 +35,8 @@ Options:    -s: send song
 """
     
     let config: SyncWalkmanConfig
-    let itl: iTunesLibraryDataStore = iTunesLibraryDataStore.shared
+    var itl: iTunesLibraryDataStore = iTunesLibraryDataStore()
+    
     var existsTrackFiles: [String] = []
     var existsPlaylistFiles: [String] = []
     

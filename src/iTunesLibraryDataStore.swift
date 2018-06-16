@@ -10,16 +10,15 @@ import Foundation
 
 class iTunesLibraryDataStore{
     
-    private static let instance: iTunesLibraryDataStore = iTunesLibraryDataStore()
-    open class var shared: iTunesLibraryDataStore{
-        get{
-            return instance
-        }
-    }
+//    private static let instance: iTunesLibraryDataStore = iTunesLibraryDataStore()
+//    open class var shared: iTunesLibraryDataStore{
+//        get{
+//            return instance
+//        }
+//    }
     
     var tracks: [Track] = []
     var playlists: [Playlist] = []
-    
     
     private var _musicFolder: String = ""
     /// 始端は/で、終端はフォルダ名です

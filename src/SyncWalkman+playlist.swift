@@ -63,8 +63,8 @@ extension SyncWalkman{
                     stderr("!Warning: not found Track id = \(tid)\nsent playlists \(Int(Double(sentCount)/Double(willSendCount)*100))% (\(sentCount)/\(willSendCount))", terminator: "")
                     continue
                 }
-                track.sendTargetPath = track.sendTargetPath ?? self.config.walkmanPath + "/MUSIC/" + track.relativePath
-                playlistText += "/MUSIC/" + track.relativePath + "\n"
+                track.sendTargetPath = track.sendTargetPath ?? self.config.walkmanPath + "/MUSIC/" + track.getRelativePath(self.itl.musicFolder)
+                playlistText += "/MUSIC/" + track.getRelativePath(self.itl.musicFolder) + "\n"
             }
             
             

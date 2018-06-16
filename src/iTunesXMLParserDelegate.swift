@@ -10,20 +10,25 @@ import Foundation
 
 class iTunesXMLParserDelegate: NSObject, XMLParserDelegate{
     
-    var loadedTrackCount: Int = 0
-    var loadedPlaylistCount: Int = 0
+    var itl = iTunesLibraryDataStore()
+    var config: SyncWalkmanConfig?
     
-    var elements: [String] = []
-    var keys: [String] = []
-    var tmpkey: String = ""
+    private var loadedTrackCount: Int = 0
+    private var loadedPlaylistCount: Int = 0
     
-    var tmpt: (id: Int?, path: String?) = (nil, nil) //tmpTrack
-    var tmppl: (id: Int?, name: String?, tIDs: [Int]) = (nil, nil, []) //tempPlaylist
+    private var elements: [String] = []
+    private var keys: [String] = []
+    private var tmpkey: String = ""
     
-    var optmusicFolder: String?
+    private var tmpt: (id: Int?, path: String?) = (nil, nil) //tmpTrack
+    private var tmppl: (id: Int?, name: String?, tIDs: [Int]) = (nil, nil, []) //tempPlaylist
+    
+    private var optmusicFolder: String?
 
     func parserDidStartDocument(_ parser: XMLParser) {
-        stdout("Start XML parse")
+        if self.config?.printStateFunction ?? false{
+            stdout("Start XML parse")
+        }
     }
 
     func parser(_ parser: XMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String : String] = [:]) {
@@ -114,7 +119,7 @@ class iTunesXMLParserDelegate: NSObject, XMLParserDelegate{
                 stderr("!Error: not found iTunes Music folder path. iTunes XMLファイルが壊れている可能性があります")
                 exit(1)
             }
-            iTunesLibraryDataStore.shared.musicFolder = musicFolder
+            itl.musicFolder = musicFolder
         }else if elements == ["plist", "dict", "dict", "dict"], keys[2] == "Tracks"{
             loadedTrackCount += 1
             guard let id = tmpt.id else{
@@ -128,7 +133,7 @@ class iTunesXMLParserDelegate: NSObject, XMLParserDelegate{
                 return
             }
             stdout("\rloaded songs:\t\t\(loadedTrackCount)", terminator: "")
-            iTunesLibraryDataStore.shared.tracks.append(
+            itl.tracks.append(
                 Track(id: id, path: path)
             )
             tmpt = (nil, nil)
@@ -149,7 +154,7 @@ class iTunesXMLParserDelegate: NSObject, XMLParserDelegate{
             }
             stdout("\rloaded playlists:\t\(loadedPlaylistCount)", terminator: "")
             
-            iTunesLibraryDataStore.shared.playlists.append(
+            itl.playlists.append(
                 Playlist(id: id, name: name, trackIDs: tmppl.tIDs)
             )
             tmppl = (nil, nil, [])
@@ -160,6 +165,9 @@ class iTunesXMLParserDelegate: NSObject, XMLParserDelegate{
     }
 
     func parserDidEndDocument(_ parser: XMLParser) {
-        stdout("\nFinished XML parse")
+        stdout("")
+        if self.config?.printStateFunction ?? false{
+            stdout("Finished XML parse")
+        }
     }
 }

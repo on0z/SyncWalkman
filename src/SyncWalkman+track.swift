@@ -57,7 +57,7 @@ extension SyncWalkman {
                 stderr("\r!Warning: other error. not found Track. id = \(tid)\nsent Songs \(Double(sentCount)/Double(willSendCount))% (\(sentCount)/\(willSendCount))", terminator: "")
                 continue
             }
-            track.sendTargetPath = track.sendTargetPath ?? self.config.walkmanPath + "/MUSIC/" + track.relativePath
+            track.sendTargetPath = track.sendTargetPath ?? self.config.walkmanPath + "/MUSIC/" + track.getRelativePath(self.itl.musicFolder)
             //--- update array of existsTrackFiles
             self.existsTrackFiles = self.existsTrackFiles.filter({$0 != track.sendTargetPath!})
             //--- send tracks
