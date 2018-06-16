@@ -10,6 +10,19 @@ import Foundation
 
 extension SyncWalkman{
     
+    /**
+     転送するプレイリストをユーザーに選択させます。
+     
+     空白区切で数字を入力します。
+     範囲指定と除外指定ができます。書式が独特なのでUsageには表示していません。
+     
+     # 書式:
+         1 to 10 -> 1 ~ 10
+         1 to 10 exclude 6 -> 1 ~ 10 - 6
+         1 to 10 exclude 3 to 6 -> 1 ~ 10 3 - ~ 6
+     
+     - Version: 1.0
+     */
     func selectSendPlaylists() -> [(Int, Playlist)]{
         stdout("↓転送するプレイリストを空白区切で選択してください")
         for (i, pl) in self.itl.playlists.enumerated(){
@@ -22,16 +35,52 @@ extension SyncWalkman{
                 stderr("!Warning: 正しい数字を入力してください")
                 continue
             }
-            let i: [(Int, Playlist)] = s.split(separator: " ")
-                            .compactMap({Int($0)})
-                            .filter({0 <= $0 && $0 < self.itl.playlists.count})
-                            .map({(index) -> (Int, Playlist) in (index, self.itl.playlists[index])})
+            
+            var indexes: [Int] = []
+            var continueFlag: Bool = false
+            var excludeFlag: Bool = false
+            for char in s.split(separator: " "){
+                if char == "~"{
+                    continueFlag = true
+                }else if char == "-"{
+                    excludeFlag = true
+                }else if var n = Int(char){
+                    if continueFlag{
+                        if var last = indexes.last{
+                            if last + 1 > n { (last, n) = (n, last) }
+                            if excludeFlag{
+                                // TODO: in swift4.2, removeAll(where: ) will release.
+                                indexes = indexes.filter({$0 != last})
+                                for m in last+1...n{
+                                    // TODO: in swift4.2, removeAll(where: ) will release.
+                                    indexes = indexes.filter({$0 != m})
+                                }
+                            }else{
+                                for m in last+1...n{
+                                    indexes.append(m)
+                                }
+                            }
+                        }
+                    }else if excludeFlag{
+                        // TODO: in swift4.2, removeAll(where: ) will release.
+                        indexes = indexes.filter({$0 != n})
+                    }else{
+                        indexes.append(n)
+                    }
+                    continueFlag = false
+                    excludeFlag = false
+                }
+            }
+            
+            let i: [(Int, Playlist)] = indexes.filter({0 <= $0 && $0 < self.itl.playlists.count})
+                                            .map({(index) -> (Int, Playlist) in (index, self.itl.playlists[index])})
+            
             guard 0 < i.count else {
                 stderr("!Warning: 正しい数字を入力してください")
                 continue
             }
             
-            stdout("selected playlists:")
+            stdout("selected playlists \(i.count):")
             for n in i.map({$0.0}){
                 stdout("\t\(n): \(self.itl.playlists[n].name)")
             }
