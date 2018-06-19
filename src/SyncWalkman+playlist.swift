@@ -133,7 +133,7 @@ extension SyncWalkman{
                     continue
                 }
                 break
-            case .update, .overwrite:
+            case .update, .updateHash, .overwrite:
                 break
             }
             if self.config.printStateSent{

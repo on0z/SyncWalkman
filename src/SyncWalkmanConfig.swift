@@ -118,12 +118,18 @@ class SyncWalkmanConfig{
             }else if arg == "--help"{
                 stdout(SyncWalkman.usage)
                 exit(0)
+            }else if arg == "-h" && argc == 2{
+                stdout(SyncWalkman.usage)
+                exit(0)
             }else if arg.hasPrefix("-"){
                 if arg.contains("s"){ //send song(track)
                     sendTrack = true
                 }
                 if arg.contains("p"){ //send playlist
                     sendPlaylist = true
+                }
+                if arg.contains("h"){ //send mode update, compared by hash
+                    writeMode = .updateHash
                 }
                 if arg.contains("u"){ //send mode update
                     writeMode = .update
@@ -143,10 +149,6 @@ class SyncWalkmanConfig{
                 }
                 if arg.contains("n"){
                     dryDo = true
-                }
-                if arg.contains("h"){
-                    stdout(SyncWalkman.usage)
-                    exit(0)
                 }
             }else{
                 stderr("!Error: Unexpected arguments")
@@ -256,6 +258,7 @@ extension SyncWalkmanConfig{
     enum sendMode: String{
         case normal
         case update
+        case updateHash
         case overwrite
         
         var str: String{
@@ -265,6 +268,8 @@ extension SyncWalkmanConfig{
                     return "スキップモード"
                 case .update:
                     return "更新モード"
+                case .updateHash:
+                    return "更新モード(Hash)"
                 case .overwrite:
                     return "強制上書きモード"
                 }

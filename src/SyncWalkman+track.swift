@@ -71,6 +71,10 @@ extension SyncWalkman {
         stdout("start send tracks")
         var sentCount: Int = 0
         let willSendCount: Int = pl.trackIDs.count
+        
+        var copied: Int = 0
+        var skipped: Int = 0
+        
         for tid in pl.trackIDs{
             sentCount += 1
             
@@ -86,22 +90,39 @@ extension SyncWalkman {
             switch self.config.sendMode{
             case .normal:
                 if FileManager.default.fileExists(atPath: track.sendTargetPath!){
+                    skipped += 1
+                    stdout("\r", terminator: "")
                     if self.config.printStateSkipped{
-                        stdout("\rskipped:", track.path, "\nsent Songs \(Int(Double(sentCount)/Double(willSendCount)*100))% (\(sentCount)/\(willSendCount))", terminator: "")
-                    }else{
-                        stdout("\rsent Songs \(Int(Double(sentCount)/Double(willSendCount)*100))% (\(sentCount)/\(willSendCount))", terminator: "")
+                        stdout("skipped:", track.path, "\n", terminator: "")
                     }
+                    stdout("sent Songs \(Int(Double(sentCount)/Double(willSendCount)*100))% (\(sentCount)/\(willSendCount))", terminator: "")
                     continue
                 }
                 break
             case .update:
                 if FileManager.default.fileExists(atPath: track.sendTargetPath!){
-                    if sha(path: track.sendTargetPath!) == sha(path: track.path){
-                        if self.config.printStateSkipped{
-                            stdout("\rskipped:", track.path, "\nsent Songs \(Int(Double(sentCount)/Double(willSendCount)*100))% (\(sentCount)/\(willSendCount))", terminator: "")
-                        }else{
-                            stdout("\rsent Songs \(Int(Double(sentCount)/Double(willSendCount)*100))% (\(sentCount)/\(willSendCount))", terminator: "")
+                    if let mds1 = modiDateAndSize(path: track.sendTargetPath!), let mds2 = modiDateAndSize(path: track.path){
+                        if abs(mds1.0 - mds2.0) < 2 && mds1.1 == mds2.1{
+                            skipped += 1
+                            stdout("\r", terminator: "")
+                            if self.config.printStateSkipped{
+                                stdout("skipped:", track.path, "\n", terminator: "")
+                            }
+                            stdout("sent Songs \(Int(Double(sentCount)/Double(willSendCount)*100))% (\(sentCount)/\(willSendCount))", terminator: "")
+                            continue
                         }
+                    }
+                }
+                break
+            case .updateHash:
+                if FileManager.default.fileExists(atPath: track.sendTargetPath!){
+                    if sha(path: track.sendTargetPath!) == sha(path: track.path){
+                        skipped += 1
+                        stdout("\r", terminator: "")
+                        if self.config.printStateSkipped{
+                            stdout("skipped:", track.path, "\n", terminator: "")
+                        }
+                        stdout("sent Songs \(Int(Double(sentCount)/Double(willSendCount)*100))% (\(sentCount)/\(willSendCount))", terminator: "")
                         continue
                     }
                 }
@@ -109,6 +130,7 @@ extension SyncWalkman {
             case .overwrite:
                 break
             }
+            copied += 1
             if self.config.printStateSent{
                 stdout("\rsent:", track.path, "\nto:", track.sendTargetPath!)
             }
@@ -122,6 +144,7 @@ extension SyncWalkman {
             }
         }
         stdout("\nfinished send tracks")
+        stdout("copied \(copied), skipped \(skipped)")
     }
     
     func deleteTracks(){
