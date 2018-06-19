@@ -12,7 +12,7 @@ class SyncWalkman{
     
     static let version: String = "0.0.0-b3 (3)\nMIT Lisence  2018 原園 征志"
     static let usage: String = """
-Usage:      $ SyncWalkman [-s] [-p] [-u | -o] [-d] [-v | -v [(.found)|(.sent)|(.skip)|(.del)|(.func)]] [-w /Volumes/WALKMAN] -f "/path/to/iTunes Library.xml"
+Usage:      $ SyncWalkman [-s] [-p] [-u | -h | -o] [-d] [-v | -v .found|.sent|.skipped|.del|.func] [-w /Volumes/WALKMAN] -f "/path/to/iTunes Library.xml"
         Show Version:
             $ SyncWalkman --version
         Show Help:
@@ -21,11 +21,12 @@ Argments:   -f iTunes XML Path: Path to iTunes Library XML File
             -w Walkman Path:    Path to Walkman root
 Options:    -s: send song
             -p: send playlists
-            -u: send mode Update
+            -u: send mode Update (compared by modified date and file size)
+            -h: send mode Update (compared by hash)
             -o: send mode Overwrite
             -d: Delete songs that are not sent
             -v: Print a line of status
-                Individual options
+                Individual options for each situation.
                  .found
                  .sent
                  .skip
