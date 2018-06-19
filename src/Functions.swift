@@ -26,21 +26,6 @@ func stderr(_ str: String..., separator: String = " ", terminator: String = "\n"
     stdout.write(data)
 }
 
-func sha(path: String) -> String?{
-    let task = Process()
-    task.launchPath = "/usr/bin/shasum"
-    task.arguments = ["-a", "1", path]
-    let pipe = Pipe()
-    task.standardOutput = pipe
-    task.launch()
-    task.waitUntilExit()
-    let out: Data = pipe.fileHandleForReading.readDataToEndOfFile()
-    if let str = String(data: out, encoding: .utf8){
-        return String(str.dropLast(str.count - 40))
-    }
-    return nil
-}
-
 func askOK() -> Bool{
     while true{
         stdout("OK? (y/n)\n > ", terminator: "")

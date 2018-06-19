@@ -45,6 +45,28 @@ extension SyncWalkman {
         }
     }
     
+    func sha(path: String) -> String?{
+        let task = Process()
+        task.launchPath = "/usr/bin/shasum"
+        task.arguments = ["-a", "1", path]
+        let pipe = Pipe()
+        task.standardOutput = pipe
+        task.launch()
+        task.waitUntilExit()
+        let out: Data = pipe.fileHandleForReading.readDataToEndOfFile()
+        if let str = String(data: out, encoding: .utf8){
+            return String(str.dropLast(str.count - 40))
+        }
+        return nil
+    }
+    
+    func modiDateAndSize(path: String) -> (Int, NSInteger)?{
+        guard let attr: Dictionary = try? FileManager.default.attributesOfItem(atPath: path) else { return nil }
+        guard let moddate: NSDate = attr[.modificationDate] as? NSDate else { return nil }
+        guard let size: NSInteger = attr[.size] as? NSInteger else { return nil }
+        return (Int(moddate.timeIntervalSinceReferenceDate), size)
+    }
+    
     func send(tracks pl: Playlist){
         stdout("start send tracks")
         var sentCount: Int = 0
