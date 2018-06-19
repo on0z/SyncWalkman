@@ -30,7 +30,7 @@ $ swiftc main.swift src/*.swift -o SyncWalkman
 # Usage
 
 ```
-Usage:      $ SyncWalkman [-s] [-p] [-u | -o] [-d] [-v | -v .found|.sent|.skipped|.del|.func] [-w /Volumes/WALKMAN] -f "/path/to/iTunes Library.xml"
+Usage:      $ SyncWalkman [-s] [-p] [-u | -h | -o] [-d] [-v | -v .found|.sent|.skipped|.del|.func] [-w /Volumes/WALKMAN] -f "/path/to/iTunes Library.xml"
         Show Version:
             $ SyncWalkman --version
         Show Help:
@@ -39,15 +39,16 @@ Argments:   -f iTunes XML Path: Path to iTunes Library XML File
             -w Walkman Path:    Path to Walkman root
 Options:    -s: send song
             -p: send playlists
-            -u: send mode Update
+            -u: send mode Update (compared by modified date and file size)
+            -h: send mode Update (compared by hash)
             -o: send mode Overwrite
             -d: Delete songs that are not sent
             -v: Print a line of status
                 Individual options for each situation.
                  .found
                  .sent
-                 .skipped
-                 .deleted
+                 .skip
+                 .del
                  .func
             -n: dry do
 ```
