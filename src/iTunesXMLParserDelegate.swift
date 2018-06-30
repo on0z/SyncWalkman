@@ -113,6 +113,10 @@ class iTunesXMLParserDelegate: NSObject, XMLParserDelegate{
         guard elements.count > 0 else{
             return
         }
+        defer{
+            elements.removeLast()
+            keys.removeLast()
+        }
         //---
         if elements == ["plist", "dict", "string"], keys == ["", "", "Music Folder"]{
             guard let musicFolder = optmusicFolder else {
@@ -123,12 +127,12 @@ class iTunesXMLParserDelegate: NSObject, XMLParserDelegate{
         }else if elements == ["plist", "dict", "dict", "dict"], keys[2] == "Tracks"{
             loadedTrackCount += 1
             guard let id = tmpt.id else{
-                stderr("\r!Warning: not found track id \(loadedTrackCount). path? = \(String(describing: tmpt.path))\nloaded songs:\t\t\(loadedTrackCount)", terminator: "")
+                stderr("\r!Warning: not found track's id. count = \(loadedTrackCount). path? = \(String(describing: tmpt.path))\nloaded songs:\t\t\(loadedTrackCount)", terminator: "")
                 tmpt = (nil, nil)
                 return
             }
             guard let path = tmpt.path else{
-                stderr("\n!Warning: not found track path \(loadedTrackCount). id? = \(String(describing: tmpt.id))\rloaded songs:\t\t\(loadedTrackCount)", terminator: "")
+                stderr("\r!Warning: not found track's path. count = \(loadedTrackCount). id? = \(String(describing: tmpt.id))\nloaded songs:\t\t\(loadedTrackCount)", terminator: "")
                 tmpt = (nil, nil)
                 return
             }
@@ -143,12 +147,12 @@ class iTunesXMLParserDelegate: NSObject, XMLParserDelegate{
             }
             loadedPlaylistCount += 1
             guard let id = tmppl.id else{
-                stderr("\r!Warning: not found playlist id \(loadedPlaylistCount). name? = \(String(describing: tmppl.name))\nloaded playlists:\t\(loadedPlaylistCount)", terminator: "")
+                stderr("\r!Warning: not found playlist's id. count = \(loadedPlaylistCount). name? = \(String(describing: tmppl.name))\nloaded playlists:\t\(loadedPlaylistCount)", terminator: "")
                 tmppl = (nil, nil, [])
                 return
             }
             guard let name = tmppl.name else{
-                stderr("\r!Warning: not found playlist path \(loadedPlaylistCount). id? = \(String(describing: tmppl.id))\nloaded playlists:\t\(loadedPlaylistCount)", terminator: "")
+                stderr("\r!Warning: not found playlist's name. count = \(loadedPlaylistCount). id? = \(String(describing: tmppl.id))\nloaded playlists:\t\(loadedPlaylistCount)", terminator: "")
                 tmppl = (nil, nil, [])
                 return
             }
@@ -160,8 +164,6 @@ class iTunesXMLParserDelegate: NSObject, XMLParserDelegate{
             tmppl = (nil, nil, [])
         }
         //---
-        elements.removeLast()
-        keys.removeLast()
     }
 
     func parserDidEndDocument(_ parser: XMLParser) {

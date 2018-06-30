@@ -12,7 +12,7 @@ class SyncWalkman{
     
     static let version: String = "0.0.0-b4 (4)\nMIT Lisence  2018 原園 征志"
     static let usage: String = """
-Usage:      $ SyncWalkman [-s] [-p] [-u | -h | -o] [-d] [-v | -v .found|.sent|.skipped|.del|.func] [-w /Volumes/WALKMAN] -f "/path/to/iTunes Library.xml"
+Usage:      $ SyncWalkman [-s] [-p] [-u | -h | -o] [-d] [-v | -v .found|.sent|.skip|.del|.func] [-w /Volumes/WALKMAN] -f "/path/to/iTunes Library.xml"
         Show Version:
             $ SyncWalkman --version
         Show Help:
