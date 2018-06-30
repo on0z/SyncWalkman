@@ -30,7 +30,7 @@ $ swiftc main.swift src/*.swift -o SyncWalkman
 # Usage
 
 ```
-Usage:      $ SyncWalkman [-s] [-p] [-u | -h | -o] [-d] [-v | -v .found|.sent|.skipped|.del|.func] [-w /Volumes/WALKMAN] -f "/path/to/iTunes Library.xml"
+Usage:      $ SyncWalkman [-s] [-p] [-u | -h | -o] [-d] [-v | -v .found|.sent|.skip|.del|.func] [-w /Volumes/WALKMAN] -f "/path/to/iTunes Library.xml"
         Show Version:
             $ SyncWalkman --version
         Show Help:
