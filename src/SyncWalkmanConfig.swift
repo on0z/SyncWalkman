@@ -11,7 +11,15 @@ import Foundation
 class SyncWalkmanConfig{
 
     var itunesXmlPath: String
-    var walkmanPath: String
+    var walkmanPath: String{
+        
+        didSet {
+            if walkmanPath.hasSuffix("/"){
+                walkmanPath.removeLast()
+            }
+        }
+        
+    }
 
     var sendTrack: Bool
     var sendPlaylist: Bool
@@ -40,6 +48,9 @@ class SyncWalkmanConfig{
          dryDo: Bool){
         self.itunesXmlPath = xmlPath
         self.walkmanPath = walkmanPath
+        if self.walkmanPath.hasSuffix("/"){
+            self.walkmanPath.removeLast()
+        }
         self.sendTrack = sendTrack
         self.sendPlaylist = sendPlaylist
         self.sendMode = mode
@@ -110,8 +121,13 @@ class SyncWalkmanConfig{
                 argwFlag = true
                 continue
             }else if arg == "-v"{
-                argvFlag = true
-                continue
+                if argc == 2{
+                    stdout(SyncWalkman.version)
+                    exit(0)
+                }else{
+                    argvFlag = true
+                    continue
+                }
             }else if arg == "--version"{
                 stdout(SyncWalkman.version)
                 exit(0)
