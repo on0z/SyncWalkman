@@ -25,9 +25,11 @@ extension SyncWalkman{
             stderr("!Error: Not found ditto in \"/usr/bin/ditto\"")
             exit(1)
         }
-        guard FileManager.default.fileExists(atPath: "/usr/bin/shasum") else {
-            stderr("!Error: Not found shasum in \"/usr/bin/shasum\"")
-            exit(1)
+        if self.config.sendMode == .updateHash{
+            guard FileManager.default.fileExists(atPath: "/usr/bin/shasum") else {
+                stderr("!Error: Not found shasum in \"/usr/bin/shasum\"")
+                exit(1)
+            }
         }
         guard FileManager.default.fileExists(atPath: "/bin/rm") else {
             stderr("!Error: Not found ditto in \"/bin/rm\"")
