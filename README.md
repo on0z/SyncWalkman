@@ -3,8 +3,8 @@ This is an intelligent app for synchronizing Walkman.
 
 (作者は英語ができません。)
 
-language: swift4.1, Xcode9.4.1
-walkman(動作確認済): NW-A47
+language: swift 4.2.1, Xcode 10.1  
+動作確認済Walkman: NW-A47
 
 Requires: 
 
@@ -20,7 +20,7 @@ Recommends:
 
 - ☑ Copy files to iTunes Media folder when adding to library
 
-# How to Build
+# How to build
 
 ```
 $ cd path/to/SyncWalkman
@@ -81,4 +81,4 @@ $ SyncWalkman -pudn -v .sent.del -f ~/Music/iTunes/iTunes\ Library.xml -w /Volum
 MIT License  
 2018 原園征志
 
-商用利用などする場合、強制ではないですがご連絡いただけると励みになります。
+利用する場合、強制ではないですがご連絡いただけると励みになります。
