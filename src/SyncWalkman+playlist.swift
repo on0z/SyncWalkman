@@ -143,10 +143,10 @@ extension SyncWalkman{
             stdout("\rsent playlists \(Int(Double(sentCount)/Double(willSendCount)*100))% (\(sentCount)/\(willSendCount))", terminator: "")
             if !self.config.dryDo{
                 do{
-                    var directory: ObjCBool = true
+                    /*var directory: ObjCBool = true
                     if !FileManager.default.fileExists(atPath: self.config.walkmanPath + "/MUSIC/PLAYLIST", isDirectory: &directory){
                         try FileManager.default.createDirectory(atPath: self.config.walkmanPath + "/MUSIC/PLAYLIST", withIntermediateDirectories: true, attributes: nil)
-                    }
+                    }*/
                     try playlistText.write(toFile: pl.sendTargetPath!, atomically: true, encoding: .utf8)
                 }catch let error{
                     stderr("!Warning: failed to send Playlist\(error)")
