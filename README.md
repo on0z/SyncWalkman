@@ -1,6 +1,8 @@
 # SyncWalkman
 This is an intelligent app for synchronizing Walkman.
 
+You can transfer tracks and playlists to walkman from iTunes graphically.
+
 This is beta (again. sorry.)  
 Japanese language main.
 
