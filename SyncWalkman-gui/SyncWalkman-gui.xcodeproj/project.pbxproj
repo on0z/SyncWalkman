@@ -1,0 +1,414 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		4B0CFE912247D21200E133AC /* LogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B0CFE902247D21200E133AC /* LogViewController.swift */; };
+		4B220CFC22356BC700B6F694 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B220CFB22356BC700B6F694 /* AppDelegate.swift */; };
+		4B220CFE22356BC700B6F694 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B220CFD22356BC700B6F694 /* ViewController.swift */; };
+		4B220D0022356BC800B6F694 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4B220CFF22356BC800B6F694 /* Assets.xcassets */; };
+		4B220D0322356BC800B6F694 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4B220D0122356BC800B6F694 /* Main.storyboard */; };
+		4B93843A223A430E004A71FF /* SyncWalkman.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BA31BF92236DB97002C3AB7 /* SyncWalkman.framework */; };
+		4B93843B223A430E004A71FF /* SyncWalkman.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4BA31BF92236DB97002C3AB7 /* SyncWalkman.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		4B93843C223A430E004A71FF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4BA31BF42236DB97002C3AB7 /* SyncWalkman.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 4BE6401D22356E8100662FFD;
+			remoteInfo = SyncWalkman;
+		};
+		4BA31BF82236DB97002C3AB7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4BA31BF42236DB97002C3AB7 /* SyncWalkman.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 4BE6401E22356E8100662FFD;
+			remoteInfo = SyncWalkman;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		4B93843E223A430E004A71FF /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				4B93843B223A430E004A71FF /* SyncWalkman.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		4B0CFE902247D21200E133AC /* LogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogViewController.swift; sourceTree = "<group>"; };
+		4B220CF822356BC700B6F694 /* SyncWalkman-gui.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SyncWalkman-gui.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4B220CFB22356BC700B6F694 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		4B220CFD22356BC700B6F694 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		4B220CFF22356BC800B6F694 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		4B220D0222356BC800B6F694 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		4B220D0422356BC800B6F694 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4B220D0522356BC800B6F694 /* SyncWalkman_gui.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SyncWalkman_gui.entitlements; sourceTree = "<group>"; };
+		4BA31BF42236DB97002C3AB7 /* SyncWalkman.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SyncWalkman.xcodeproj; path = ../SyncWalkman/SyncWalkman.xcodeproj; sourceTree = "<group>"; };
+		4BC2FEF722366A9900039A4E /* SyncWalkman-gui.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "SyncWalkman-gui.entitlements"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		4B220CF522356BC700B6F694 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4B93843A223A430E004A71FF /* SyncWalkman.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		4B220CEF22356BC700B6F694 = {
+			isa = PBXGroup;
+			children = (
+				4BA31BF42236DB97002C3AB7 /* SyncWalkman.xcodeproj */,
+				4B220CFA22356BC700B6F694 /* SyncWalkman-gui */,
+				4B220CF922356BC700B6F694 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		4B220CF922356BC700B6F694 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				4B220CF822356BC700B6F694 /* SyncWalkman-gui.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		4B220CFA22356BC700B6F694 /* SyncWalkman-gui */ = {
+			isa = PBXGroup;
+			children = (
+				4BC2FEF722366A9900039A4E /* SyncWalkman-gui.entitlements */,
+				4B220CFB22356BC700B6F694 /* AppDelegate.swift */,
+				4B220CFD22356BC700B6F694 /* ViewController.swift */,
+				4B0CFE902247D21200E133AC /* LogViewController.swift */,
+				4B220CFF22356BC800B6F694 /* Assets.xcassets */,
+				4B220D0122356BC800B6F694 /* Main.storyboard */,
+				4B220D0422356BC800B6F694 /* Info.plist */,
+				4B220D0522356BC800B6F694 /* SyncWalkman_gui.entitlements */,
+			);
+			path = "SyncWalkman-gui";
+			sourceTree = "<group>";
+		};
+		4BA31BF52236DB97002C3AB7 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				4BA31BF92236DB97002C3AB7 /* SyncWalkman.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		4B220CF722356BC700B6F694 /* SyncWalkman-gui */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4B220D0822356BC800B6F694 /* Build configuration list for PBXNativeTarget "SyncWalkman-gui" */;
+			buildPhases = (
+				4B220CF422356BC700B6F694 /* Sources */,
+				4B220CF522356BC700B6F694 /* Frameworks */,
+				4B220CF622356BC700B6F694 /* Resources */,
+				4B93843E223A430E004A71FF /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				4B93843D223A430E004A71FF /* PBXTargetDependency */,
+			);
+			name = "SyncWalkman-gui";
+			productName = "SyncWalkman-gui";
+			productReference = 4B220CF822356BC700B6F694 /* SyncWalkman-gui.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		4B220CF022356BC700B6F694 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1010;
+				LastUpgradeCheck = 1010;
+				ORGANIZATIONNAME = "原園征志";
+				TargetAttributes = {
+					4B220CF722356BC700B6F694 = {
+						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1020;
+						SystemCapabilities = {
+							com.apple.Sandbox = {
+								enabled = 0;
+							};
+						};
+					};
+				};
+			};
+			buildConfigurationList = 4B220CF322356BC700B6F694 /* Build configuration list for PBXProject "SyncWalkman-gui" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 4B220CEF22356BC700B6F694;
+			productRefGroup = 4B220CF922356BC700B6F694 /* Products */;
+			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 4BA31BF52236DB97002C3AB7 /* Products */;
+					ProjectRef = 4BA31BF42236DB97002C3AB7 /* SyncWalkman.xcodeproj */;
+				},
+			);
+			projectRoot = "";
+			targets = (
+				4B220CF722356BC700B6F694 /* SyncWalkman-gui */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		4BA31BF92236DB97002C3AB7 /* SyncWalkman.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = SyncWalkman.framework;
+			remoteRef = 4BA31BF82236DB97002C3AB7 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
+/* Begin PBXResourcesBuildPhase section */
+		4B220CF622356BC700B6F694 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4B220D0022356BC800B6F694 /* Assets.xcassets in Resources */,
+				4B220D0322356BC800B6F694 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		4B220CF422356BC700B6F694 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4B0CFE912247D21200E133AC /* LogViewController.swift in Sources */,
+				4B220CFE22356BC700B6F694 /* ViewController.swift in Sources */,
+				4B220CFC22356BC700B6F694 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		4B93843D223A430E004A71FF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = SyncWalkman;
+			targetProxy = 4B93843C223A430E004A71FF /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		4B220D0122356BC800B6F694 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4B220D0222356BC800B6F694 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		4B220D0622356BC800B6F694 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		4B220D0722356BC800B6F694 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+			};
+			name = Release;
+		};
+		4B220D0922356BC800B6F694 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-1";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = Y6NNK3UQHG;
+				INFOPLIST_FILE = "SyncWalkman-gui/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.on0z.SyncWalkman-gui";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		4B220D0A22356BC800B6F694 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-1";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = Y6NNK3UQHG;
+				INFOPLIST_FILE = "SyncWalkman-gui/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.on0z.SyncWalkman-gui";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		4B220CF322356BC700B6F694 /* Build configuration list for PBXProject "SyncWalkman-gui" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4B220D0622356BC800B6F694 /* Debug */,
+				4B220D0722356BC800B6F694 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4B220D0822356BC800B6F694 /* Build configuration list for PBXNativeTarget "SyncWalkman-gui" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4B220D0922356BC800B6F694 /* Debug */,
+				4B220D0A22356BC800B6F694 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 4B220CF022356BC700B6F694 /* Project object */;
+}
