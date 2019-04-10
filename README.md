@@ -1,9 +1,10 @@
 # SyncWalkman
 This is an intelligent app for synchronizing Walkman.
 
-(作者は英語ができません。)
+This is beta (again. sorry.)  
+Japanese language main.
 
-language: swift 4.2.1, Xcode 10.1  
+language: swift 5, Xcode 10.2  
 動作確認済Walkman: NW-A47
 
 Requires: 
@@ -14,71 +15,20 @@ Requires:
 - /usr/local/bin/nkf
     - you can install with brew.
 - ☑ Keep iTunes Media folder organized
+<!--
 - ☑ Share iTunes Library XML with other applications
+-->
 
 Recommends:
 
 - ☑ Copy files to iTunes Media folder when adding to library
 
-# How to build
+# How to use (gui version)
+1. Select walkman root directory from picker. "選択" button.
+1. Select the list (playlist) of songs to be sent from the pull-down to the right of "転送する曲のリスト".
+1. Select playlists to be sent from the table below "転送するプレイリスト".
+1. Push "転送" button to start send.
 
-```
-$ cd path/to/SyncWalkman
-$ swiftc main.swift src/*.swift -o SyncWalkman
-```
+The log is displayed on the right.
 
-# Usage
-
-```
-Usage:      $ SyncWalkman [-s] [-p] [-u | -h | -o] [-d] [-v | -v .found|.sent|.skip|.del|.func] [-w /Volumes/WALKMAN] -f "/path/to/iTunes Library.xml"
-        Show Version:
-            $ SyncWalkman --version
-        Show Help:
-            $ SyncWalkman -h
-Argments:   -f iTunes XML Path: Path to iTunes Library XML File
-            -w Walkman Path:    Path to Walkman root
-Options:    -s: send song
-            -p: send playlists
-            -u: send mode Update (compared by modified date and file size)
-            -h: send mode Update (compared by hash)
-            -o: send mode Overwrite
-            -d: Delete songs that are not sent
-            -v: Print a line of status
-                Individual options for each situation.
-                 .found
-                 .sent
-                 .skip
-                 .del
-                 .func
-            -n: dry do
-```
-
-## Example
-
-```
-$ SyncWalkman -spudv -f ~/Music/iTunes/iTunes\ Library.xml
-$ SyncWalkman -pudn -v .sent.del -f ~/Music/iTunes/iTunes\ Library.xml -w /Volumes/WALKMAN
-```
-
-# Messages
-
-## stderr
-
-|メッセージ | 動作 |
-|:------|:-----|
-|"!Warning: ~" | 終了はしないが、警告 | 
-|"!Error: ~" | エラー原因を表示して終了 |
-
-## exit(n)
-
-| n | 分類 |
-|:---:|:-----|
-| 0 | 通常終了 |
-| 1 | ユーザー依存のエラー |
-| 2 | システム依存のエラー |
-
-# License
-MIT License  
-2018 原園征志
-
-利用する場合、強制ではないですがご連絡いただけると励みになります。
+![img](img/ss1.png)
