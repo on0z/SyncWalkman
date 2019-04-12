@@ -66,6 +66,7 @@ class ViewController: NSViewController {
         self.syncWalkman.productName = "SyncWalkman-gui version 1.0\n"
         //        Log.shared.gui = true
         if !UserDefaults.standard.bool(forKey: "loadFromXML"){
+//            UserDefaults.standard.set(false, forKey: "loadFromXML")
             self.loadITLib()
             self.loadSendTrackList()
             self.loadSendPlaylists()
@@ -177,6 +178,25 @@ extension ViewController{
             self.sendPlaylists = self.syncWalkman.itl.playlists
         }
         self.tableView.reloadData()
+    }
+    
+    @IBAction func selectHelp(_ sender: NSButton){
+        switch sender.tag {
+        case 0:
+            //iTunesライブラリ
+            let alert = NSAlert()
+            alert.messageText = "曲/プレイリスト情報はiTunesLibraryから読み込まれています"
+            alert.informativeText = "再読み込みをするときは再読み込みボタンを押してください"
+            alert.runModal()
+        case 1:
+            // Walkman path
+            let alert = NSAlert()
+            alert.messageText = "Walkmanのルートパスを選択"
+            alert.informativeText = "Walkmanのルートパスを選択してください．\n例: /Volumes/WALKMAN"
+            alert.runModal()
+        default:
+            break
+        }
     }
     
     @IBAction func showLog(_ sender: NSButton){
