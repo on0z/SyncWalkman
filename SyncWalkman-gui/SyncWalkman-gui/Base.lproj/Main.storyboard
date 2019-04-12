@@ -684,10 +684,10 @@
         <scene sceneID="R2V-B0-nI4">
             <objects>
                 <windowController id="B8D-0N-5wS" sceneMemberID="viewController">
-                    <window key="window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" animationBehavior="default" titlebarAppearsTransparent="YES" titleVisibility="hidden" id="IQv-IB-iLA">
+                    <window key="window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" frameAutosaveName="mainWindow" animationBehavior="default" titlebarAppearsTransparent="YES" titleVisibility="hidden" id="IQv-IB-iLA">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES" texturedBackground="YES" fullSizeContentView="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-                        <rect key="contentRect" x="196" y="240" width="480" height="270"/>
+                        <rect key="contentRect" x="196" y="240" width="845" height="790"/>
                         <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
                         <connections>
                             <outlet property="delegate" destination="B8D-0N-5wS" id="98r-iN-zZc"/>
@@ -706,17 +706,17 @@
             <objects>
                 <viewController id="XfG-lQ-9wD" customClass="ViewController" customModule="SyncWalkman_gui" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" wantsLayer="YES" id="m2S-Jp-Qdl" customClass="NSVisualEffectView">
-                        <rect key="frame" x="0.0" y="0.0" width="845" height="792"/>
+                        <rect key="frame" x="0.0" y="0.0" width="845" height="790"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <stackView distribution="fill" orientation="horizontal" alignment="top" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eAO-tU-wNp">
-                                <rect key="frame" x="20" y="20" width="805" height="742"/>
+                                <rect key="frame" x="20" y="20" width="805" height="750"/>
                                 <subviews>
                                     <stackView distribution="fill" orientation="vertical" alignment="leading" spacing="7" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tfI-vm-TJG">
-                                        <rect key="frame" x="0.0" y="0.0" width="495" height="742"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="495" height="750"/>
                                         <subviews>
                                             <stackView distribution="fill" orientation="horizontal" alignment="firstBaseline" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="U4F-ur-FWE">
-                                                <rect key="frame" x="0.0" y="719" width="495" height="23"/>
+                                                <rect key="frame" x="0.0" y="727" width="495" height="23"/>
                                                 <subviews>
                                                     <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="q0p-qt-hgv">
                                                         <rect key="frame" x="-2" y="3" width="409" height="17"/>
@@ -756,7 +756,7 @@
                                                 </customSpacing>
                                             </stackView>
                                             <stackView distribution="fill" orientation="horizontal" alignment="firstBaseline" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CMB-9F-NWq">
-                                                <rect key="frame" x="0.0" y="689" width="495" height="23"/>
+                                                <rect key="frame" x="0.0" y="697" width="495" height="23"/>
                                                 <subviews>
                                                     <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="RLN-rV-3Yy">
                                                         <rect key="frame" x="-2" y="3" width="409" height="17"/>
@@ -796,7 +796,7 @@
                                                 </customSpacing>
                                             </stackView>
                                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="2I0-uD-xIZ">
-                                                <rect key="frame" x="-2" y="666" width="95" height="18"/>
+                                                <rect key="frame" x="-2" y="674" width="95" height="18"/>
                                                 <buttonCell key="cell" type="check" title="曲を転送する" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="LSD-qc-Y9q">
                                                     <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                     <font key="font" metaFont="system"/>
@@ -806,7 +806,7 @@
                                                 </connections>
                                             </button>
                                             <button verticalHuggingPriority="750" tag="1" translatesAutoresizingMaskIntoConstraints="NO" id="qfK-Jw-Acv">
-                                                <rect key="frame" x="-2" y="645" width="155" height="18"/>
+                                                <rect key="frame" x="-2" y="653" width="155" height="18"/>
                                                 <buttonCell key="cell" type="check" title="プレイリストを転送する" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="Oxk-iA-bJA">
                                                     <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                     <font key="font" metaFont="system"/>
@@ -816,7 +816,7 @@
                                                 </connections>
                                             </button>
                                             <stackView distribution="fill" orientation="vertical" alignment="leading" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IWe-sd-8eK">
-                                                <rect key="frame" x="0.0" y="523" width="268" height="117"/>
+                                                <rect key="frame" x="0.0" y="531" width="268" height="117"/>
                                                 <subviews>
                                                     <stackView distribution="fill" orientation="horizontal" alignment="top" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5N3-0l-BMO">
                                                         <rect key="frame" x="0.0" y="96" width="90" height="21"/>
@@ -926,7 +926,7 @@
                                                 </customSpacing>
                                             </stackView>
                                             <stackView distribution="fill" orientation="horizontal" alignment="centerY" spacing="0.0" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Rn6-xy-ugj">
-                                                <rect key="frame" x="0.0" y="495" width="220" height="21"/>
+                                                <rect key="frame" x="0.0" y="503" width="220" height="21"/>
                                                 <subviews>
                                                     <button verticalHuggingPriority="750" tag="2" translatesAutoresizingMaskIntoConstraints="NO" id="t32-bm-wQ3">
                                                         <rect key="frame" x="-2" y="2" width="203" height="18"/>
@@ -959,7 +959,7 @@
                                                 </customSpacing>
                                             </stackView>
                                             <stackView distribution="fill" orientation="horizontal" alignment="centerY" spacing="12" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MKF-hn-nOg">
-                                                <rect key="frame" x="0.0" y="467" width="495" height="21"/>
+                                                <rect key="frame" x="0.0" y="475" width="495" height="21"/>
                                                 <subviews>
                                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="mPY-Cp-ypO">
                                                         <rect key="frame" x="-2" y="2" width="113" height="17"/>
@@ -994,7 +994,7 @@
                                                 </customSpacing>
                                             </stackView>
                                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="F44-1I-3Wy">
-                                                <rect key="frame" x="-2" y="447" width="125" height="13"/>
+                                                <rect key="frame" x="-2" y="455" width="125" height="13"/>
                                                 <textFieldCell key="cell" lineBreakMode="clipping" title="転送するプレイリスト" id="0UR-5n-zZp">
                                                     <font key="font" size="13" name=".HiraKakuInterface-W3"/>
                                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -1002,13 +1002,13 @@
                                                 </textFieldCell>
                                             </textField>
                                             <scrollView verticalHuggingPriority="249" verticalCompressionResistancePriority="749" autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CV4-K2-fAS">
-                                                <rect key="frame" x="0.0" y="28" width="495" height="412"/>
+                                                <rect key="frame" x="0.0" y="28" width="495" height="420"/>
                                                 <clipView key="contentView" id="M5n-ar-fh3">
-                                                    <rect key="frame" x="1" y="0.0" width="493" height="411"/>
+                                                    <rect key="frame" x="1" y="0.0" width="493" height="419"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                     <subviews>
                                                         <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" headerView="SYL-K6-MBw" id="uks-jZ-BRI">
-                                                            <rect key="frame" x="0.0" y="0.0" width="493" height="386"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="493" height="394"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <size key="intercellSpacing" width="3" height="2"/>
                                                             <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -1147,16 +1147,16 @@
                                         </customSpacing>
                                     </stackView>
                                     <stackView distribution="fillProportionally" orientation="vertical" alignment="leading" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xfa-pC-dP9">
-                                        <rect key="frame" x="503" y="0.0" width="302" height="742"/>
+                                        <rect key="frame" x="503" y="0.0" width="302" height="750"/>
                                         <subviews>
                                             <scrollView horizontalHuggingPriority="249" autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DQF-pq-vsv">
-                                                <rect key="frame" x="0.0" y="44" width="302" height="698"/>
+                                                <rect key="frame" x="0.0" y="44" width="302" height="706"/>
                                                 <clipView key="contentView" id="ipX-Z3-Ole">
-                                                    <rect key="frame" x="1" y="0.0" width="300" height="697"/>
+                                                    <rect key="frame" x="1" y="0.0" width="300" height="705"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                     <subviews>
                                                         <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowSizeStyle="automatic" headerView="3QP-i9-2OV" viewBased="YES" id="bC3-IO-Eg1">
-                                                            <rect key="frame" x="0.0" y="0.0" width="300" height="672"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="300" height="680"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <size key="intercellSpacing" width="3" height="2"/>
                                                             <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -1253,7 +1253,7 @@
                             <constraint firstAttribute="bottom" secondItem="eAO-tU-wNp" secondAttribute="bottom" constant="20" id="Af9-r7-bUd"/>
                             <constraint firstAttribute="trailing" secondItem="eAO-tU-wNp" secondAttribute="trailing" constant="20" id="dIe-BL-Z1w"/>
                             <constraint firstItem="eAO-tU-wNp" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="20" id="hrQ-9N-wnP"/>
-                            <constraint firstItem="eAO-tU-wNp" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="30" id="sjx-kU-8XX"/>
+                            <constraint firstItem="eAO-tU-wNp" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="20" id="sjx-kU-8XX"/>
                         </constraints>
                     </view>
                     <connections>
@@ -1277,7 +1277,7 @@
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="272.5" y="1048"/>
+            <point key="canvasLocation" x="75" y="1248"/>
         </scene>
     </scenes>
 </document>
