@@ -33,4 +33,4 @@ Recommends:
 
 The log is displayed on the right.
 
-![img](img/ss1.png)
+![img](img/ss_ver2.png)
