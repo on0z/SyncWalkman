@@ -127,23 +127,23 @@
                 <customObject id="YLy-65-1bz" customClass="NSFontManager"/>
                 <customObject id="Ady-hI-5gd" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="75" y="-274"/>
+            <point key="canvasLocation" x="75" y="-54"/>
         </scene>
         <!--Window Controller-->
         <scene sceneID="R2V-B0-nI4">
             <objects>
                 <windowController id="B8D-0N-5wS" sceneMemberID="viewController">
-                    <window key="window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" frameAutosaveName="mainWindow" animationBehavior="default" titlebarAppearsTransparent="YES" titleVisibility="hidden" id="IQv-IB-iLA">
+                    <window key="window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" frameAutosaveName="mainWindow" animationBehavior="default" titlebarAppearsTransparent="YES" titleVisibility="hidden" id="IQv-IB-iLA">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES" texturedBackground="YES" fullSizeContentView="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-                        <rect key="contentRect" x="196" y="240" width="845" height="797"/>
+                        <rect key="contentRect" x="196" y="240" width="450" height="300"/>
                         <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
                         <connections>
                             <outlet property="delegate" destination="B8D-0N-5wS" id="98r-iN-zZc"/>
                         </connections>
                     </window>
                     <connections>
-                        <segue destination="XfG-lQ-9wD" kind="relationship" relationship="window.shadowedContentViewController" id="cq2-FE-JQM"/>
+                        <segue destination="hcP-Mi-GxD" kind="relationship" relationship="window.shadowedContentViewController" id="Fnh-Gk-vrT"/>
                     </connections>
                 </windowController>
                 <customObject id="Oky-zY-oP4" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
@@ -151,548 +151,577 @@
             <point key="canvasLocation" x="75" y="268"/>
         </scene>
         <!--View Controller-->
+        <scene sceneID="x6Q-7J-Q5s">
+            <objects>
+                <viewController id="hcP-Mi-GxD" sceneMemberID="viewController">
+                    <view key="view" id="PBn-YR-dfb">
+                        <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <containerView translatesAutoresizingMaskIntoConstraints="NO" id="vtI-CW-DbZ">
+                                <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                                <connections>
+                                    <segue destination="on9-0H-sA3" kind="embed" id="Bfo-Jg-r3g"/>
+                                </connections>
+                            </containerView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="vtI-CW-DbZ" firstAttribute="top" secondItem="PBn-YR-dfb" secondAttribute="top" id="13P-uk-fQH"/>
+                            <constraint firstAttribute="trailing" secondItem="vtI-CW-DbZ" secondAttribute="trailing" id="Ywb-lk-2ot"/>
+                            <constraint firstAttribute="bottom" secondItem="vtI-CW-DbZ" secondAttribute="bottom" id="fFN-Av-9u8"/>
+                            <constraint firstItem="vtI-CW-DbZ" firstAttribute="leading" secondItem="PBn-YR-dfb" secondAttribute="leading" id="qTN-o8-UrI"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <customObject id="jGe-cU-BOD" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="75" y="745"/>
+        </scene>
+        <!--Split View Controller-->
+        <scene sceneID="cAr-Uj-HgM">
+            <objects>
+                <customObject id="gbs-lq-8zg" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+                <splitViewController id="on9-0H-sA3" sceneMemberID="viewController">
+                    <splitViewItems>
+                        <splitViewItem id="fuY-Hw-sDS"/>
+                        <splitViewItem canCollapse="YES" id="NSn-HP-U12"/>
+                    </splitViewItems>
+                    <splitView key="splitView" autosaveName="split1" vertical="YES" id="qTm-OZ-Qfc">
+                        <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <connections>
+                            <outlet property="delegate" destination="on9-0H-sA3" id="tNb-7m-C6W"/>
+                        </connections>
+                    </splitView>
+                    <connections>
+                        <outlet property="splitView" destination="qTm-OZ-Qfc" id="Ht9-Rd-DMm"/>
+                        <segue destination="XfG-lQ-9wD" kind="relationship" relationship="splitItems" id="ewM-ec-Bkh"/>
+                        <segue destination="vAB-dN-Oyd" kind="relationship" relationship="splitItems" id="Xkm-Ul-q8F"/>
+                    </connections>
+                </splitViewController>
+            </objects>
+            <point key="canvasLocation" x="75" y="1211"/>
+        </scene>
+        <!--View Controller-->
         <scene sceneID="hIz-AP-VOD">
             <objects>
                 <viewController id="XfG-lQ-9wD" customClass="ViewController" customModule="SyncWalkman_gui" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" wantsLayer="YES" id="m2S-Jp-Qdl" customClass="NSVisualEffectView">
-                        <rect key="frame" x="0.0" y="0.0" width="845" height="797"/>
+                        <rect key="frame" x="0.0" y="0.0" width="535" height="542"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <stackView distribution="fill" orientation="horizontal" alignment="top" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eAO-tU-wNp">
-                                <rect key="frame" x="20" y="20" width="805" height="757"/>
+                            <stackView distribution="fill" orientation="vertical" alignment="leading" spacing="7" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tfI-vm-TJG">
+                                <rect key="frame" x="20" y="20" width="495" height="502"/>
                                 <subviews>
-                                    <stackView distribution="fill" orientation="vertical" alignment="leading" spacing="7" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tfI-vm-TJG">
-                                        <rect key="frame" x="0.0" y="0.0" width="495" height="757"/>
+                                    <stackView distribution="fill" orientation="horizontal" alignment="firstBaseline" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="U4F-ur-FWE">
+                                        <rect key="frame" x="0.0" y="481" width="495" height="21"/>
                                         <subviews>
-                                            <stackView distribution="fill" orientation="horizontal" alignment="firstBaseline" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="U4F-ur-FWE">
-                                                <rect key="frame" x="0.0" y="734" width="495" height="23"/>
-                                                <subviews>
-                                                    <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="q0p-qt-hgv">
-                                                        <rect key="frame" x="-2" y="3" width="409" height="17"/>
-                                                        <textFieldCell key="cell" lineBreakMode="clipping" title="iTunesLibrary.xmlのPath" id="CW0-nV-wB5">
-                                                            <font key="font" metaFont="system"/>
-                                                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                                        </textFieldCell>
-                                                    </textField>
-                                                    <button horizontalHuggingPriority="750" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="LnN-wF-VgU">
-                                                        <rect key="frame" x="411" y="-2" width="25" height="25"/>
-                                                        <buttonCell key="cell" type="help" bezelStyle="helpButton" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="xbb-9x-QER">
-                                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                                            <font key="font" metaFont="system"/>
-                                                        </buttonCell>
-                                                        <connections>
-                                                            <action selector="selectHelp:" target="XfG-lQ-9wD" id="XDV-Xa-Zk8"/>
-                                                        </connections>
-                                                    </button>
-                                                    <button horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="lAg-AM-FfQ">
-                                                        <rect key="frame" x="436" y="-7" width="65" height="32"/>
-                                                        <buttonCell key="cell" type="push" title="選択" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Af3-CZ-ae4">
-                                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                                            <font key="font" size="13" name=".HiraKakuInterface-W3"/>
-                                                        </buttonCell>
-                                                        <connections>
-                                                            <action selector="selectFile:" target="XfG-lQ-9wD" id="d7Q-E7-6Uo"/>
-                                                        </connections>
-                                                    </button>
-                                                </subviews>
-                                                <visibilityPriorities>
-                                                    <integer value="1000"/>
-                                                    <integer value="1000"/>
-                                                    <integer value="1000"/>
-                                                </visibilityPriorities>
-                                                <customSpacing>
-                                                    <real value="3.4028234663852886e+38"/>
-                                                    <real value="3.4028234663852886e+38"/>
-                                                    <real value="3.4028234663852886e+38"/>
-                                                </customSpacing>
-                                            </stackView>
-                                            <stackView distribution="fill" orientation="horizontal" alignment="firstBaseline" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CMB-9F-NWq">
-                                                <rect key="frame" x="0.0" y="704" width="495" height="23"/>
-                                                <subviews>
-                                                    <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="RLN-rV-3Yy">
-                                                        <rect key="frame" x="-2" y="3" width="409" height="17"/>
-                                                        <textFieldCell key="cell" lineBreakMode="clipping" title="音楽転送先のPath(/Volumes/WALKMAN)" id="w9T-Bn-XKJ">
-                                                            <font key="font" metaFont="system"/>
-                                                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                                        </textFieldCell>
-                                                    </textField>
-                                                    <button horizontalHuggingPriority="750" verticalHuggingPriority="750" tag="1" translatesAutoresizingMaskIntoConstraints="NO" id="aNp-Xm-Ad8">
-                                                        <rect key="frame" x="411" y="-2" width="25" height="25"/>
-                                                        <buttonCell key="cell" type="help" bezelStyle="helpButton" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="R9T-sD-4nY">
-                                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                                            <font key="font" metaFont="system"/>
-                                                        </buttonCell>
-                                                        <connections>
-                                                            <action selector="selectHelp:" target="XfG-lQ-9wD" id="6BQ-WT-Ze7"/>
-                                                        </connections>
-                                                    </button>
-                                                    <button horizontalHuggingPriority="251" verticalHuggingPriority="750" tag="1" translatesAutoresizingMaskIntoConstraints="NO" id="g5t-kl-xel">
-                                                        <rect key="frame" x="436" y="-7" width="65" height="32"/>
-                                                        <buttonCell key="cell" type="push" title="選択" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="e4z-zo-cwK">
-                                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                                            <font key="font" size="13" name=".HiraKakuInterface-W3"/>
-                                                        </buttonCell>
-                                                        <connections>
-                                                            <action selector="selectFile:" target="XfG-lQ-9wD" id="7lw-3M-un7"/>
-                                                        </connections>
-                                                    </button>
-                                                </subviews>
-                                                <visibilityPriorities>
-                                                    <integer value="1000"/>
-                                                    <integer value="1000"/>
-                                                    <integer value="1000"/>
-                                                </visibilityPriorities>
-                                                <customSpacing>
-                                                    <real value="3.4028234663852886e+38"/>
-                                                    <real value="3.4028234663852886e+38"/>
-                                                    <real value="3.4028234663852886e+38"/>
-                                                </customSpacing>
-                                            </stackView>
-                                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="2I0-uD-xIZ">
-                                                <rect key="frame" x="-2" y="681" width="95" height="18"/>
-                                                <buttonCell key="cell" type="check" title="曲を転送する" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="LSD-qc-Y9q">
-                                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                            <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="q0p-qt-hgv">
+                                                <rect key="frame" x="-2" y="1" width="409" height="17"/>
+                                                <textFieldCell key="cell" lineBreakMode="clipping" title="iTunesLibrary.xmlのPath" id="CW0-nV-wB5">
                                                     <font key="font" metaFont="system"/>
-                                                </buttonCell>
-                                                <connections>
-                                                    <action selector="selectedCheckButton:" target="XfG-lQ-9wD" id="Nst-bL-pla"/>
-                                                </connections>
-                                            </button>
-                                            <button verticalHuggingPriority="750" tag="1" translatesAutoresizingMaskIntoConstraints="NO" id="qfK-Jw-Acv">
-                                                <rect key="frame" x="-2" y="660" width="155" height="18"/>
-                                                <buttonCell key="cell" type="check" title="プレイリストを転送する" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="Oxk-iA-bJA">
-                                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                                    <font key="font" metaFont="system"/>
-                                                </buttonCell>
-                                                <connections>
-                                                    <action selector="selectedCheckButton:" target="XfG-lQ-9wD" id="1Od-dH-wvn"/>
-                                                </connections>
-                                            </button>
-                                            <stackView distribution="fill" orientation="vertical" alignment="leading" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IWe-sd-8eK">
-                                                <rect key="frame" x="0.0" y="538" width="268" height="117"/>
-                                                <subviews>
-                                                    <stackView distribution="fill" orientation="horizontal" alignment="top" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5N3-0l-BMO">
-                                                        <rect key="frame" x="0.0" y="96" width="90" height="21"/>
-                                                        <subviews>
-                                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="lgW-be-Ggk">
-                                                                <rect key="frame" x="-2" y="4" width="65" height="17"/>
-                                                                <textFieldCell key="cell" lineBreakMode="clipping" title="転送モード" id="VKk-1f-l12">
-                                                                    <font key="font" metaFont="system"/>
-                                                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                                                </textFieldCell>
-                                                            </textField>
-                                                            <button horizontalHuggingPriority="750" verticalHuggingPriority="750" tag="2" translatesAutoresizingMaskIntoConstraints="NO" id="JfG-qA-Qnk">
-                                                                <rect key="frame" x="67" y="-4" width="25" height="25"/>
-                                                                <buttonCell key="cell" type="help" bezelStyle="helpButton" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="oxl-iD-hkt">
-                                                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                                                    <font key="font" metaFont="system"/>
-                                                                </buttonCell>
-                                                            </button>
-                                                        </subviews>
-                                                        <visibilityPriorities>
-                                                            <integer value="1000"/>
-                                                            <integer value="1000"/>
-                                                        </visibilityPriorities>
-                                                        <customSpacing>
-                                                            <real value="3.4028234663852886e+38"/>
-                                                            <real value="3.4028234663852886e+38"/>
-                                                        </customSpacing>
-                                                    </stackView>
-                                                    <stackView distribution="fillEqually" orientation="vertical" alignment="leading" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BUI-m1-YEV">
-                                                        <rect key="frame" x="0.0" y="0.0" width="268" height="88"/>
-                                                        <subviews>
-                                                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="qrX-m3-dvF">
-                                                                <rect key="frame" x="-1" y="71" width="227" height="18"/>
-                                                                <constraints>
-                                                                    <constraint firstAttribute="height" constant="16" id="Xbu-i9-6Eg"/>
-                                                                </constraints>
-                                                                <buttonCell key="cell" type="radio" title="同じ名前のファイルがあればスキップ" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="sfs-Xb-zuQ">
-                                                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                                                    <font key="font" size="13" name=".HiraKakuInterface-W3"/>
-                                                                </buttonCell>
-                                                                <connections>
-                                                                    <action selector="selectedRadioWithSender:" target="XfG-lQ-9wD" id="8ha-tB-2wo"/>
-                                                                </connections>
-                                                            </button>
-                                                            <button verticalHuggingPriority="750" tag="1" translatesAutoresizingMaskIntoConstraints="NO" id="lwK-ZN-bZZ">
-                                                                <rect key="frame" x="-1" y="47" width="247" height="18"/>
-                                                                <constraints>
-                                                                    <constraint firstAttribute="height" constant="16" id="RJQ-6t-RJU"/>
-                                                                </constraints>
-                                                                <buttonCell key="cell" type="radio" title="ファイルの作成日付が違えば上書き(推奨)" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="esh-57-oYn">
-                                                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                                                    <font key="font" size="13" name=".HiraKakuInterface-W3"/>
-                                                                </buttonCell>
-                                                                <connections>
-                                                                    <action selector="selectedRadioWithSender:" target="XfG-lQ-9wD" id="zTL-bZ-cbP"/>
-                                                                </connections>
-                                                            </button>
-                                                            <button verticalHuggingPriority="750" tag="2" translatesAutoresizingMaskIntoConstraints="NO" id="9o6-rp-yuk">
-                                                                <rect key="frame" x="-1" y="23" width="271" height="18"/>
-                                                                <constraints>
-                                                                    <constraint firstAttribute="height" constant="16" id="ABh-6R-VmY"/>
-                                                                </constraints>
-                                                                <buttonCell key="cell" type="radio" title="ファイルのハッシュ値が違えば上書き(非推奨)" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="K4G-8A-6he">
-                                                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                                                    <font key="font" size="13" name=".HiraKakuInterface-W3"/>
-                                                                </buttonCell>
-                                                                <connections>
-                                                                    <action selector="selectedRadioWithSender:" target="XfG-lQ-9wD" id="wS4-zC-szZ"/>
-                                                                </connections>
-                                                            </button>
-                                                            <button verticalHuggingPriority="750" tag="3" translatesAutoresizingMaskIntoConstraints="NO" id="DaN-Zi-GcU">
-                                                                <rect key="frame" x="-1" y="-1" width="59" height="18"/>
-                                                                <constraints>
-                                                                    <constraint firstAttribute="height" constant="16" id="ajB-ux-eeb"/>
-                                                                </constraints>
-                                                                <buttonCell key="cell" type="radio" title="上書き" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="7gW-Jg-LjM">
-                                                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                                                    <font key="font" size="13" name=".HiraKakuInterface-W3"/>
-                                                                </buttonCell>
-                                                                <connections>
-                                                                    <action selector="selectedRadioWithSender:" target="XfG-lQ-9wD" id="ZkH-FL-3ab"/>
-                                                                </connections>
-                                                            </button>
-                                                        </subviews>
-                                                        <visibilityPriorities>
-                                                            <integer value="1000"/>
-                                                            <integer value="1000"/>
-                                                            <integer value="1000"/>
-                                                            <integer value="1000"/>
-                                                        </visibilityPriorities>
-                                                        <customSpacing>
-                                                            <real value="3.4028234663852886e+38"/>
-                                                            <real value="3.4028234663852886e+38"/>
-                                                            <real value="3.4028234663852886e+38"/>
-                                                            <real value="3.4028234663852886e+38"/>
-                                                        </customSpacing>
-                                                    </stackView>
-                                                </subviews>
-                                                <visibilityPriorities>
-                                                    <integer value="1000"/>
-                                                    <integer value="1000"/>
-                                                </visibilityPriorities>
-                                                <customSpacing>
-                                                    <real value="3.4028234663852886e+38"/>
-                                                    <real value="3.4028234663852886e+38"/>
-                                                </customSpacing>
-                                            </stackView>
-                                            <stackView distribution="fill" orientation="horizontal" alignment="centerY" spacing="0.0" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Rn6-xy-ugj">
-                                                <rect key="frame" x="0.0" y="510" width="220" height="21"/>
-                                                <subviews>
-                                                    <button verticalHuggingPriority="750" tag="2" translatesAutoresizingMaskIntoConstraints="NO" id="t32-bm-wQ3">
-                                                        <rect key="frame" x="-2" y="2" width="203" height="18"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="14" id="tqw-Rm-RkU"/>
-                                                        </constraints>
-                                                        <buttonCell key="cell" type="check" title="転送元にないファイルを削除する" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="GOm-hh-jXk">
-                                                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                                            <font key="font" metaFont="system"/>
-                                                        </buttonCell>
-                                                        <connections>
-                                                            <action selector="selectedCheckButton:" target="XfG-lQ-9wD" id="2Vx-jp-IUT"/>
-                                                        </connections>
-                                                    </button>
-                                                    <button horizontalHuggingPriority="750" verticalHuggingPriority="750" tag="3" translatesAutoresizingMaskIntoConstraints="NO" id="u5u-Ab-Wha">
-                                                        <rect key="frame" x="197" y="-4" width="25" height="25"/>
-                                                        <buttonCell key="cell" type="help" bezelStyle="helpButton" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="zly-6u-BVM">
-                                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                                            <font key="font" metaFont="system"/>
-                                                        </buttonCell>
-                                                    </button>
-                                                </subviews>
-                                                <visibilityPriorities>
-                                                    <integer value="1000"/>
-                                                    <integer value="1000"/>
-                                                </visibilityPriorities>
-                                                <customSpacing>
-                                                    <real value="3.4028234663852886e+38"/>
-                                                    <real value="3.4028234663852886e+38"/>
-                                                </customSpacing>
-                                            </stackView>
-                                            <stackView distribution="fill" orientation="horizontal" alignment="centerY" spacing="12" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MKF-hn-nOg">
-                                                <rect key="frame" x="0.0" y="482" width="495" height="21"/>
-                                                <subviews>
-                                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="mPY-Cp-ypO">
-                                                        <rect key="frame" x="-2" y="2" width="113" height="17"/>
-                                                        <textFieldCell key="cell" lineBreakMode="clipping" title="転送する曲のリスト" id="3dF-mi-IgQ">
-                                                            <font key="font" metaFont="system"/>
-                                                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                                        </textFieldCell>
-                                                    </textField>
-                                                    <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="vlf-g1-UfK">
-                                                        <rect key="frame" x="119" y="-3" width="379" height="25"/>
-                                                        <popUpButtonCell key="cell" type="push" title="Item 1" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="VfK-Fe-FET" id="by1-K0-6gc">
-                                                            <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
-                                                            <font key="font" metaFont="menu"/>
-                                                            <menu key="menu" id="Ks0-bO-FMf">
-                                                                <items>
-                                                                    <menuItem title="Item 1" state="on" id="VfK-Fe-FET"/>
-                                                                    <menuItem title="Item 2" id="TbQ-we-Ppj"/>
-                                                                    <menuItem title="Item 3" id="rc3-Xz-4eM"/>
-                                                                </items>
-                                                            </menu>
-                                                        </popUpButtonCell>
-                                                    </popUpButton>
-                                                </subviews>
-                                                <visibilityPriorities>
-                                                    <integer value="1000"/>
-                                                    <integer value="1000"/>
-                                                </visibilityPriorities>
-                                                <customSpacing>
-                                                    <real value="3.4028234663852886e+38"/>
-                                                    <real value="3.4028234663852886e+38"/>
-                                                </customSpacing>
-                                            </stackView>
-                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="F44-1I-3Wy">
-                                                <rect key="frame" x="-2" y="462" width="125" height="13"/>
-                                                <textFieldCell key="cell" lineBreakMode="clipping" title="転送するプレイリスト" id="0UR-5n-zZp">
-                                                    <font key="font" size="13" name=".HiraKakuInterface-W3"/>
                                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                 </textFieldCell>
                                             </textField>
-                                            <scrollView verticalHuggingPriority="249" verticalCompressionResistancePriority="749" autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CV4-K2-fAS">
-                                                <rect key="frame" x="0.0" y="28" width="495" height="427"/>
-                                                <clipView key="contentView" id="M5n-ar-fh3">
-                                                    <rect key="frame" x="1" y="0.0" width="493" height="426"/>
-                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                                    <subviews>
-                                                        <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" headerView="SYL-K6-MBw" id="uks-jZ-BRI">
-                                                            <rect key="frame" x="0.0" y="0.0" width="493" height="401"/>
-                                                            <autoresizingMask key="autoresizingMask"/>
-                                                            <size key="intercellSpacing" width="3" height="2"/>
-                                                            <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                                            <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
-                                                            <tableColumns>
-                                                                <tableColumn identifier="check" width="18" minWidth="18" maxWidth="1000" id="nNF-7n-qm6" userLabel="プレイリスト">
-                                                                    <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border">
-                                                                        <font key="font" metaFont="smallSystem"/>
-                                                                        <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
-                                                                        <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
-                                                                    </tableHeaderCell>
-                                                                    <buttonCell key="dataCell" type="check" bezelStyle="regularSquare" imagePosition="left" inset="2" id="yyG-l2-rRA">
-                                                                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                                                        <font key="font" metaFont="system"/>
-                                                                    </buttonCell>
-                                                                    <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
-                                                                </tableColumn>
-                                                                <tableColumn identifier="title" width="414" minWidth="20" maxWidth="414" id="EJU-R4-Xcw">
-                                                                    <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left">
-                                                                        <font key="font" metaFont="smallSystem"/>
-                                                                        <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
-                                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                    </tableHeaderCell>
-                                                                    <textFieldCell key="dataCell" lineBreakMode="truncatingTail" allowsUndo="NO" alignment="left" title="Text Cell" id="1yr-j0-Dfc">
-                                                                        <font key="font" metaFont="system"/>
-                                                                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                                                        <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                                                    </textFieldCell>
-                                                                    <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
-                                                                </tableColumn>
-                                                            </tableColumns>
-                                                            <connections>
-                                                                <outlet property="dataSource" destination="XfG-lQ-9wD" id="7R1-3B-6wX"/>
-                                                                <outlet property="delegate" destination="XfG-lQ-9wD" id="4LQ-1s-KKj"/>
-                                                            </connections>
-                                                        </tableView>
-                                                    </subviews>
-                                                </clipView>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="200" id="lsJ-k4-zog"/>
-                                                </constraints>
-                                                <scroller key="horizontalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="YES" id="irV-oj-yre">
-                                                    <rect key="frame" x="1" y="395" width="387" height="16"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                </scroller>
-                                                <scroller key="verticalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="qmu-sZ-U61">
-                                                    <rect key="frame" x="224" y="17" width="15" height="102"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                </scroller>
-                                                <tableHeaderView key="headerView" hidden="YES" wantsLayer="YES" id="SYL-K6-MBw">
-                                                    <rect key="frame" x="0.0" y="0.0" width="493" height="25"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                </tableHeaderView>
-                                            </scrollView>
-                                            <stackView distribution="fill" orientation="horizontal" alignment="top" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" verticalHuggingPriority="251" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Coa-OV-EyE">
-                                                <rect key="frame" x="0.0" y="0.0" width="495" height="21"/>
-                                                <subviews>
-                                                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="nJg-et-RY8">
-                                                        <rect key="frame" x="-6" y="-7" width="142" height="32"/>
-                                                        <buttonCell key="cell" type="push" title="全選択/全選択解除" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Rcx-CQ-LzP">
-                                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                                            <font key="font" size="13" name=".HiraKakuInterface-W3"/>
-                                                        </buttonCell>
-                                                        <connections>
-                                                            <action selector="selectOrDeselectAll:" target="XfG-lQ-9wD" id="dRg-Zk-Dch"/>
-                                                        </connections>
-                                                    </button>
-                                                    <progressIndicator wantsLayer="YES" maxValue="1" displayedWhenStopped="NO" style="bar" translatesAutoresizingMaskIntoConstraints="NO" id="aJZ-b5-xaI">
-                                                        <rect key="frame" x="138" y="2" width="267" height="20"/>
-                                                    </progressIndicator>
-                                                    <button horizontalHuggingPriority="750" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="nbB-r4-G1e">
-                                                        <rect key="frame" x="410" y="-3" width="27" height="26"/>
-                                                        <buttonCell key="cell" type="disclosure" bezelStyle="roundedDisclosure" imagePosition="only" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="bae-ic-glj">
-                                                            <behavior key="behavior" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
-                                                            <font key="font" metaFont="system"/>
-                                                        </buttonCell>
-                                                        <connections>
-                                                            <action selector="showLog:" target="XfG-lQ-9wD" id="M7J-Zv-y6h"/>
-                                                        </connections>
-                                                    </button>
-                                                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="gp9-dD-JwS">
-                                                        <rect key="frame" x="436" y="-7" width="65" height="32"/>
-                                                        <buttonCell key="cell" type="push" title="転送" bezelStyle="rounded" alignment="center" borderStyle="border" inset="2" id="sFB-Qm-FgJ">
-                                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                                            <font key="font" metaFont="system"/>
-                                                        </buttonCell>
-                                                        <connections>
-                                                            <action selector="send:" target="XfG-lQ-9wD" id="QTa-gd-2NK"/>
-                                                        </connections>
-                                                    </button>
-                                                </subviews>
-                                                <visibilityPriorities>
-                                                    <integer value="1000"/>
-                                                    <integer value="1000"/>
-                                                    <integer value="1000"/>
-                                                    <integer value="1000"/>
-                                                </visibilityPriorities>
-                                                <customSpacing>
-                                                    <real value="3.4028234663852886e+38"/>
-                                                    <real value="3.4028234663852886e+38"/>
-                                                    <real value="3.4028234663852886e+38"/>
-                                                    <real value="3.4028234663852886e+38"/>
-                                                </customSpacing>
-                                            </stackView>
+                                            <button horizontalHuggingPriority="750" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="LnN-wF-VgU">
+                                                <rect key="frame" x="411" y="-4" width="25" height="25"/>
+                                                <buttonCell key="cell" type="help" bezelStyle="helpButton" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="xbb-9x-QER">
+                                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                    <font key="font" metaFont="system"/>
+                                                </buttonCell>
+                                                <connections>
+                                                    <action selector="selectHelp:" target="XfG-lQ-9wD" id="XDV-Xa-Zk8"/>
+                                                </connections>
+                                            </button>
+                                            <button horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="lAg-AM-FfQ">
+                                                <rect key="frame" x="436" y="-7" width="65" height="32"/>
+                                                <buttonCell key="cell" type="push" title="選択" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Af3-CZ-ae4">
+                                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                    <font key="font" size="13" name=".HiraKakuInterface-W3"/>
+                                                </buttonCell>
+                                                <connections>
+                                                    <action selector="selectFile:" target="XfG-lQ-9wD" id="d7Q-E7-6Uo"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
-                                        <constraints>
-                                            <constraint firstItem="U4F-ur-FWE" firstAttribute="width" secondItem="tfI-vm-TJG" secondAttribute="width" id="9K7-8X-fwW"/>
-                                            <constraint firstItem="MKF-hn-nOg" firstAttribute="width" secondItem="tfI-vm-TJG" secondAttribute="width" id="HOZ-NB-0IK"/>
-                                            <constraint firstItem="Coa-OV-EyE" firstAttribute="width" secondItem="tfI-vm-TJG" secondAttribute="width" id="Kob-n4-uqG"/>
-                                            <constraint firstItem="CV4-K2-fAS" firstAttribute="width" secondItem="tfI-vm-TJG" secondAttribute="width" id="QLl-pT-3Mb"/>
-                                            <constraint firstItem="CMB-9F-NWq" firstAttribute="width" secondItem="tfI-vm-TJG" secondAttribute="width" id="cUg-g3-PqJ"/>
-                                        </constraints>
                                         <visibilityPriorities>
-                                            <integer value="1000"/>
-                                            <integer value="1000"/>
-                                            <integer value="1000"/>
-                                            <integer value="1000"/>
-                                            <integer value="1000"/>
-                                            <integer value="1000"/>
-                                            <integer value="1000"/>
                                             <integer value="1000"/>
                                             <integer value="1000"/>
                                             <integer value="1000"/>
                                         </visibilityPriorities>
                                         <customSpacing>
-                                            <real value="3.4028234663852886e+38"/>
-                                            <real value="3.4028234663852886e+38"/>
-                                            <real value="3.4028234663852886e+38"/>
-                                            <real value="3.4028234663852886e+38"/>
-                                            <real value="3.4028234663852886e+38"/>
-                                            <real value="3.4028234663852886e+38"/>
-                                            <real value="3.4028234663852886e+38"/>
                                             <real value="3.4028234663852886e+38"/>
                                             <real value="3.4028234663852886e+38"/>
                                             <real value="3.4028234663852886e+38"/>
                                         </customSpacing>
                                     </stackView>
-                                    <stackView distribution="fillProportionally" orientation="vertical" alignment="leading" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xfa-pC-dP9">
-                                        <rect key="frame" x="503" y="0.0" width="302" height="757"/>
+                                    <stackView distribution="fill" orientation="horizontal" alignment="firstBaseline" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CMB-9F-NWq">
+                                        <rect key="frame" x="0.0" y="453" width="495" height="21"/>
                                         <subviews>
-                                            <scrollView horizontalHuggingPriority="249" autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DQF-pq-vsv">
-                                                <rect key="frame" x="0.0" y="44" width="302" height="713"/>
-                                                <clipView key="contentView" id="ipX-Z3-Ole">
-                                                    <rect key="frame" x="1" y="0.0" width="300" height="712"/>
-                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                                    <subviews>
-                                                        <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowSizeStyle="automatic" headerView="3QP-i9-2OV" viewBased="YES" id="bC3-IO-Eg1">
-                                                            <rect key="frame" x="0.0" y="0.0" width="300" height="687"/>
-                                                            <autoresizingMask key="autoresizingMask"/>
-                                                            <size key="intercellSpacing" width="3" height="2"/>
-                                                            <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                                            <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
-                                                            <tableColumns>
-                                                                <tableColumn identifier="Status" editable="NO" width="65" minWidth="40" maxWidth="1000" id="JxW-Cd-AAd">
-                                                                    <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" title="Status">
-                                                                        <font key="font" metaFont="smallSystem"/>
-                                                                        <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
-                                                                        <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
-                                                                    </tableHeaderCell>
-                                                                    <textFieldCell key="dataCell" lineBreakMode="truncatingTail" title="Text Cell" id="Qj3-vW-M2U">
-                                                                        <font key="font" metaFont="system"/>
-                                                                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                                                        <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                                                    </textFieldCell>
-                                                                    <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
-                                                                </tableColumn>
-                                                                <tableColumn identifier="Message" editable="NO" width="229" minWidth="40" maxWidth="1000" id="BF4-1d-dqk">
-                                                                    <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" title="Message">
-                                                                        <font key="font" metaFont="smallSystem"/>
-                                                                        <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
-                                                                        <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
-                                                                    </tableHeaderCell>
-                                                                    <textFieldCell key="dataCell" lineBreakMode="truncatingTail" alignment="left" title="Text Cell" id="J5o-du-c4g">
-                                                                        <font key="font" metaFont="system"/>
-                                                                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                                                        <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                                                    </textFieldCell>
-                                                                    <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
-                                                                </tableColumn>
-                                                            </tableColumns>
-                                                            <connections>
-                                                                <outlet property="dataSource" destination="XfG-lQ-9wD" id="FWA-Ur-1U3"/>
-                                                                <outlet property="delegate" destination="XfG-lQ-9wD" id="Aih-0J-Z13"/>
-                                                            </connections>
-                                                        </tableView>
-                                                    </subviews>
-                                                </clipView>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="300" id="C6H-Xc-wmP"/>
-                                                </constraints>
-                                                <scroller key="horizontalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="YES" id="DYt-Cx-Nzo">
-                                                    <rect key="frame" x="1" y="10126" width="28" height="16"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                </scroller>
-                                                <scroller key="verticalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="NO" id="xw6-ie-7sE">
-                                                    <rect key="frame" x="224" y="17" width="15" height="102"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                </scroller>
-                                                <tableHeaderView key="headerView" wantsLayer="YES" id="3QP-i9-2OV">
-                                                    <rect key="frame" x="0.0" y="0.0" width="300" height="25"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                </tableHeaderView>
-                                            </scrollView>
-                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="X3p-c5-buy">
-                                                <rect key="frame" x="-2" y="0.0" width="54" height="36"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="36" id="Ye5-Dh-etq"/>
-                                                </constraints>
-                                                <textFieldCell key="cell" lineBreakMode="clipping" id="dIX-0c-Qz1">
-                                                    <font key="font" usesAppearanceFont="YES"/>
+                                            <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="RLN-rV-3Yy">
+                                                <rect key="frame" x="-2" y="1" width="409" height="17"/>
+                                                <textFieldCell key="cell" lineBreakMode="clipping" title="音楽転送先のPath(/Volumes/WALKMAN)" id="w9T-Bn-XKJ">
+                                                    <font key="font" metaFont="system"/>
                                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                 </textFieldCell>
                                             </textField>
+                                            <button horizontalHuggingPriority="750" verticalHuggingPriority="750" tag="1" translatesAutoresizingMaskIntoConstraints="NO" id="aNp-Xm-Ad8">
+                                                <rect key="frame" x="411" y="-4" width="25" height="25"/>
+                                                <buttonCell key="cell" type="help" bezelStyle="helpButton" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="R9T-sD-4nY">
+                                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                    <font key="font" metaFont="system"/>
+                                                </buttonCell>
+                                                <connections>
+                                                    <action selector="selectHelp:" target="XfG-lQ-9wD" id="6BQ-WT-Ze7"/>
+                                                </connections>
+                                            </button>
+                                            <button horizontalHuggingPriority="251" verticalHuggingPriority="750" tag="1" translatesAutoresizingMaskIntoConstraints="NO" id="g5t-kl-xel">
+                                                <rect key="frame" x="436" y="-7" width="65" height="32"/>
+                                                <buttonCell key="cell" type="push" title="選択" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="e4z-zo-cwK">
+                                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                    <font key="font" size="13" name=".HiraKakuInterface-W3"/>
+                                                </buttonCell>
+                                                <connections>
+                                                    <action selector="selectFile:" target="XfG-lQ-9wD" id="7lw-3M-un7"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <visibilityPriorities>
+                                            <integer value="1000"/>
+                                            <integer value="1000"/>
+                                            <integer value="1000"/>
+                                        </visibilityPriorities>
+                                        <customSpacing>
+                                            <real value="3.4028234663852886e+38"/>
+                                            <real value="3.4028234663852886e+38"/>
+                                            <real value="3.4028234663852886e+38"/>
+                                        </customSpacing>
+                                    </stackView>
+                                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="2I0-uD-xIZ">
+                                        <rect key="frame" x="-2" y="430" width="95" height="18"/>
+                                        <buttonCell key="cell" type="check" title="曲を転送する" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="LSD-qc-Y9q">
+                                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                            <font key="font" metaFont="system"/>
+                                        </buttonCell>
+                                        <connections>
+                                            <action selector="selectedCheckButton:" target="XfG-lQ-9wD" id="Nst-bL-pla"/>
+                                        </connections>
+                                    </button>
+                                    <button verticalHuggingPriority="750" tag="1" translatesAutoresizingMaskIntoConstraints="NO" id="qfK-Jw-Acv">
+                                        <rect key="frame" x="-2" y="409" width="155" height="18"/>
+                                        <buttonCell key="cell" type="check" title="プレイリストを転送する" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="Oxk-iA-bJA">
+                                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                            <font key="font" metaFont="system"/>
+                                        </buttonCell>
+                                        <connections>
+                                            <action selector="selectedCheckButton:" target="XfG-lQ-9wD" id="1Od-dH-wvn"/>
+                                        </connections>
+                                    </button>
+                                    <box title="転送モード" translatesAutoresizingMaskIntoConstraints="NO" id="Bdm-0s-8vl">
+                                        <rect key="frame" x="-3" y="300" width="501" height="104"/>
+                                        <view key="contentView" id="6aI-Ia-J2J">
+                                            <rect key="frame" x="3" y="3" width="495" height="83"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                            <subviews>
+                                                <stackView distribution="fillEqually" orientation="vertical" alignment="leading" spacing="3" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hns-c4-GS9">
+                                                    <rect key="frame" x="5" y="5" width="485" height="73"/>
+                                                    <subviews>
+                                                        <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="qrX-m3-dvF">
+                                                            <rect key="frame" x="-1" y="56" width="227" height="18"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="16" id="Xbu-i9-6Eg"/>
+                                                            </constraints>
+                                                            <buttonCell key="cell" type="radio" title="同じ名前のファイルがあればスキップ" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="sfs-Xb-zuQ">
+                                                                <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                                <font key="font" size="13" name=".HiraKakuInterface-W3"/>
+                                                            </buttonCell>
+                                                            <connections>
+                                                                <action selector="selectedRadioWithSender:" target="XfG-lQ-9wD" id="8ha-tB-2wo"/>
+                                                            </connections>
+                                                        </button>
+                                                        <button verticalHuggingPriority="750" tag="1" translatesAutoresizingMaskIntoConstraints="NO" id="lwK-ZN-bZZ">
+                                                            <rect key="frame" x="-1" y="37" width="247" height="18"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="16" id="RJQ-6t-RJU"/>
+                                                            </constraints>
+                                                            <buttonCell key="cell" type="radio" title="ファイルの作成日付が違えば上書き(推奨)" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="esh-57-oYn">
+                                                                <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                                <font key="font" size="13" name=".HiraKakuInterface-W3"/>
+                                                            </buttonCell>
+                                                            <connections>
+                                                                <action selector="selectedRadioWithSender:" target="XfG-lQ-9wD" id="zTL-bZ-cbP"/>
+                                                            </connections>
+                                                        </button>
+                                                        <button verticalHuggingPriority="750" tag="2" translatesAutoresizingMaskIntoConstraints="NO" id="9o6-rp-yuk">
+                                                            <rect key="frame" x="-1" y="18" width="271" height="18"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="16" id="ABh-6R-VmY"/>
+                                                            </constraints>
+                                                            <buttonCell key="cell" type="radio" title="ファイルのハッシュ値が違えば上書き(非推奨)" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="K4G-8A-6he">
+                                                                <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                                <font key="font" size="13" name=".HiraKakuInterface-W3"/>
+                                                            </buttonCell>
+                                                            <connections>
+                                                                <action selector="selectedRadioWithSender:" target="XfG-lQ-9wD" id="wS4-zC-szZ"/>
+                                                            </connections>
+                                                        </button>
+                                                        <button verticalHuggingPriority="750" tag="3" translatesAutoresizingMaskIntoConstraints="NO" id="DaN-Zi-GcU">
+                                                            <rect key="frame" x="-1" y="-1" width="59" height="18"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="16" id="ajB-ux-eeb"/>
+                                                            </constraints>
+                                                            <buttonCell key="cell" type="radio" title="上書き" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="7gW-Jg-LjM">
+                                                                <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                                <font key="font" size="13" name=".HiraKakuInterface-W3"/>
+                                                            </buttonCell>
+                                                            <connections>
+                                                                <action selector="selectedRadioWithSender:" target="XfG-lQ-9wD" id="ZkH-FL-3ab"/>
+                                                            </connections>
+                                                        </button>
+                                                    </subviews>
+                                                    <visibilityPriorities>
+                                                        <integer value="1000"/>
+                                                        <integer value="1000"/>
+                                                        <integer value="1000"/>
+                                                        <integer value="1000"/>
+                                                    </visibilityPriorities>
+                                                    <customSpacing>
+                                                        <real value="3.4028234663852886e+38"/>
+                                                        <real value="3.4028234663852886e+38"/>
+                                                        <real value="3.4028234663852886e+38"/>
+                                                        <real value="3.4028234663852886e+38"/>
+                                                    </customSpacing>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="hns-c4-GS9" secondAttribute="trailing" constant="5" id="1Bk-Cp-U91"/>
+                                                <constraint firstAttribute="bottom" secondItem="hns-c4-GS9" secondAttribute="bottom" constant="5" id="KqG-uH-RE9"/>
+                                                <constraint firstItem="hns-c4-GS9" firstAttribute="top" secondItem="6aI-Ia-J2J" secondAttribute="top" constant="5" id="ajo-Gd-Zil"/>
+                                                <constraint firstItem="hns-c4-GS9" firstAttribute="leading" secondItem="6aI-Ia-J2J" secondAttribute="leading" constant="5" id="xCd-na-aRM"/>
+                                            </constraints>
+                                        </view>
+                                        <font key="titleFont" metaFont="system"/>
+                                    </box>
+                                    <stackView distribution="fill" orientation="horizontal" alignment="centerY" spacing="0.0" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Rn6-xy-ugj">
+                                        <rect key="frame" x="0.0" y="283" width="199" height="14"/>
+                                        <subviews>
+                                            <button verticalHuggingPriority="750" tag="2" translatesAutoresizingMaskIntoConstraints="NO" id="t32-bm-wQ3">
+                                                <rect key="frame" x="-2" y="-2" width="203" height="18"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="14" id="tqw-Rm-RkU"/>
+                                                </constraints>
+                                                <buttonCell key="cell" type="check" title="転送元にないファイルを削除する" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="GOm-hh-jXk">
+                                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                    <font key="font" metaFont="system"/>
+                                                </buttonCell>
+                                                <connections>
+                                                    <action selector="selectedCheckButton:" target="XfG-lQ-9wD" id="2Vx-jp-IUT"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <visibilityPriorities>
+                                            <integer value="1000"/>
+                                        </visibilityPriorities>
+                                        <customSpacing>
+                                            <real value="3.4028234663852886e+38"/>
+                                        </customSpacing>
+                                    </stackView>
+                                    <stackView distribution="fill" orientation="horizontal" alignment="centerY" spacing="12" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MKF-hn-nOg">
+                                        <rect key="frame" x="0.0" y="255" width="495" height="21"/>
+                                        <subviews>
+                                            <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="mPY-Cp-ypO">
+                                                <rect key="frame" x="-2" y="2" width="113" height="17"/>
+                                                <textFieldCell key="cell" lineBreakMode="clipping" title="転送する曲のリスト" id="3dF-mi-IgQ">
+                                                    <font key="font" metaFont="system"/>
+                                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                </textFieldCell>
+                                            </textField>
+                                            <popUpButton horizontalHuggingPriority="249" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="vlf-g1-UfK">
+                                                <rect key="frame" x="119" y="-3" width="379" height="25"/>
+                                                <popUpButtonCell key="cell" type="push" title="Item 1" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="VfK-Fe-FET" id="by1-K0-6gc">
+                                                    <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
+                                                    <font key="font" metaFont="menu"/>
+                                                    <menu key="menu" id="Ks0-bO-FMf">
+                                                        <items>
+                                                            <menuItem title="Item 1" state="on" id="VfK-Fe-FET"/>
+                                                            <menuItem title="Item 2" id="TbQ-we-Ppj"/>
+                                                            <menuItem title="Item 3" id="rc3-Xz-4eM"/>
+                                                        </items>
+                                                    </menu>
+                                                </popUpButtonCell>
+                                            </popUpButton>
                                         </subviews>
                                         <visibilityPriorities>
                                             <integer value="1000"/>
                                             <integer value="1000"/>
                                         </visibilityPriorities>
                                         <customSpacing>
+                                            <real value="3.4028234663852886e+38"/>
+                                            <real value="3.4028234663852886e+38"/>
+                                        </customSpacing>
+                                    </stackView>
+                                    <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="F44-1I-3Wy">
+                                        <rect key="frame" x="-2" y="235" width="125" height="13"/>
+                                        <textFieldCell key="cell" lineBreakMode="clipping" title="転送するプレイリスト" id="0UR-5n-zZp">
+                                            <font key="font" size="13" name=".HiraKakuInterface-W3"/>
+                                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                    </textField>
+                                    <scrollView autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CV4-K2-fAS">
+                                        <rect key="frame" x="0.0" y="28" width="495" height="200"/>
+                                        <clipView key="contentView" id="M5n-ar-fh3">
+                                            <rect key="frame" x="1" y="0.0" width="493" height="199"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                            <subviews>
+                                                <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" headerView="SYL-K6-MBw" id="uks-jZ-BRI">
+                                                    <rect key="frame" x="0.0" y="0.0" width="493" height="174"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <size key="intercellSpacing" width="3" height="2"/>
+                                                    <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                    <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
+                                                    <tableColumns>
+                                                        <tableColumn identifier="check" width="18" minWidth="18" maxWidth="1000" id="nNF-7n-qm6" userLabel="プレイリスト">
+                                                            <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border">
+                                                                <font key="font" metaFont="smallSystem"/>
+                                                                <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
+                                                                <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
+                                                            </tableHeaderCell>
+                                                            <buttonCell key="dataCell" type="check" bezelStyle="regularSquare" imagePosition="left" inset="2" id="yyG-l2-rRA">
+                                                                <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                                <font key="font" metaFont="system"/>
+                                                            </buttonCell>
+                                                            <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
+                                                        </tableColumn>
+                                                        <tableColumn identifier="title" width="414" minWidth="20" maxWidth="414" id="EJU-R4-Xcw">
+                                                            <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left">
+                                                                <font key="font" metaFont="smallSystem"/>
+                                                                <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
+                                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            </tableHeaderCell>
+                                                            <textFieldCell key="dataCell" lineBreakMode="truncatingTail" allowsUndo="NO" alignment="left" title="Text Cell" id="1yr-j0-Dfc">
+                                                                <font key="font" metaFont="system"/>
+                                                                <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                                <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                            </textFieldCell>
+                                                            <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
+                                                        </tableColumn>
+                                                    </tableColumns>
+                                                    <connections>
+                                                        <outlet property="dataSource" destination="XfG-lQ-9wD" id="7R1-3B-6wX"/>
+                                                        <outlet property="delegate" destination="XfG-lQ-9wD" id="4LQ-1s-KKj"/>
+                                                    </connections>
+                                                </tableView>
+                                            </subviews>
+                                        </clipView>
+                                        <constraints>
+                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="200" id="lsJ-k4-zog"/>
+                                        </constraints>
+                                        <edgeInsets key="contentInsets" left="0.0" right="0.0" top="0.0" bottom="0.0"/>
+                                        <scroller key="horizontalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="YES" id="irV-oj-yre">
+                                            <rect key="frame" x="1" y="183" width="437" height="16"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </scroller>
+                                        <scroller key="verticalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="qmu-sZ-U61">
+                                            <rect key="frame" x="224" y="17" width="15" height="102"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </scroller>
+                                        <tableHeaderView key="headerView" hidden="YES" wantsLayer="YES" id="SYL-K6-MBw">
+                                            <rect key="frame" x="0.0" y="0.0" width="493" height="25"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableHeaderView>
+                                    </scrollView>
+                                    <stackView distribution="fill" orientation="horizontal" alignment="top" spacing="6" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Coa-OV-EyE">
+                                        <rect key="frame" x="0.0" y="0.0" width="495" height="21"/>
+                                        <subviews>
+                                            <button verticalHuggingPriority="751" translatesAutoresizingMaskIntoConstraints="NO" id="nJg-et-RY8">
+                                                <rect key="frame" x="-6" y="-7" width="142" height="32"/>
+                                                <buttonCell key="cell" type="push" title="全選択/全選択解除" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Rcx-CQ-LzP">
+                                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                    <font key="font" size="13" name=".HiraKakuInterface-W3"/>
+                                                </buttonCell>
+                                                <connections>
+                                                    <action selector="selectOrDeselectAll:" target="XfG-lQ-9wD" id="dRg-Zk-Dch"/>
+                                                </connections>
+                                            </button>
+                                            <progressIndicator wantsLayer="YES" maxValue="1" displayedWhenStopped="NO" style="bar" translatesAutoresizingMaskIntoConstraints="NO" id="aJZ-b5-xaI">
+                                                <rect key="frame" x="136" y="2" width="300" height="20"/>
+                                            </progressIndicator>
+                                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="gp9-dD-JwS">
+                                                <rect key="frame" x="436" y="-7" width="65" height="32"/>
+                                                <buttonCell key="cell" type="push" title="転送" bezelStyle="rounded" alignment="center" borderStyle="border" inset="2" id="sFB-Qm-FgJ">
+                                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                    <font key="font" metaFont="system"/>
+                                                </buttonCell>
+                                                <connections>
+                                                    <action selector="send:" target="XfG-lQ-9wD" id="QTa-gd-2NK"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <visibilityPriorities>
+                                            <integer value="1000"/>
+                                            <integer value="1000"/>
+                                            <integer value="1000"/>
+                                        </visibilityPriorities>
+                                        <customSpacing>
+                                            <real value="3.4028234663852886e+38"/>
                                             <real value="3.4028234663852886e+38"/>
                                             <real value="3.4028234663852886e+38"/>
                                         </customSpacing>
                                     </stackView>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="xfa-pC-dP9" firstAttribute="height" secondItem="tfI-vm-TJG" secondAttribute="height" id="33g-L4-i1M"/>
-                                    <constraint firstAttribute="bottom" secondItem="tfI-vm-TJG" secondAttribute="bottom" id="Hxo-LL-fMN"/>
-                                    <constraint firstItem="tfI-vm-TJG" firstAttribute="top" secondItem="eAO-tU-wNp" secondAttribute="top" id="eLS-AU-da4"/>
+                                    <constraint firstAttribute="trailing" secondItem="Bdm-0s-8vl" secondAttribute="trailing" id="Ix7-9X-yLt"/>
+                                    <constraint firstAttribute="trailing" secondItem="CMB-9F-NWq" secondAttribute="trailing" id="XDl-uT-mjL"/>
+                                    <constraint firstAttribute="trailing" secondItem="CV4-K2-fAS" secondAttribute="trailing" id="akS-1M-jAJ"/>
+                                    <constraint firstAttribute="trailing" secondItem="Coa-OV-EyE" secondAttribute="trailing" id="fBW-zp-nqv"/>
+                                    <constraint firstAttribute="trailing" secondItem="U4F-ur-FWE" secondAttribute="trailing" id="fyc-pn-802"/>
+                                    <constraint firstAttribute="trailing" secondItem="MKF-hn-nOg" secondAttribute="trailing" id="sJi-uR-zPF"/>
+                                </constraints>
+                                <visibilityPriorities>
+                                    <integer value="1000"/>
+                                    <integer value="1000"/>
+                                    <integer value="1000"/>
+                                    <integer value="1000"/>
+                                    <integer value="1000"/>
+                                    <integer value="1000"/>
+                                    <integer value="1000"/>
+                                    <integer value="1000"/>
+                                    <integer value="1000"/>
+                                    <real value="1000"/>
+                                </visibilityPriorities>
+                                <customSpacing>
+                                    <real value="3.4028234663852886e+38"/>
+                                    <real value="3.4028234663852886e+38"/>
+                                    <real value="3.4028234663852886e+38"/>
+                                    <real value="3.4028234663852886e+38"/>
+                                    <real value="3.4028234663852886e+38"/>
+                                    <real value="3.4028234663852886e+38"/>
+                                    <real value="3.4028234663852886e+38"/>
+                                    <real value="3.4028234663852886e+38"/>
+                                    <real value="3.4028234663852886e+38"/>
+                                    <real value="3.4028234663852886e+38"/>
+                                </customSpacing>
+                            </stackView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="tfI-vm-TJG" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="20" id="1Lt-2s-tWN"/>
+                            <constraint firstAttribute="bottom" secondItem="tfI-vm-TJG" secondAttribute="bottom" constant="20" id="2z3-Ja-U5C"/>
+                            <constraint firstItem="tfI-vm-TJG" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="20" id="c50-e3-Dus"/>
+                            <constraint firstAttribute="trailing" secondItem="tfI-vm-TJG" secondAttribute="trailing" constant="20" id="zmO-sa-0TZ"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="doDeleteButton" destination="t32-bm-wQ3" id="QuW-rc-9ek"/>
+                        <outlet property="isSendPlayListButton" destination="qfK-Jw-Acv" id="msL-Pk-cSh"/>
+                        <outlet property="isSendTrackButton" destination="2I0-uD-xIZ" id="4y8-fH-DKf"/>
+                        <outlet property="itunesXmlPathLabel" destination="q0p-qt-hgv" id="wTn-BH-iCi"/>
+                        <outlet property="itunesXmlSelectButton" destination="lAg-AM-FfQ" id="3b9-uK-391"/>
+                        <outlet property="normalRadioButton" destination="qrX-m3-dvF" id="0Wb-Vj-Ezq"/>
+                        <outlet property="overrideRadioButton" destination="DaN-Zi-GcU" id="Bo6-up-XES"/>
+                        <outlet property="progressIndicator" destination="aJZ-b5-xaI" id="tC5-WT-h6O"/>
+                        <outlet property="sendTrackList" destination="vlf-g1-UfK" id="fyy-3u-n7x"/>
+                        <outlet property="tableView" destination="uks-jZ-BRI" id="4uq-PT-xBe"/>
+                        <outlet property="updateHashRadioButton" destination="9o6-rp-yuk" id="7VW-co-S2m"/>
+                        <outlet property="updateRadioButton" destination="lwK-ZN-bZZ" id="QP3-JB-G8x"/>
+                        <outlet property="walkmanPathLabel" destination="RLN-rV-3Yy" id="esc-aX-DBu"/>
+                    </connections>
+                </viewController>
+                <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-225" y="1818"/>
+        </scene>
+        <!--Log View Controller-->
+        <scene sceneID="O6K-qA-eTI">
+            <objects>
+                <viewController id="vAB-dN-Oyd" customClass="LogViewController" customModule="SyncWalkman_gui" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="aIU-xM-jqb">
+                        <rect key="frame" x="0.0" y="0.0" width="430" height="542"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <stackView distribution="fillProportionally" orientation="vertical" alignment="leading" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xfa-pC-dP9">
+                                <rect key="frame" x="20" y="20" width="390" height="502"/>
+                                <subviews>
+                                    <scrollView autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DQF-pq-vsv">
+                                        <rect key="frame" x="0.0" y="44" width="390" height="458"/>
+                                        <clipView key="contentView" id="ipX-Z3-Ole">
+                                            <rect key="frame" x="1" y="0.0" width="388" height="457"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                            <subviews>
+                                                <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnReordering="NO" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowSizeStyle="automatic" headerView="3QP-i9-2OV" viewBased="YES" id="bC3-IO-Eg1">
+                                                    <rect key="frame" x="0.0" y="0.0" width="388" height="432"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <size key="intercellSpacing" width="3" height="2"/>
+                                                    <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                    <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
+                                                    <tableColumns>
+                                                        <tableColumn identifier="Status" editable="NO" width="65" minWidth="40" maxWidth="1000" id="JxW-Cd-AAd">
+                                                            <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" title="Status">
+                                                                <font key="font" metaFont="smallSystem"/>
+                                                                <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
+                                                                <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
+                                                            </tableHeaderCell>
+                                                            <textFieldCell key="dataCell" lineBreakMode="truncatingTail" title="Text Cell" id="Qj3-vW-M2U">
+                                                                <font key="font" metaFont="system"/>
+                                                                <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                                <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                            </textFieldCell>
+                                                            <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
+                                                        </tableColumn>
+                                                        <tableColumn identifier="Message" editable="NO" width="317" minWidth="40" maxWidth="1000" id="BF4-1d-dqk">
+                                                            <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" title="Message">
+                                                                <font key="font" metaFont="smallSystem"/>
+                                                                <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
+                                                                <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
+                                                            </tableHeaderCell>
+                                                            <textFieldCell key="dataCell" lineBreakMode="truncatingTail" alignment="left" title="Text Cell" id="J5o-du-c4g">
+                                                                <font key="font" metaFont="system"/>
+                                                                <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                                <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                            </textFieldCell>
+                                                            <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
+                                                        </tableColumn>
+                                                    </tableColumns>
+                                                    <connections>
+                                                        <outlet property="dataSource" destination="vAB-dN-Oyd" id="ki4-Kt-LLl"/>
+                                                        <outlet property="delegate" destination="vAB-dN-Oyd" id="7xT-up-5O0"/>
+                                                    </connections>
+                                                </tableView>
+                                            </subviews>
+                                        </clipView>
+                                        <constraints>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="300" id="C6H-Xc-wmP"/>
+                                        </constraints>
+                                        <scroller key="horizontalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="YES" id="DYt-Cx-Nzo">
+                                            <rect key="frame" x="1" y="441" width="388" height="16"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </scroller>
+                                        <scroller key="verticalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="NO" id="xw6-ie-7sE">
+                                            <rect key="frame" x="224" y="17" width="15" height="102"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </scroller>
+                                        <tableHeaderView key="headerView" wantsLayer="YES" id="3QP-i9-2OV">
+                                            <rect key="frame" x="0.0" y="0.0" width="388" height="25"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableHeaderView>
+                                    </scrollView>
+                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="X3p-c5-buy">
+                                        <rect key="frame" x="-2" y="0.0" width="54" height="36"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="36" id="Ye5-Dh-etq"/>
+                                        </constraints>
+                                        <textFieldCell key="cell" lineBreakMode="clipping" id="dIX-0c-Qz1">
+                                            <font key="font" usesAppearanceFont="YES"/>
+                                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                    </textField>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="DQF-pq-vsv" secondAttribute="trailing" id="JVY-dN-DrR"/>
                                 </constraints>
                                 <visibilityPriorities>
                                     <integer value="1000"/>
@@ -705,34 +734,20 @@
                             </stackView>
                         </subviews>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="eAO-tU-wNp" secondAttribute="bottom" constant="20" id="Af9-r7-bUd"/>
-                            <constraint firstAttribute="trailing" secondItem="eAO-tU-wNp" secondAttribute="trailing" constant="20" id="dIe-BL-Z1w"/>
-                            <constraint firstItem="eAO-tU-wNp" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="20" id="hrQ-9N-wnP"/>
-                            <constraint firstItem="eAO-tU-wNp" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="20" id="sjx-kU-8XX"/>
+                            <constraint firstAttribute="bottom" secondItem="xfa-pC-dP9" secondAttribute="bottom" constant="20" id="aBr-sI-EJ2"/>
+                            <constraint firstItem="xfa-pC-dP9" firstAttribute="top" secondItem="aIU-xM-jqb" secondAttribute="top" constant="20" id="p1W-tV-qNF"/>
+                            <constraint firstAttribute="trailing" secondItem="xfa-pC-dP9" secondAttribute="trailing" constant="20" id="uNh-qP-CjI"/>
+                            <constraint firstItem="xfa-pC-dP9" firstAttribute="leading" secondItem="aIU-xM-jqb" secondAttribute="leading" constant="20" id="z8m-9b-dEp"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="doDeleteButton" destination="t32-bm-wQ3" id="QuW-rc-9ek"/>
-                        <outlet property="isSendPlayListButton" destination="qfK-Jw-Acv" id="msL-Pk-cSh"/>
-                        <outlet property="isSendTrackButton" destination="2I0-uD-xIZ" id="4y8-fH-DKf"/>
-                        <outlet property="itunesXmlPathLabel" destination="q0p-qt-hgv" id="wTn-BH-iCi"/>
-                        <outlet property="itunesXmlSelectButton" destination="lAg-AM-FfQ" id="3b9-uK-391"/>
-                        <outlet property="logTableView" destination="bC3-IO-Eg1" id="CGK-xw-R8e"/>
-                        <outlet property="logTableViewSource" destination="xfa-pC-dP9" id="6C2-lb-riv"/>
-                        <outlet property="normalRadioButton" destination="qrX-m3-dvF" id="0Wb-Vj-Ezq"/>
-                        <outlet property="overrideRadioButton" destination="DaN-Zi-GcU" id="Bo6-up-XES"/>
-                        <outlet property="progressIndicator" destination="aJZ-b5-xaI" id="tC5-WT-h6O"/>
-                        <outlet property="resultLabel" destination="X3p-c5-buy" id="aUr-bh-OZi"/>
-                        <outlet property="sendTrackList" destination="vlf-g1-UfK" id="fyy-3u-n7x"/>
-                        <outlet property="tableView" destination="uks-jZ-BRI" id="4uq-PT-xBe"/>
-                        <outlet property="updateHashRadioButton" destination="9o6-rp-yuk" id="7VW-co-S2m"/>
-                        <outlet property="updateRadioButton" destination="lwK-ZN-bZZ" id="QP3-JB-G8x"/>
-                        <outlet property="walkmanPathLabel" destination="RLN-rV-3Yy" id="esc-aX-DBu"/>
+                        <outlet property="logTableView" destination="bC3-IO-Eg1" id="v6n-84-qQ9"/>
+                        <outlet property="resultLabel" destination="X3p-c5-buy" id="xuj-mR-C8Y"/>
                     </connections>
                 </viewController>
-                <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+                <customObject id="D9d-Q9-Adw" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="74.5" y="1248"/>
+            <point key="canvasLocation" x="322" y="1818"/>
         </scene>
     </scenes>
 </document>

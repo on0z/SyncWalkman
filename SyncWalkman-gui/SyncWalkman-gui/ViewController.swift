@@ -21,11 +21,7 @@ class ViewController: NSViewController {
     
     var observers = [NSKeyValueObservation]()
     
-    var log: [(status: String, message: String)] = []
-    
     @IBOutlet weak var tableView: NSTableView!
-    @IBOutlet weak var logTableViewSource: NSStackView!
-    @IBOutlet weak var logTableView: NSTableView!
     
     @IBOutlet weak var itunesXmlPathLabel: NSTextField!
     @IBOutlet weak var itunesXmlSelectButton: NSButton!
@@ -44,7 +40,7 @@ class ViewController: NSViewController {
     
     @IBOutlet weak var progressIndicator: NSProgressIndicator!
     
-    @IBOutlet weak var resultLabel: NSTextField!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -71,8 +67,6 @@ class ViewController: NSViewController {
             self.loadSendTrackList()
             self.loadSendPlaylists()
         }
-        
-        self.logTableViewSource.isHidden = true
     }
     
     override var representedObject: Any? {
@@ -199,15 +193,13 @@ extension ViewController{
         }
     }
     
-    @IBAction func showLog(_ sender: NSButton){
-        self.logTableViewSource.isHidden = sender.state == .off
-    }
+    static let didPushStartButton: Notification.Name = Notification.Name("didPushStartButton")
     
     @IBAction func send(_ sender: NSButton) {
         UserDefaults.standard.set(self.syncWalkman.itl.playlists[self.sendTrackList.indexOfSelectedItem].id, forKey: "sendTrackList")
         
-        self.log.removeAll()
-        self.resultLabel.stringValue = ""
+        NotificationCenter.default.post(name: ViewController.didPushStartButton, object: nil)
+        
         let selectedTrackListIndex = self.sendTrackList.indexOfSelectedItem
         
         DispatchQueue.global(qos: .default).async {
@@ -224,7 +216,6 @@ extension ViewController{
                 if self.syncWalkman.config.doDelete{
                     self.syncWalkman.deletePlaylists()
                 }
-                self.syncWalkman.showPlaylistUpdateMessage(gui: true)
             }
         }
     }
@@ -268,18 +259,7 @@ extension ViewController{
     func setupObserver(){
         self.syncWalkman.addObserver()
         
-        NotificationCenter.default.addObserver(self, selector: #selector(self.didFoundFile(_:)), name: SyncWalkman.didFoundTrackFile, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(self.didFoundFile(_:)), name: SyncWalkman.didFoundPlaylistFile, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(self.didSendFile(_:)), name: SyncWalkman.didSendTrack, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(self.didSendFile(_:)), name: SyncWalkman.didSendPlaylist, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(self.didSkipFile(_:)), name: SyncWalkman.didSkipTrack, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(self.didSkipFile(_:)), name: SyncWalkman.didSkipPlaylist, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(self.didDeleteFile(_:)), name: SyncWalkman.didDeleteTrack, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(self.didDeleteFile(_:)), name: SyncWalkman.didDeletePlaylist, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(self.didFinish(_:)), name: SyncWalkman.didFinishSendTrack, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(self.didFinish(_:)), name: SyncWalkman.didFinishDeleteTrack, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.didFinish(_:)), name: SyncWalkman.didFinishSendPlaylist, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(self.didFinish(_:)), name: SyncWalkman.didFinishDeletePlaylist, object: nil)
         
         self.observers.append(self.syncWalkman.observe(\.progress, options: .new, changeHandler: { (log, change) in
             DispatchQueue.main.async {
@@ -331,57 +311,23 @@ extension ViewController{
 //MARK: noti receive
 extension ViewController{
     
-    @objc func didFoundFile(_ noti: Notification){
-        self.log.append((status: "found", message: noti.userInfo!["path"] as! String))
-        DispatchQueue.main.async {
-            self.logTableView.reloadData()
-            self.logTableView.scrollRowToVisible(self.log.count - 1)
-        }
-    }
-    
-    @objc func didSendFile(_ noti: Notification){
-        self.log.append((status: "sent", message: noti.userInfo!["topath"] as! String))
-        DispatchQueue.main.async {
-            self.logTableView.reloadData()
-            self.logTableView.scrollRowToVisible(self.log.count - 1)
-        }
-    }
-    
-    @objc func didSkipFile(_ noti: Notification){
-        self.log.append((status: "skipped", message: noti.userInfo!["topath"] as! String))
-        DispatchQueue.main.async {
-            self.logTableView.reloadData()
-            self.logTableView.scrollRowToVisible(self.log.count - 1)
-        }
-    }
-    
-    @objc func didDeleteFile(_ noti: Notification){
-        self.log.append((status: "deleted", message: noti.userInfo!["path"] as! String))
-        DispatchQueue.main.async {
-            self.logTableView.reloadData()
-            self.logTableView.scrollRowToVisible(self.log.count - 1)
-        }
-    }
-    
     @objc func didFinish(_ noti: Notification){
         DispatchQueue.main.async {
-            switch noti.name{
-            case SyncWalkman.didFinishSendTrack:
-                if self.resultLabel.stringValue != ""{
-                    self.resultLabel.stringValue += "\n"
-                }
-                self.resultLabel.stringValue += "track: copied \(noti.userInfo!["copied"] as! Int), skipped \(noti.userInfo!["skipped"] as! Int)"
-            case SyncWalkman.didFinishDeleteTrack:
-                self.resultLabel.stringValue += ", deleted \(noti.userInfo!["count"] as! Int)"
-            case SyncWalkman.didFinishSendPlaylist:
-                if self.resultLabel.stringValue != ""{
-                    self.resultLabel.stringValue += "\n"
-                }
-                self.resultLabel.stringValue += "playlist: sent \(noti.userInfo!["count"] as! Int)"
-            case SyncWalkman.didFinishDeletePlaylist:
-                self.resultLabel.stringValue += ", deleted \(noti.userInfo!["count"] as! Int)"
-            default:
-                break
+            if ({ () -> NSAlert in
+                    let alert = NSAlert()
+                    alert.messageText = "Please run the below code"
+                    alert.informativeText = "$ " + self.syncWalkman.playlistUpdateCommand(absoluteCommandPath: false)
+                    alert.addButton(withTitle: "Run")
+                    alert.addButton(withTitle: "Close")
+                    return alert
+                }().runModal() == NSApplication.ModalResponse.alertFirstButtonReturn){
+                
+                let task = Process()
+                task.launchPath = "/bin/sh"
+                task.arguments = ["-c", self.syncWalkman.playlistUpdateCommand(absoluteCommandPath: true)]
+                print(task.arguments![1])
+                task.launch()
+                task.waitUntilExit()
             }
         }
     }
@@ -396,36 +342,21 @@ extension ViewController: NSTableViewDataSource{
             return 0
         }
         
-        switch tableView {
-        case self.tableView:
-            return self.syncWalkman.itl.playlists.count
-        case self.logTableView:
-            return self.log.count
-        default:
-            return 0
-        }
+        return self.syncWalkman.itl.playlists.count
     }
     
     func tableView(_ tableView: NSTableView, objectValueFor tableColumn: NSTableColumn?, row: Int) -> Any? {
         if self.isViewLoaded{
             guard let tableColumn = tableColumn else { return nil }
-            if tableView == self.tableView{
-                if tableColumn.identifier == NSUserInterfaceItemIdentifier("check"){
-                    for pl in self.sendPlaylists{
-                        if pl.id == self.syncWalkman.itl.playlists[row].id{
-                            return true
-                        }
+            if tableColumn.identifier == NSUserInterfaceItemIdentifier("check"){
+                for pl in self.sendPlaylists{
+                    if pl.id == self.syncWalkman.itl.playlists[row].id{
+                        return true
                     }
-                    return false
-                }else if tableColumn.identifier == NSUserInterfaceItemIdentifier("title"){
-                    return self.syncWalkman.itl.playlists[row].name
                 }
-            }else if tableView == self.logTableView{
-                if tableColumn.identifier == NSUserInterfaceItemIdentifier("Status"){
-                    return self.log[row].status
-                }else if tableColumn.identifier == NSUserInterfaceItemIdentifier("Message"){
-                    return self.log[row].message
-                }
+                return false
+            }else if tableColumn.identifier == NSUserInterfaceItemIdentifier("title"){
+                return self.syncWalkman.itl.playlists[row].name
             }
         }
         return nil
@@ -436,7 +367,7 @@ extension ViewController: NSTableViewDataSource{
 //MARK: TableView delegate
 extension ViewController: NSTableViewDelegate {
     func tableView(_ tableView: NSTableView, setObjectValue object: Any?, for tableColumn: NSTableColumn?, row: Int) {
-        if self.tableView == self.tableView && (tableColumn?.identifier ?? NSUserInterfaceItemIdentifier("")) == NSUserInterfaceItemIdentifier("check"){
+        if (tableColumn?.identifier ?? NSUserInterfaceItemIdentifier("")) == NSUserInterfaceItemIdentifier("check"){
             if (object as! Bool){
                 self.sendPlaylists.append(self.syncWalkman.itl.playlists[row])
             }else{
