@@ -246,7 +246,7 @@ extension SyncWalkman{
                 return ""
             }()
             
-            return str + "/usr/bin/cd \(config.walkmanPath)/MUSIC; for i in *.m3u; do mv \"$i\" \"$i.ori\"; /bin/cat \"$i.ori\" | /usr/local/bin/nkf --ic=UTF-8-MAC > \"$i\"; /bin/rm -rf \"$i.ori\"; done"
+            return str + "cd \(config.walkmanPath)/MUSIC; for i in *.m3u; do mv \"$i\" \"$i.ori\"; cat \"$i.ori\" | /usr/local/bin/nkf --ic=UTF-8-MAC > \"$i\"; rm -rf \"$i.ori\"; done"
         }else{
             let str = { () -> String in
                 if !FileManager.default.fileExists(atPath: "/usr/local/bin/nkf"){
@@ -255,7 +255,7 @@ extension SyncWalkman{
                 return ""
             }()
             
-            return str + "cd \(config.walkmanPath)/MUSIC;for i in *.m3u; do mv \"$i\" \"$i.ori\"; cat \"$i.ori\" | nkf --ic=UTF-8-MAC > \"$i\"; rm -rf \"$i.ori\"; done"
+            return str + "cd \(config.walkmanPath)/MUSIC; for i in *.m3u; do mv \"$i\" \"$i.ori\"; cat \"$i.ori\" | nkf --ic=UTF-8-MAC > \"$i\"; rm -rf \"$i.ori\"; done"
         }
     }
 }
