@@ -11,7 +11,6 @@ import Foundation
 extension SyncWalkman {
 
     
-    @available(*, introduced: 2.0)
     /// 転送するトラックを選択。for CUI
     ///
     /// - Returns: 転送するトラックと、そのインデックス
@@ -19,7 +18,6 @@ extension SyncWalkman {
         return SyncWalkman.selectSendTracks(itl: self.itl)
     }
     
-    @available(*, introduced: 1.0)
     /// 転送するトラックを選択。for CUI
     ///
     /// - Returns: 転送するトラックと、そのインデックス
@@ -58,7 +56,6 @@ extension SyncWalkman {
         }
     }
     
-    @available(*, introduced: 1.0)
     static func sha(path: String) -> String?{
         let task = Process()
         task.launchPath = "/usr/bin/shasum"
@@ -74,7 +71,6 @@ extension SyncWalkman {
         return nil
     }
     
-    @available(*, introduced: 1.0)
     static func modiDateAndSize(path: String) -> (Int, NSInteger)?{
         guard let attr: Dictionary = try? FileManager.default.attributesOfItem(atPath: path) else { return nil }
         guard let moddate: NSDate = attr[.modificationDate] as? NSDate else { return nil }
@@ -82,12 +78,10 @@ extension SyncWalkman {
         return (Int(moddate.timeIntervalSinceReferenceDate), size)
     }
     
-    @available(*, introduced: 1.0)
     public func send(tracks pl: Playlist){
         self.existsTrackFiles = SyncWalkman.send(tracks: pl, from: self.itl, config: self.config, exists: self.existsTrackFiles)
     }
     
-    @available(*, introduced: 1.0)
     public static func send(tracks pl: Playlist, from itl: iTunesLibraryDataStore, config: SyncWalkmanConfig, exists _existsTrackFiles: [String]) -> [String]{
         NotificationCenter.default.post(name: didStartSendTrack, object: nil, userInfo: ["count" : pl.trackIDs.count])
         var sentCount: Int = 0
@@ -154,12 +148,10 @@ extension SyncWalkman {
         return existsTrackFiles
     }
     
-    @available(*, introduced: 2.0)
     public func deleteTracks(){
         SyncWalkman.delete(existsTrackFiles: self.existsTrackFiles, config: self.config)
     }
     
-    @available(*, introduced: 1.0)
     public static func delete(existsTrackFiles: [String], config: SyncWalkmanConfig){
         NotificationCenter.default.post(name: didStartDeleteTrack, object: nil, userInfo: ["count" : existsTrackFiles.count])
         var deletedCount: Int = 0

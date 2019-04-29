@@ -43,7 +43,7 @@ public extension SyncWalkman{
     static let didDeletePlaylist: Notification.Name = Notification.Name("didDeletePlaylist") // path: String, count: Int, progress: Double
     static let didFinishDeletePlaylist: Notification.Name = Notification.Name("didFinishDeletePlaylist") // count: Int
     
-    public func addObserver(){
+    func addObserver(){
         NotificationCenter.default.addObserver(self, selector: #selector(self.updateProgress(_:)), name: SyncWalkman.didSendTrack, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.updateProgress(_:)), name: SyncWalkman.didSkipTrack, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.updateProgress(_:)), name: SyncWalkman.notfoundTrack, object: nil)

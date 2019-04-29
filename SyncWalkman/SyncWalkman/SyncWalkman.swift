@@ -37,7 +37,6 @@ Options:    -s: send song
 """
     
     public var config: SyncWalkmanConfig
-    @available(*, introduced: 1.0)
     public var itl: iTunesLibraryDataStore = iTunesLibraryDataStore()
     
     var existsTrackFiles: [String] = []
@@ -45,17 +44,14 @@ Options:    -s: send song
     
     @objc public dynamic var progress: Double = 0
     
-    @available(*, introduced: 1.0)
     public init(config: SyncWalkmanConfig){
         self.config = config
     }
     
-    @available(*, introduced: 1.0)
     convenience public init(argc: Int, argv: [String]){
         self.init(config: SyncWalkmanConfig(argc: argc, argv: argv))
     }
     
-    @available(*, introduced: 1.0, deprecated: 2.0)
     public func main_(){
         do{
             try self.requiresCheck()
@@ -109,7 +105,6 @@ Options:    -s: send song
         }
     }
     
-    @available(*, introduced: 2.0)
     public func main(){
         do{
             try self.requiresCheck()

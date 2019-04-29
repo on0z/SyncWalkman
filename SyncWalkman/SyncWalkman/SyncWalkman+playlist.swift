@@ -23,7 +23,6 @@ extension SyncWalkman{
      
      - Version: 1.0
      */
-    @available(*, introduced: 2.0)
     func selectSendPlaylists() -> [(Int, Playlist)]{
         return SyncWalkman.selectSendPlaylists(itl: self.itl)
     }
@@ -41,7 +40,6 @@ extension SyncWalkman{
      
      - Version: 1.0
      */
-    @available(*, introduced: 1.0)
     static func selectSendPlaylists(itl: iTunesLibraryDataStore) -> [(Int, Playlist)]{
         Log.shared.stdout("↓転送するプレイリストを空白区切で選択してください")
         for (i, pl) in itl.playlists.enumerated(){
@@ -116,12 +114,10 @@ extension SyncWalkman{
         }
     }
     
-    @available(*, introduced: 2.0)
     public func send(playlists pls: [Playlist]){
         self.existsPlaylistFiles = SyncWalkman.send(playlists: pls, from: self.itl, config: self.config, existsPlaylistFiles: self.existsPlaylistFiles)
     }
     
-    @available(*, introduced: 1.0)
     public static func send(playlists pls: [Playlist], from itl: iTunesLibraryDataStore, config: SyncWalkmanConfig, existsPlaylistFiles _existsPlaylistFiles: [String] = []) -> [String]{
         NotificationCenter.default.post(name: didStartSendPlaylist, object: nil, userInfo: ["count" : pls.count])
         var sentCount: Int = 0
@@ -179,12 +175,10 @@ extension SyncWalkman{
         return existsPlaylistFiles
     }
     
-    @available(*, introduced: 2.0)
     public func deletePlaylists(){
         SyncWalkman.delete(existsPlaylistFiles: self.existsPlaylistFiles, config: self.config)
     }
     
-    @available(*, introduced: 1.0)
     public static func delete(existsPlaylistFiles: [String], config: SyncWalkmanConfig){
         NotificationCenter.default.post(name: didStartDeletePlaylist, object: nil, userInfo: ["count" : existsPlaylistFiles.count])
         var deletedCount: Int = 0
@@ -202,12 +196,10 @@ extension SyncWalkman{
         NotificationCenter.default.post(name: didFinishDeletePlaylist, object: nil, userInfo: ["count" : deletedCount])
     }
     
-    @available(*, introduced: 2.0)
     public func showPlaylistUpdateMessage(gui: Bool = false){
         SyncWalkman.showPlaylistUpdateMessage(config: self.config, gui: gui)
     }
     
-    @available(*, introduced: 1.0)
     public static func showPlaylistUpdateMessage(config: SyncWalkmanConfig, gui: Bool = false){
         if gui{
             DispatchQueue.main.async {

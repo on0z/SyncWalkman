@@ -26,7 +26,6 @@ extension SyncWalkman{
      - /usr/bin/shasum
      - /bin/rm
      */
-    @available(*, introduced: 1.0)
     public func requiresCheck() throws{
         guard FileManager.default.fileExists(atPath: "/usr/bin/ditto") else {
             throw RequiredError.ditto
@@ -54,7 +53,6 @@ extension SyncWalkman{
      - Version: 1.0
      
      **/
-    @available(*, introduced: 1.0, deprecated: 2.0, message: "recommend to use loadITLib()")
     public func loadXML(config: SyncWalkmanConfig? = nil) throws{
         if let config = config{
             self.itl = try SyncWalkman.loadXML(xmlPath: config.itunesXmlPath, config: config)
@@ -76,7 +74,6 @@ extension SyncWalkman{
      - Version: 1.0
      
      **/
-    @available(*, introduced: 1.0, deprecated: 2.0, message: "recommend to use loadITLib()")
     public static func loadXML(xmlPath _xmlPath: String, config: SyncWalkmanConfig? = nil) throws -> iTunesLibraryDataStore{
         let xmlPath = URL(fileURLWithPath: _xmlPath)
         guard let parser = XMLParser(contentsOf: xmlPath) else{
@@ -98,7 +95,6 @@ extension SyncWalkman{
      
      - Version: 1.0
      **/
-    @available(*, introduced: 2.0)
     public static func loadITLib() throws -> iTunesLibraryDataStore{
         let _itl: ITLibrary = try ITLibrary(apiVersion: "1.0")
         return iTunesLibraryDataStore(
@@ -140,7 +136,6 @@ extension SyncWalkman{
      
      - version: 0.0
      */
-    @available(*, introduced: 2.0)
     public func enumerateExistsTrackFiles(){
         self.existsTrackFiles = SyncWalkman.enumerateExistsTrackFiles(config: self.config)
     }
@@ -152,7 +147,6 @@ extension SyncWalkman{
      
      - version: 0.0
      */
-    @available(*, introduced: 1.0)
     public static func enumerateExistsTrackFiles(config: SyncWalkmanConfig) -> [String]{
         var existsTrackFiles: [String] = []
         
@@ -176,7 +170,6 @@ extension SyncWalkman{
         return existsTrackFiles
     }
     
-    @available(*, introduced: 2.0)
     public func enumerateExistsPlaylistFiles(){
         self.existsPlaylistFiles = SyncWalkman.enumerateExistsPlaylistFiles(config: self.config)
     }
@@ -188,7 +181,6 @@ extension SyncWalkman{
      
      - version: 0.0
      */
-    @available(*, introduced: 1.0)
     public static func enumerateExistsPlaylistFiles(config: SyncWalkmanConfig) -> [String]{
         var existsPlaylistFiles: [String] = []
         
