@@ -238,24 +238,20 @@ extension SyncWalkman{
     }
     
     public static func playlistUpdateCommand(config: SyncWalkmanConfig, absoluteCommandPath acp: Bool) -> String{
+        return "cd \(config.walkmanPath)/MUSIC/ && for i in *.m3u; do mv \"$i\" \"$i.ori\"; cat \"$i.ori\" | iconv -c -f utf8-mac > \"$i\"; rm -rf \"$i.ori\"; done"
+        /*
         if acp{
-            let str = { () -> String in
-                if !FileManager.default.fileExists(atPath: "/usr/local/bin/nkf"){
-                    return "/usr/local/bin/brew install nkf && "
-                }
-                return ""
-            }()
-            
-            return str + "cd \(config.walkmanPath)/MUSIC; for i in *.m3u; do mv \"$i\" \"$i.ori\"; cat \"$i.ori\" | /usr/local/bin/nkf --ic=UTF-8-MAC > \"$i\"; rm -rf \"$i.ori\"; done"
+//            let str = { () -> String in
+//                if !FileManager.default.fileExists(atPath: "/usr/local/bin/nkf"){
+//                    return "/usr/local/bin/brew install nkf && "
+//                }
+//                return ""
+//            }()
+            //cd /Volumes/WALKMAN/MUSIC/ && for i in *.m3u; do mv "$i" "$i.ori"; cat "$i.ori" | iconv -c -f utf8-mac > "$i"; rm -rf "$i.ori"; done
+            //return str + "cd \(config.walkmanPath)/MUSIC/ && for i in *.m3u; do mv \"$i\" \"$i.ori\"; cat \"$i.ori\" | /usr/local/bin/nkf --ic=UTF-8-MAC > \"$i\"; rm -rf \"$i.ori\";
+            return "cd \(config.walkmanPath)/MUSIC/ && for i in *.m3u; do mv \"$i\" \"$i.ori\"; cat \"$i.ori\" | iconv -c -f utf8-mac > \"$i\"; rm -rf \"$i.ori\"; done"
         }else{
-            let str = { () -> String in
-                if !FileManager.default.fileExists(atPath: "/usr/local/bin/nkf"){
-                    return "brew install nkf && "
-                }
-                return ""
-            }()
-            
-            return str + "cd \(config.walkmanPath)/MUSIC; for i in *.m3u; do mv \"$i\" \"$i.ori\"; cat \"$i.ori\" | nkf --ic=UTF-8-MAC > \"$i\"; rm -rf \"$i.ori\"; done"
-        }
+            return "cd \(config.walkmanPath)/MUSIC/ && for i in *.m3u; do mv \"$i\" \"$i.ori\"; cat \"$i.ori\" | iconv -c -f utf8-mac > \"$i\"; rm -rf \"$i.ori\"; done"
+        }*/
     }
 }
