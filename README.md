@@ -1,9 +1,8 @@
 # SyncWalkman
-This is an intelligent app for synchronizing Walkman.
+This is a simple app to sync Walkman with iTunes.
 
 You can transfer tracks and playlists to walkman from iTunes graphically.
 
-This is beta (again. sorry.)  
 Japanese language main.
 
 language: swift 5, Xcode 10.2  
@@ -12,10 +11,13 @@ language: swift 5, Xcode 10.2
 Requires: 
 
 - /bin/rm
-- /usr/bin/shasum
+- /usr/bin/shasum (option)
 - /usr/bin/ditto
+- /usr/bin/iconv
+<!--
 - /usr/local/bin/nkf
     - you can install with brew.
+-->
 - ☑ Keep iTunes Media folder organized
 <!--
 - ☑ Share iTunes Library XML with other applications
@@ -34,3 +36,11 @@ Recommends:
 The log is displayed on the right.
 
 ![img](img/ss_ver2.png)
+
+# How to use (cui version)
+Please wait.
+
+# comment
+見た目が変わればメジャーアップデートします．
+内部が変わっても，見た目が変わらなければマイナーアップデートです．
+内部がめっちゃ変わるような大きなアップデートであれば，メジャーアップデートすることがあります．
