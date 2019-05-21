@@ -12,17 +12,46 @@ import SyncWalkman
 class LogViewController: NSViewController {
     
     var log: [(status: String, message: String)] = []
+    var showlog: [(status: String, message: String)] = []
 
     @IBOutlet weak var logTableView: NSTableView!
     @IBOutlet weak var resultLabel: NSTextField!
+    
+    @IBOutlet weak var foundButton: NSButton!
+    @IBOutlet weak var sentButton: NSButton!
+    @IBOutlet weak var skippedButton: NSButton!
+    @IBOutlet weak var deletedButton: NSButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do view setup here.
         
+        self.setupNotifications()
+        self.setupCheckButtonState()
+    }
+    
+}
+
+//MARK: Setup
+extension LogViewController{
+    func setupNotifications(){
         NotificationCenter.default.addObserver(forName: ViewController.didPushStartButton, object: nil, queue: nil) { (notification) in
             self.log.removeAll()
+            self.showlog.removeAll()
             self.resultLabel.stringValue = ""
+            self.foundButton.isEnabled = false
+            self.sentButton.isEnabled = false
+            self.skippedButton.isEnabled = false
+            self.deletedButton.isEnabled = false
+        }
+        
+        NotificationCenter.default.addObserver(forName: ViewController.didFinishAllProcess, object: nil, queue: nil) { (notification) in
+            DispatchQueue.main.async {
+                self.foundButton.isEnabled = true
+                self.sentButton.isEnabled = true
+                self.skippedButton.isEnabled = true
+                self.deletedButton.isEnabled = true
+            }
         }
         
         NotificationCenter.default.addObserver(self, selector: #selector(self.didFoundFile(_:)), name: SyncWalkman.didFoundTrackFile, object: nil)
@@ -39,35 +68,57 @@ class LogViewController: NSViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(self.didFinish(_:)), name: SyncWalkman.didFinishDeletePlaylist, object: nil)
     }
     
+    func setupCheckButtonState(){
+        self.foundButton.state = SyncWalkmanManager.shared.syncWalkman.config.printStateFound ? .on : .off
+        self.sentButton.state = SyncWalkmanManager.shared.syncWalkman.config.printStateSent ? .on : .off
+        self.skippedButton.state = SyncWalkmanManager.shared.syncWalkman.config.printStateSkipped ? .on : .off
+        self.deletedButton.state = SyncWalkmanManager.shared.syncWalkman.config.printStateDeleted ? .on : .off
+    }
+}
+
+
+//MAK: Notification
+extension LogViewController{
     @objc func didFoundFile(_ noti: Notification){
-        self.log.append((status: "found", message: noti.userInfo!["path"] as! String))
-        DispatchQueue.main.async {
-            self.logTableView.reloadData()
-            self.logTableView.scrollRowToVisible(self.log.count - 1)
+        let element = (status: "found", message: noti.userInfo!["path"] as! String)
+        self.log.append(element)
+        if SyncWalkmanManager.shared.syncWalkman.config.printStateFound{
+            self.showlog.append(element)
         }
+        self.scrollToEnd()
     }
     
     @objc func didSendFile(_ noti: Notification){
-        self.log.append((status: "sent", message: noti.userInfo!["topath"] as! String))
-        DispatchQueue.main.async {
-            self.logTableView.reloadData()
-            self.logTableView.scrollRowToVisible(self.log.count - 1)
+        let element = (status: "sent", message: noti.userInfo!["topath"] as! String)
+        self.log.append(element)
+        if SyncWalkmanManager.shared.syncWalkman.config.printStateSent{
+            self.showlog.append(element)
         }
+        self.scrollToEnd()
     }
     
     @objc func didSkipFile(_ noti: Notification){
-        self.log.append((status: "skipped", message: noti.userInfo!["topath"] as! String))
-        DispatchQueue.main.async {
-            self.logTableView.reloadData()
-            self.logTableView.scrollRowToVisible(self.log.count - 1)
+        let element = (status: "skipped", message: noti.userInfo!["topath"] as! String)
+        self.log.append(element)
+        if SyncWalkmanManager.shared.syncWalkman.config.printStateSkipped{
+            self.showlog.append(element)
         }
+        self.scrollToEnd()
     }
     
     @objc func didDeleteFile(_ noti: Notification){
-        self.log.append((status: "deleted", message: noti.userInfo!["path"] as! String))
+        let element = (status: "deleted", message: noti.userInfo!["path"] as! String)
+        self.log.append(element)
+        if SyncWalkmanManager.shared.syncWalkman.config.printStateDeleted{
+            self.showlog.append(element)
+        }
+        self.scrollToEnd()
+    }
+    
+    func scrollToEnd(){
         DispatchQueue.main.async {
             self.logTableView.reloadData()
-            self.logTableView.scrollRowToVisible(self.log.count - 1)
+            self.logTableView.scrollRowToVisible(self.showlog.count - 1)
         }
     }
     
@@ -95,6 +146,48 @@ class LogViewController: NSViewController {
     }
 }
 
+//MARK: IB Action
+extension LogViewController{
+    @IBAction func changeCheckButton(sender: NSButton){
+        switch sender.tag{
+        case 0:
+            SyncWalkmanManager.shared.syncWalkman.config.printStateFound = (sender.state == .on)
+        case 1:
+            SyncWalkmanManager.shared.syncWalkman.config.printStateSent = (sender.state == .on)
+        case 2:
+            SyncWalkmanManager.shared.syncWalkman.config.printStateSkipped = (sender.state == .on)
+        case 3:
+            SyncWalkmanManager.shared.syncWalkman.config.printStateDeleted = (sender.state == .on)
+        default:
+            break
+        }
+        self.showlog = self.log.filter({ (status: String, message: String) -> Bool in
+            if status == "skipped"{
+                if SyncWalkmanManager.shared.syncWalkman.config.printStateSkipped{
+                    return true
+                }
+                return false
+            }else if status == "found"{
+                if SyncWalkmanManager.shared.syncWalkman.config.printStateFound{
+                    return true
+                }
+                return false
+            }else if status == "sent" {
+                if SyncWalkmanManager.shared.syncWalkman.config.printStateSent{
+                    return true
+                }
+                return false
+            }else if status == "deleted"{
+                if SyncWalkmanManager.shared.syncWalkman.config.printStateDeleted{
+                    return true
+                }
+                return false
+            }
+            return false
+        })
+    }
+}
+
 //MARK: TableView data source
 extension LogViewController: NSTableViewDataSource{
     
@@ -103,16 +196,16 @@ extension LogViewController: NSTableViewDataSource{
             return 0
         }
         
-        return self.log.count
+        return self.showlog.count
     }
     
     func tableView(_ tableView: NSTableView, objectValueFor tableColumn: NSTableColumn?, row: Int) -> Any? {
         if self.isViewLoaded{
             guard let tableColumn = tableColumn else { return nil }
             if tableColumn.identifier == NSUserInterfaceItemIdentifier("Status"){
-                return self.log[row].status
+                return self.showlog[row].status
             }else if tableColumn.identifier == NSUserInterfaceItemIdentifier("Message"){
-                return self.log[row].message
+                return self.showlog[row].message
             }
         }
         return nil

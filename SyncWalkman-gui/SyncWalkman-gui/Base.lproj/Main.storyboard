@@ -184,9 +184,9 @@
                 <splitViewController id="on9-0H-sA3" sceneMemberID="viewController">
                     <splitViewItems>
                         <splitViewItem id="fuY-Hw-sDS"/>
-                        <splitViewItem canCollapse="YES" id="NSn-HP-U12"/>
+                        <splitViewItem canCollapse="YES" collapsed="YES" id="NSn-HP-U12"/>
                     </splitViewItems>
-                    <splitView key="splitView" autosaveName="split1" vertical="YES" id="qTm-OZ-Qfc">
+                    <splitView key="splitView" autosaveName="split1AutoSave" vertical="YES" id="qTm-OZ-Qfc">
                         <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <connections>
@@ -200,7 +200,7 @@
                     </connections>
                 </splitViewController>
             </objects>
-            <point key="canvasLocation" x="75" y="1211"/>
+            <point key="canvasLocation" x="75" y="1245"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="hIz-AP-VOD">
@@ -477,7 +477,7 @@
                                             <rect key="frame" x="1" y="0.0" width="493" height="199"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <subviews>
-                                                <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" headerView="SYL-K6-MBw" id="uks-jZ-BRI">
+                                                <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" emptySelection="NO" autosaveColumns="NO" typeSelect="NO" autosaveName="playlistTableViewAutoSave" headerView="SYL-K6-MBw" id="uks-jZ-BRI">
                                                     <rect key="frame" x="0.0" y="0.0" width="493" height="174"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <size key="intercellSpacing" width="3" height="2"/>
@@ -632,7 +632,7 @@
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-225" y="1818"/>
+            <point key="canvasLocation" x="-126" y="1851"/>
         </scene>
         <!--Log View Controller-->
         <scene sceneID="O6K-qA-eTI">
@@ -645,14 +645,81 @@
                             <stackView distribution="fillProportionally" orientation="vertical" alignment="leading" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xfa-pC-dP9">
                                 <rect key="frame" x="20" y="20" width="390" height="502"/>
                                 <subviews>
+                                    <stackView distribution="equalSpacing" orientation="horizontal" alignment="centerY" spacing="5" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dpg-Iu-nYa">
+                                        <rect key="frame" x="0.0" y="485" width="390" height="17"/>
+                                        <subviews>
+                                            <textField horizontalHuggingPriority="249" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="SPP-FF-AoI">
+                                                <rect key="frame" x="-2" y="0.0" width="135" height="17"/>
+                                                <textFieldCell key="cell" lineBreakMode="clipping" alignment="right" title="Show:" id="60N-rn-otI">
+                                                    <font key="font" metaFont="system"/>
+                                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                </textFieldCell>
+                                            </textField>
+                                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="8Oj-or-VfV">
+                                                <rect key="frame" x="134" y="0.0" width="60" height="18"/>
+                                                <buttonCell key="cell" type="check" title="Found" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="1EK-3n-pqg">
+                                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                    <font key="font" metaFont="system"/>
+                                                </buttonCell>
+                                                <connections>
+                                                    <action selector="changeCheckButtonWithSender:" target="vAB-dN-Oyd" id="gu0-2Q-1Ii"/>
+                                                </connections>
+                                            </button>
+                                            <button verticalHuggingPriority="750" tag="1" translatesAutoresizingMaskIntoConstraints="NO" id="98k-kD-0t7">
+                                                <rect key="frame" x="195" y="0.0" width="53" height="18"/>
+                                                <buttonCell key="cell" type="check" title="Send" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="Fyk-EC-CfM">
+                                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                    <font key="font" metaFont="system"/>
+                                                </buttonCell>
+                                                <connections>
+                                                    <action selector="changeCheckButtonWithSender:" target="vAB-dN-Oyd" id="zsR-N4-5vt"/>
+                                                </connections>
+                                            </button>
+                                            <button verticalHuggingPriority="750" tag="2" translatesAutoresizingMaskIntoConstraints="NO" id="QjA-IZ-T72">
+                                                <rect key="frame" x="249" y="0.0" width="72" height="18"/>
+                                                <buttonCell key="cell" type="check" title="Skipped" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="R9f-es-jej">
+                                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                    <font key="font" metaFont="system"/>
+                                                </buttonCell>
+                                                <connections>
+                                                    <action selector="changeCheckButtonWithSender:" target="vAB-dN-Oyd" id="XHN-70-1X0"/>
+                                                </connections>
+                                            </button>
+                                            <button verticalHuggingPriority="750" tag="3" translatesAutoresizingMaskIntoConstraints="NO" id="UfQ-cz-E4O">
+                                                <rect key="frame" x="322" y="0.0" width="70" height="18"/>
+                                                <buttonCell key="cell" type="check" title="Deleted" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="wQ6-yz-zEP">
+                                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                    <font key="font" metaFont="system"/>
+                                                </buttonCell>
+                                                <connections>
+                                                    <action selector="changeCheckButtonWithSender:" target="vAB-dN-Oyd" id="RCG-4J-gX6"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <visibilityPriorities>
+                                            <integer value="1000"/>
+                                            <integer value="1000"/>
+                                            <integer value="1000"/>
+                                            <integer value="1000"/>
+                                            <integer value="1000"/>
+                                        </visibilityPriorities>
+                                        <customSpacing>
+                                            <real value="3.4028234663852886e+38"/>
+                                            <real value="3.4028234663852886e+38"/>
+                                            <real value="3.4028234663852886e+38"/>
+                                            <real value="3.4028234663852886e+38"/>
+                                            <real value="3.4028234663852886e+38"/>
+                                        </customSpacing>
+                                    </stackView>
                                     <scrollView autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DQF-pq-vsv">
-                                        <rect key="frame" x="0.0" y="44" width="390" height="458"/>
+                                        <rect key="frame" x="0.0" y="44" width="390" height="433"/>
                                         <clipView key="contentView" id="ipX-Z3-Ole">
-                                            <rect key="frame" x="1" y="0.0" width="388" height="457"/>
+                                            <rect key="frame" x="1" y="0.0" width="388" height="432"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <subviews>
                                                 <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnReordering="NO" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowSizeStyle="automatic" headerView="3QP-i9-2OV" viewBased="YES" id="bC3-IO-Eg1">
-                                                    <rect key="frame" x="0.0" y="0.0" width="388" height="432"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="388" height="407"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <size key="intercellSpacing" width="3" height="2"/>
                                                     <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -722,12 +789,15 @@
                                 </subviews>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="DQF-pq-vsv" secondAttribute="trailing" id="JVY-dN-DrR"/>
+                                    <constraint firstItem="dpg-Iu-nYa" firstAttribute="width" secondItem="xfa-pC-dP9" secondAttribute="width" id="T1q-Lv-itM"/>
                                 </constraints>
                                 <visibilityPriorities>
                                     <integer value="1000"/>
                                     <integer value="1000"/>
+                                    <integer value="1000"/>
                                 </visibilityPriorities>
                                 <customSpacing>
+                                    <real value="3.4028234663852886e+38"/>
                                     <real value="3.4028234663852886e+38"/>
                                     <real value="3.4028234663852886e+38"/>
                                 </customSpacing>
@@ -741,13 +811,17 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="deletedButton" destination="UfQ-cz-E4O" id="oYD-mt-G3V"/>
+                        <outlet property="foundButton" destination="8Oj-or-VfV" id="tD6-fv-DaG"/>
                         <outlet property="logTableView" destination="bC3-IO-Eg1" id="v6n-84-qQ9"/>
                         <outlet property="resultLabel" destination="X3p-c5-buy" id="xuj-mR-C8Y"/>
+                        <outlet property="sentButton" destination="98k-kD-0t7" id="J0K-QH-d1f"/>
+                        <outlet property="skippedButton" destination="QjA-IZ-T72" id="QAc-uO-2yr"/>
                     </connections>
                 </viewController>
                 <customObject id="D9d-Q9-Adw" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="322" y="1818"/>
+            <point key="canvasLocation" x="368" y="1850"/>
         </scene>
     </scenes>
 </document>
