@@ -27,11 +27,11 @@ public class SyncWalkmanConfig{
     public var sendMode: SendMode
     public var doDelete: Bool
 
-    var printStateFound: Bool
-    var printStateSent: Bool
-    var printStateSkipped: Bool
-    var printStateDeleted: Bool
-    var printStateFunction: Bool
+    public var printStateFound: Bool
+    public var printStateSent: Bool
+    public var printStateSkipped: Bool
+    public var printStateDeleted: Bool
+    public var printStateFunction: Bool
     var dryDo: Bool
 
     public init(guiMode: Bool = false,
