@@ -75,6 +75,8 @@ extension ViewController{
         if sender.tag == 0 {
             if self.itunesXmlPathLabel.stringValue == "iTunesライブラリは.itlファイルから読み込まれています"{
                 self.loadITLib()
+                self.loadSendTrackList()
+                self.loadSendPlaylists()
             }else{
                 let panel = NSOpenPanel()
                 panel.allowsMultipleSelection = false
