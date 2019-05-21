@@ -12,6 +12,7 @@
 		4B220CFE22356BC700B6F694 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B220CFD22356BC700B6F694 /* ViewController.swift */; };
 		4B220D0022356BC800B6F694 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4B220CFF22356BC800B6F694 /* Assets.xcassets */; };
 		4B220D0322356BC800B6F694 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4B220D0122356BC800B6F694 /* Main.storyboard */; };
+		4B80E0A3228EF1C700707B34 /* SyncWalkmanManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B80E0A2228EF1C700707B34 /* SyncWalkmanManager.swift */; };
 		4B93843A223A430E004A71FF /* SyncWalkman.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BA31BF92236DB97002C3AB7 /* SyncWalkman.framework */; };
 		4B93843B223A430E004A71FF /* SyncWalkman.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4BA31BF92236DB97002C3AB7 /* SyncWalkman.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
@@ -56,6 +57,7 @@
 		4B220D0222356BC800B6F694 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4B220D0422356BC800B6F694 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4B220D0522356BC800B6F694 /* SyncWalkman_gui.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SyncWalkman_gui.entitlements; sourceTree = "<group>"; };
+		4B80E0A2228EF1C700707B34 /* SyncWalkmanManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyncWalkmanManager.swift; sourceTree = "<group>"; };
 		4BA31BF42236DB97002C3AB7 /* SyncWalkman.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SyncWalkman.xcodeproj; path = ../SyncWalkman/SyncWalkman.xcodeproj; sourceTree = "<group>"; };
 		4BC2FEF722366A9900039A4E /* SyncWalkman-gui.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "SyncWalkman-gui.entitlements"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -94,6 +96,7 @@
 			children = (
 				4BC2FEF722366A9900039A4E /* SyncWalkman-gui.entitlements */,
 				4B220CFB22356BC700B6F694 /* AppDelegate.swift */,
+				4B80E0A2228EF1C700707B34 /* SyncWalkmanManager.swift */,
 				4B220CFD22356BC700B6F694 /* ViewController.swift */,
 				4B0CFE902247D21200E133AC /* LogViewController.swift */,
 				4B220CFF22356BC800B6F694 /* Assets.xcassets */,
@@ -208,6 +211,7 @@
 			files = (
 				4B0CFE912247D21200E133AC /* LogViewController.swift in Sources */,
 				4B220CFE22356BC700B6F694 /* ViewController.swift in Sources */,
+				4B80E0A3228EF1C700707B34 /* SyncWalkmanManager.swift in Sources */,
 				4B220CFC22356BC700B6F694 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

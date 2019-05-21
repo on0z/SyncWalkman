@@ -11,14 +11,6 @@ import SyncWalkman
 
 class ViewController: NSViewController {
     
-    var syncWalkman: SyncWalkman = SyncWalkman(config: SyncWalkmanConfig(
-        xmlPath: "",
-        walkmanPath: "",
-        sendTrack: false,
-        sendPlaylist: false,
-        mode: .normal,
-        doDelete: false))
-    
     var observers = [NSKeyValueObservation]()
     
     @IBOutlet weak var tableView: NSTableView!
@@ -50,7 +42,7 @@ class ViewController: NSViewController {
         self.tableView.headerView = nil
         
         do{
-            try self.syncWalkman.requiresCheck()
+            try SyncWalkmanManager.shared.syncWalkman.requiresCheck()
         } catch let error{
             NSAlert(error: error).runModal()
         }
@@ -59,7 +51,7 @@ class ViewController: NSViewController {
         self.setupState()
         self.setupObserver()
         
-        self.syncWalkman.productName = "SyncWalkman-gui version 1.0\n"
+        SyncWalkmanManager.shared.syncWalkman.productName = "SyncWalkman-gui version 1.0\n"
         //        Log.shared.gui = true
         if !UserDefaults.standard.bool(forKey: "loadFromXML"){
 //            UserDefaults.standard.set(false, forKey: "loadFromXML")
@@ -97,16 +89,16 @@ extension ViewController{
                             path = String(path.dropFirst(7))
                         }
                         print(path)
-                        self.syncWalkman.config.itunesXmlPath = path
+                        SyncWalkmanManager.shared.syncWalkman.config.itunesXmlPath = path
                         UserDefaults.standard.set(path, forKey: "itunesXmlPath")
                         self.itunesXmlPathLabel.stringValue = path
                         
                         // loadXML
                         do{
-                            try self.syncWalkman.loadXML()
+                            try SyncWalkmanManager.shared.syncWalkman.loadXML()
                             self.tableView.reloadData()
                             self.sendTrackList.removeAllItems()
-                            self.sendTrackList.addItems(withTitles: self.syncWalkman.itl.playlists.enumerated().map({"\($0)\t\($1.name)"}))
+                            self.sendTrackList.addItems(withTitles: SyncWalkmanManager.shared.syncWalkman.itl.playlists.enumerated().map({"\($0)\t\($1.name)"}))
                             self.loadSendTrackList()
                             self.loadSendPlaylists()
                         } catch let error{
@@ -136,9 +128,9 @@ extension ViewController{
                         path = String(path.dropFirst(7))
                     }
                     print(path)
-                    self.syncWalkman.config.walkmanPath = path
-                    UserDefaults.standard.set(self.syncWalkman.config.walkmanPath, forKey: "walkmanPath")
-                    self.walkmanPathLabel.stringValue = self.syncWalkman.config.walkmanPath
+                    SyncWalkmanManager.shared.syncWalkman.config.walkmanPath = path
+                    UserDefaults.standard.set(SyncWalkmanManager.shared.syncWalkman.config.walkmanPath, forKey: "walkmanPath")
+                    self.walkmanPathLabel.stringValue = SyncWalkmanManager.shared.syncWalkman.config.walkmanPath
                 }
             }
         }
@@ -147,29 +139,29 @@ extension ViewController{
     @IBAction func selectedCheckButton(_ sender: NSButton){
         switch sender.tag{
         case 0:
-            self.syncWalkman.config.sendTrack = (sender.state == .on)
-            UserDefaults.standard.set(self.syncWalkman.config.sendTrack, forKey: "sendTrack")
+            SyncWalkmanManager.shared.syncWalkman.config.sendTrack = (sender.state == .on)
+            UserDefaults.standard.set(SyncWalkmanManager.shared.syncWalkman.config.sendTrack, forKey: "sendTrack")
         case 1:
-            self.syncWalkman.config.sendPlaylist = (sender.state == .on)
-            UserDefaults.standard.set(self.syncWalkman.config.sendPlaylist, forKey: "sendPlaylist")
+            SyncWalkmanManager.shared.syncWalkman.config.sendPlaylist = (sender.state == .on)
+            UserDefaults.standard.set(SyncWalkmanManager.shared.syncWalkman.config.sendPlaylist, forKey: "sendPlaylist")
         case 2:
-            self.syncWalkman.config.doDelete = (sender.state == .on)
-            UserDefaults.standard.set(self.syncWalkman.config.doDelete, forKey: "doDelete")
+            SyncWalkmanManager.shared.syncWalkman.config.doDelete = (sender.state == .on)
+            UserDefaults.standard.set(SyncWalkmanManager.shared.syncWalkman.config.doDelete, forKey: "doDelete")
         default:
             print("🐶 selectedCheckButton(_:) : whatButton?")
         }
     }
     
     @IBAction func selectedRadio(sender: NSButton){
-        self.syncWalkman.config.sendMode = SyncWalkmanConfig.SendMode(rawValue: sender.tag % 4) ?? .normal
-        UserDefaults.standard.set(self.syncWalkman.config.sendMode.rawValue, forKey: "sendMode")
+        SyncWalkmanManager.shared.syncWalkman.config.sendMode = SyncWalkmanConfig.SendMode(rawValue: sender.tag % 4) ?? .normal
+        UserDefaults.standard.set(SyncWalkmanManager.shared.syncWalkman.config.sendMode.rawValue, forKey: "sendMode")
     }
     
     @IBAction func selectOrDeselectAll(_ sender: NSButton) {
-        if self.sendPlaylists.count == self.syncWalkman.itl.playlists.count{
+        if self.sendPlaylists.count == SyncWalkmanManager.shared.syncWalkman.itl.playlists.count{
             self.sendPlaylists.removeAll()
         }else{
-            self.sendPlaylists = self.syncWalkman.itl.playlists
+            self.sendPlaylists = SyncWalkmanManager.shared.syncWalkman.itl.playlists
         }
         self.tableView.reloadData()
     }
@@ -194,29 +186,31 @@ extension ViewController{
     }
     
     static let didPushStartButton: Notification.Name = Notification.Name("didPushStartButton")
+    static let didFinishAllProcess: Notification.Name = Notification.Name("didFinishAllProcess")
     
     @IBAction func send(_ sender: NSButton) {
-        UserDefaults.standard.set(self.syncWalkman.itl.playlists[self.sendTrackList.indexOfSelectedItem].id, forKey: "sendTrackList")
+        UserDefaults.standard.set(SyncWalkmanManager.shared.syncWalkman.itl.playlists[self.sendTrackList.indexOfSelectedItem].id, forKey: "sendTrackList")
         
         NotificationCenter.default.post(name: ViewController.didPushStartButton, object: nil)
         
         let selectedTrackListIndex = self.sendTrackList.indexOfSelectedItem
         
         DispatchQueue.global(qos: .default).async {
-            if self.syncWalkman.config.sendTrack{
-                self.syncWalkman.enumerateExistsTrackFiles()
-                self.syncWalkman.send(tracks: self.syncWalkman.itl.playlists[selectedTrackListIndex])
-                if self.syncWalkman.config.doDelete{
-                    self.syncWalkman.deleteTracks()
+            if SyncWalkmanManager.shared.syncWalkman.config.sendTrack{
+                SyncWalkmanManager.shared.syncWalkman.enumerateExistsTrackFiles()
+                SyncWalkmanManager.shared.syncWalkman.send(tracks: SyncWalkmanManager.shared.syncWalkman.itl.playlists[selectedTrackListIndex])
+                if SyncWalkmanManager.shared.syncWalkman.config.doDelete{
+                    SyncWalkmanManager.shared.syncWalkman.deleteTracks()
                 }
             }
-            if self.syncWalkman.config.sendPlaylist{
-                self.syncWalkman.enumerateExistsPlaylistFiles()
-                self.syncWalkman.send(playlists: self.sendPlaylists)
-                if self.syncWalkman.config.doDelete{
-                    self.syncWalkman.deletePlaylists()
+            if SyncWalkmanManager.shared.syncWalkman.config.sendPlaylist{
+                SyncWalkmanManager.shared.syncWalkman.enumerateExistsPlaylistFiles()
+                SyncWalkmanManager.shared.syncWalkman.send(playlists: self.sendPlaylists)
+                if SyncWalkmanManager.shared.syncWalkman.config.doDelete{
+                    SyncWalkmanManager.shared.syncWalkman.deletePlaylists()
                 }
             }
+            NotificationCenter.default.post(name: ViewController.didFinishAllProcess, object: nil)
         }
     }
     
@@ -227,23 +221,23 @@ extension ViewController{
     
     func loadUserDefault(){
         if let itunesXmlPath = UserDefaults.standard.object(forKey: "itunesXmlPath") as? String{
-            self.syncWalkman.config.itunesXmlPath = itunesXmlPath
+            SyncWalkmanManager.shared.syncWalkman.config.itunesXmlPath = itunesXmlPath
             self.itunesXmlPathLabel.stringValue = itunesXmlPath
         }
         if let walkmanPath = UserDefaults.standard.object(forKey: "walkmanPath") as? String{
-            self.syncWalkman.config.walkmanPath = walkmanPath
+            SyncWalkmanManager.shared.syncWalkman.config.walkmanPath = walkmanPath
             self.walkmanPathLabel.stringValue = walkmanPath
         }
-        self.syncWalkman.config.sendTrack = UserDefaults.standard.bool(forKey: "sendTrack")
-        self.syncWalkman.config.sendPlaylist = UserDefaults.standard.bool(forKey: "sendPlaylist")
-        self.syncWalkman.config.sendMode = SyncWalkmanConfig.SendMode(rawValue: UserDefaults.standard.integer(forKey: "sendMode")) ?? .normal
-        self.syncWalkman.config.doDelete = UserDefaults.standard.bool(forKey: "doDelete")
+        SyncWalkmanManager.shared.syncWalkman.config.sendTrack = UserDefaults.standard.bool(forKey: "sendTrack")
+        SyncWalkmanManager.shared.syncWalkman.config.sendPlaylist = UserDefaults.standard.bool(forKey: "sendPlaylist")
+        SyncWalkmanManager.shared.syncWalkman.config.sendMode = SyncWalkmanConfig.SendMode(rawValue: UserDefaults.standard.integer(forKey: "sendMode")) ?? .normal
+        SyncWalkmanManager.shared.syncWalkman.config.doDelete = UserDefaults.standard.bool(forKey: "doDelete")
     }
     
     func setupState(){
-        self.isSendTrackButton.state = self.syncWalkman.config.sendTrack ? .on : .off
-        self.isSendPlayListButton.state = self.syncWalkman.config.sendPlaylist ? .on : .off
-        switch self.syncWalkman.config.sendMode.rawValue{
+        self.isSendTrackButton.state = SyncWalkmanManager.shared.syncWalkman.config.sendTrack ? .on : .off
+        self.isSendPlayListButton.state = SyncWalkmanManager.shared.syncWalkman.config.sendPlaylist ? .on : .off
+        switch SyncWalkmanManager.shared.syncWalkman.config.sendMode.rawValue{
         case 1:
             self.updateRadioButton.state = .on
         case 2:
@@ -253,15 +247,15 @@ extension ViewController{
         default:
             self.normalRadioButton.state = .on
         }
-        self.doDeleteButton.state = self.syncWalkman.config.doDelete ? .on : .off
+        self.doDeleteButton.state = SyncWalkmanManager.shared.syncWalkman.config.doDelete ? .on : .off
     }
     
     func setupObserver(){
-        self.syncWalkman.addObserver()
+        SyncWalkmanManager.shared.syncWalkman.addObserver()
         
         NotificationCenter.default.addObserver(self, selector: #selector(self.didFinish(_:)), name: SyncWalkman.didFinishSendPlaylist, object: nil)
         
-        self.observers.append(self.syncWalkman.observe(\.progress, options: .new, changeHandler: { (log, change) in
+        self.observers.append(SyncWalkmanManager.shared.syncWalkman.observe(\.progress, options: .new, changeHandler: { (log, change) in
             DispatchQueue.main.async {
                 self.progressIndicator.doubleValue = change.newValue ?? 0
             }
@@ -270,12 +264,12 @@ extension ViewController{
     
     func loadITLib(){
         do{
-            self.syncWalkman.itl = try SyncWalkman.loadITLib()
+            SyncWalkmanManager.shared.syncWalkman.itl = try SyncWalkman.loadITLib()
             self.itunesXmlPathLabel.stringValue = "iTunesライブラリは.itlファイルから読み込まれています"
             self.itunesXmlSelectButton.title = "再読み込み"
             self.tableView.reloadData()
             self.sendTrackList.removeAllItems()
-            self.sendTrackList.addItems(withTitles: self.syncWalkman.itl.playlists.enumerated().map({"\($0)\t\($1.name)"}))
+            self.sendTrackList.addItems(withTitles: SyncWalkmanManager.shared.syncWalkman.itl.playlists.enumerated().map({"\($0)\t\($1.name)"}))
         } catch let error{
             //            "!Error: Unknow Error occurred. Failed to load iTunes Library. \(error)"
             let alert = NSAlert(error: error)
@@ -285,7 +279,7 @@ extension ViewController{
     
     func loadSendTrackList(){
         let id = UserDefaults.standard.integer(forKey: "sendTrackList")
-        for (i, pl) in self.syncWalkman.itl.playlists.enumerated(){
+        for (i, pl) in SyncWalkmanManager.shared.syncWalkman.itl.playlists.enumerated(){
             if pl.id == id{
                 self.sendTrackList.selectItem(at: i)
                 return
@@ -297,7 +291,7 @@ extension ViewController{
         guard let ids = UserDefaults.standard.object(forKey: "sendPlaylists") as? [Int] else { return }
         
         self.sendPlaylists = ids.compactMap({ (id) -> Playlist? in
-            for pl in self.syncWalkman.itl.playlists{
+            for pl in SyncWalkmanManager.shared.syncWalkman.itl.playlists{
                 if pl.id == id{
                     return pl
                 }
@@ -316,7 +310,7 @@ extension ViewController{
             if ({ () -> NSAlert in
                     let alert = NSAlert()
                     alert.messageText = "Please run the below code"
-                    alert.informativeText = "$ " + self.syncWalkman.playlistUpdateCommand(absoluteCommandPath: false)
+                    alert.informativeText = "$ " + SyncWalkmanManager.shared.syncWalkman.playlistUpdateCommand(absoluteCommandPath: false)
                     alert.addButton(withTitle: "Run")
                     alert.addButton(withTitle: "Close")
                     return alert
@@ -324,8 +318,7 @@ extension ViewController{
                 
                 let task = Process()
                 task.launchPath = "/bin/sh"
-                task.arguments = ["-c", self.syncWalkman.playlistUpdateCommand(absoluteCommandPath: true)]
-                print(task.arguments![1])
+                task.arguments = ["-c", SyncWalkmanManager.shared.syncWalkman.playlistUpdateCommand(absoluteCommandPath: true)]
                 task.launch()
                 task.waitUntilExit()
             }
@@ -342,7 +335,7 @@ extension ViewController: NSTableViewDataSource{
             return 0
         }
         
-        return self.syncWalkman.itl.playlists.count
+        return SyncWalkmanManager.shared.syncWalkman.itl.playlists.count
     }
     
     func tableView(_ tableView: NSTableView, objectValueFor tableColumn: NSTableColumn?, row: Int) -> Any? {
@@ -350,13 +343,13 @@ extension ViewController: NSTableViewDataSource{
             guard let tableColumn = tableColumn else { return nil }
             if tableColumn.identifier == NSUserInterfaceItemIdentifier("check"){
                 for pl in self.sendPlaylists{
-                    if pl.id == self.syncWalkman.itl.playlists[row].id{
+                    if pl.id == SyncWalkmanManager.shared.syncWalkman.itl.playlists[row].id{
                         return true
                     }
                 }
                 return false
             }else if tableColumn.identifier == NSUserInterfaceItemIdentifier("title"){
-                return self.syncWalkman.itl.playlists[row].name
+                return SyncWalkmanManager.shared.syncWalkman.itl.playlists[row].name
             }
         }
         return nil
@@ -368,11 +361,15 @@ extension ViewController: NSTableViewDataSource{
 extension ViewController: NSTableViewDelegate {
     func tableView(_ tableView: NSTableView, setObjectValue object: Any?, for tableColumn: NSTableColumn?, row: Int) {
         if (tableColumn?.identifier ?? NSUserInterfaceItemIdentifier("")) == NSUserInterfaceItemIdentifier("check"){
-            if (object as! Bool){
-                self.sendPlaylists.append(self.syncWalkman.itl.playlists[row])
-            }else{
-                self.sendPlaylists = self.sendPlaylists.filter({$0.id != self.syncWalkman.itl.playlists[row].id})
+            let selectedRowIndexes = tableView.selectedRowIndexes
+            for index in selectedRowIndexes{
+                self.sendPlaylists = self.sendPlaylists.filter({$0.id != SyncWalkmanManager.shared.syncWalkman.itl.playlists[index].id})
+                if (object as! Bool){
+                    self.sendPlaylists.append(SyncWalkmanManager.shared.syncWalkman.itl.playlists[index])
+                }
             }
+            tableView.reloadData()
+//            tableView.selectRowIndexes(<#T##indexes: IndexSet##IndexSet#>, byExtendingSelection: <#T##Bool#>)
             UserDefaults.standard.set(self.sendPlaylists.map({$0.id}), forKey: "sendPlaylists")
         }
     }
