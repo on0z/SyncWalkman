@@ -39,8 +39,6 @@ class ViewController: NSViewController {
         
         // Do any additional setup after loading the view.
         
-        self.tableView.headerView = nil
-        
         do{
             try SyncWalkmanManager.shared.syncWalkman.requiresCheck()
         } catch let error{
@@ -51,7 +49,7 @@ class ViewController: NSViewController {
         self.setupState()
         self.setupObserver()
         
-        SyncWalkmanManager.shared.syncWalkman.productName = "SyncWalkman-gui version 1.0\n"
+        SyncWalkmanManager.shared.syncWalkman.productName = "SyncWalkman-gui version 3.0\n"
         //        Log.shared.gui = true
         if !UserDefaults.standard.bool(forKey: "loadFromXML"){
 //            UserDefaults.standard.set(false, forKey: "loadFromXML")
@@ -99,6 +97,7 @@ extension ViewController{
                         do{
                             try SyncWalkmanManager.shared.syncWalkman.loadXML()
                             self.tableView.reloadData()
+                            self.tableView.sizeToFit()
                             self.sendTrackList.removeAllItems()
                             self.sendTrackList.addItems(withTitles: SyncWalkmanManager.shared.syncWalkman.itl.playlists.enumerated().map({"\($0)\t\($1.name)"}))
                             self.loadSendTrackList()
@@ -166,6 +165,7 @@ extension ViewController{
             self.sendPlaylists = SyncWalkmanManager.shared.syncWalkman.itl.playlists
         }
         self.tableView.reloadData()
+        self.tableView.sizeToFit()
     }
     
     @IBAction func selectHelp(_ sender: NSButton){
@@ -270,8 +270,9 @@ extension ViewController{
             self.itunesXmlPathLabel.stringValue = "iTunesライブラリは.itlファイルから読み込まれています"
             self.itunesXmlSelectButton.title = "再読み込み"
             self.tableView.reloadData()
+            self.tableView.sizeToFit()
             self.sendTrackList.removeAllItems()
-            self.sendTrackList.addItems(withTitles: SyncWalkmanManager.shared.syncWalkman.itl.playlists.enumerated().map({"\($0)\t\($1.name)"}))
+            self.sendTrackList.addItems(withTitles: SyncWalkmanManager.shared.syncWalkman.itl.playlists.enumerated().map({"\($0)\t\($1.name)\t - \($1.trackIDs.count)曲"}))
         } catch let error{
             //            "!Error: Unknow Error occurred. Failed to load iTunes Library. \(error)"
             let alert = NSAlert(error: error)
@@ -317,12 +318,13 @@ extension ViewController{
                     alert.addButton(withTitle: "Close")
                     return alert
                 }().runModal() == NSApplication.ModalResponse.alertFirstButtonReturn){
-                
-                let task = Process()
-                task.launchPath = "/bin/sh"
-                task.arguments = ["-c", SyncWalkmanManager.shared.syncWalkman.playlistUpdateCommand(absoluteCommandPath: true)]
-                task.launch()
-                task.waitUntilExit()
+                    DispatchQueue.global().async {
+                        let task = Process()
+                        task.launchPath = "/bin/sh"
+                        task.arguments = ["-c", SyncWalkmanManager.shared.syncWalkman.playlistUpdateCommand(absoluteCommandPath: true)]
+                        task.launch()
+                        task.waitUntilExit()
+                    }
             }
         }
     }
@@ -352,6 +354,8 @@ extension ViewController: NSTableViewDataSource{
                 return false
             }else if tableColumn.identifier == NSUserInterfaceItemIdentifier("title"){
                 return SyncWalkmanManager.shared.syncWalkman.itl.playlists[row].name
+            }else if tableColumn.identifier == NSUserInterfaceItemIdentifier("SongsCount"){
+                return "\(SyncWalkmanManager.shared.syncWalkman.itl.playlists[row].trackIDs.count)曲"
             }
         }
         return nil

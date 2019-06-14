@@ -260,9 +260,9 @@
                                         <rect key="frame" x="0.0" y="453" width="495" height="21"/>
                                         <subviews>
                                             <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="RLN-rV-3Yy">
-                                                <rect key="frame" x="-2" y="1" width="409" height="17"/>
-                                                <textFieldCell key="cell" lineBreakMode="clipping" title="音楽転送先のPath(/Volumes/WALKMAN)" id="w9T-Bn-XKJ">
-                                                    <font key="font" metaFont="system"/>
+                                                <rect key="frame" x="-2" y="2" width="409" height="13"/>
+                                                <textFieldCell key="cell" lineBreakMode="clipping" title="音楽転送先のPath (例: /Volumes/MYWALKMAN)" id="w9T-Bn-XKJ">
+                                                    <font key="font" size="13" name=".HiraKakuInterface-W3"/>
                                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                 </textFieldCell>
@@ -474,11 +474,11 @@
                                     <scrollView autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CV4-K2-fAS">
                                         <rect key="frame" x="0.0" y="28" width="495" height="200"/>
                                         <clipView key="contentView" id="M5n-ar-fh3">
-                                            <rect key="frame" x="1" y="0.0" width="493" height="199"/>
+                                            <rect key="frame" x="1" y="1" width="493" height="198"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <subviews>
-                                                <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" emptySelection="NO" autosaveColumns="NO" typeSelect="NO" autosaveName="playlistTableViewAutoSave" headerView="SYL-K6-MBw" id="uks-jZ-BRI">
-                                                    <rect key="frame" x="0.0" y="0.0" width="493" height="174"/>
+                                                <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnReordering="NO" emptySelection="NO" autosaveColumns="NO" typeSelect="NO" autosaveName="playlistTableViewAutoSave" id="uks-jZ-BRI">
+                                                    <rect key="frame" x="0.0" y="0.0" width="493" height="198"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <size key="intercellSpacing" width="3" height="2"/>
                                                     <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -494,15 +494,27 @@
                                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                                 <font key="font" metaFont="system"/>
                                                             </buttonCell>
-                                                            <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                         </tableColumn>
-                                                        <tableColumn identifier="title" width="414" minWidth="20" maxWidth="414" id="EJU-R4-Xcw">
+                                                        <tableColumn identifier="title" width="200" minWidth="200" maxWidth="1000" id="EJU-R4-Xcw">
                                                             <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left">
                                                                 <font key="font" metaFont="smallSystem"/>
                                                                 <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             </tableHeaderCell>
                                                             <textFieldCell key="dataCell" lineBreakMode="truncatingTail" allowsUndo="NO" alignment="left" title="Text Cell" id="1yr-j0-Dfc">
+                                                                <font key="font" metaFont="system"/>
+                                                                <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                                <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                            </textFieldCell>
+                                                            <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
+                                                        </tableColumn>
+                                                        <tableColumn identifier="SongsCount" width="44" minWidth="10" maxWidth="3.4028234663852886e+38" id="pqr-be-7gG">
+                                                            <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left">
+                                                                <font key="font" metaFont="smallSystem"/>
+                                                                <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
+                                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            </tableHeaderCell>
+                                                            <textFieldCell key="dataCell" lineBreakMode="truncatingTail" allowsUndo="NO" alignment="left" title="Text Cell" id="aAx-JB-l1r">
                                                                 <font key="font" metaFont="system"/>
                                                                 <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                                 <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -522,17 +534,13 @@
                                         </constraints>
                                         <edgeInsets key="contentInsets" left="0.0" right="0.0" top="0.0" bottom="0.0"/>
                                         <scroller key="horizontalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="YES" id="irV-oj-yre">
-                                            <rect key="frame" x="1" y="183" width="437" height="16"/>
+                                            <rect key="frame" x="1" y="183" width="493" height="16"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </scroller>
-                                        <scroller key="verticalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="qmu-sZ-U61">
+                                        <scroller key="verticalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="NO" id="qmu-sZ-U61">
                                             <rect key="frame" x="224" y="17" width="15" height="102"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </scroller>
-                                        <tableHeaderView key="headerView" hidden="YES" wantsLayer="YES" id="SYL-K6-MBw">
-                                            <rect key="frame" x="0.0" y="0.0" width="493" height="25"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </tableHeaderView>
                                     </scrollView>
                                     <stackView distribution="fill" orientation="horizontal" alignment="top" spacing="6" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Coa-OV-EyE">
                                         <rect key="frame" x="0.0" y="0.0" width="495" height="21"/>

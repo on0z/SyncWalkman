@@ -51,6 +51,11 @@ extension LogViewController{
                 self.sentButton.isEnabled = true
                 self.skippedButton.isEnabled = true
                 self.deletedButton.isEnabled = true
+                
+                let notification: NSUserNotification = NSUserNotification()
+                notification.title = "転送完了"
+                notification.informativeText = self.resultLabel.stringValue
+                NSUserNotificationCenter.default.deliver(notification)
             }
         }
         
@@ -142,6 +147,7 @@ extension LogViewController{
             default:
                 break
             }
+            
         }
     }
 }
