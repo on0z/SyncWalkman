@@ -27,7 +27,7 @@ public class iTunesLibraryDataStore{
     public internal(set) var playlists: [Playlist]
     
     /// 始端は/で、終端はフォルダ名です
-    var musicFolder: String = ""{
+    public var musicFolder: String = ""{
         didSet{
             if musicFolder.hasSuffix("/"){
                 musicFolder = String(musicFolder.dropLast())

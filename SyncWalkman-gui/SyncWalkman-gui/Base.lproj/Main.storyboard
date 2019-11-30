@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14490.70"/>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="15505"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -23,6 +24,12 @@
                                         </menuItem>
                                         <menuItem isSeparatorItem="YES" id="VOq-y0-SEH"/>
                                         <menuItem title="Preferences…" keyEquivalent="," id="BOF-NM-1cW"/>
+                                        <menuItem title="Custom Music Folder Location" id="RNR-K3-yYr">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <segue destination="PAO-ZD-35T" kind="show" id="IWe-bg-NMX"/>
+                                            </connections>
+                                        </menuItem>
                                         <menuItem isSeparatorItem="YES" id="wFC-TO-SCJ"/>
                                         <menuItem title="Services" id="NMo-om-nkz">
                                             <modifierMask key="keyEquivalentModifierMask"/>
@@ -55,14 +62,233 @@
                                     </items>
                                 </menu>
                             </menuItem>
-                            <menuItem title="File" id="dMs-cI-mzQ">
+                            <menuItem title="File" id="ZEc-Dr-LPL">
                                 <modifierMask key="keyEquivalentModifierMask"/>
-                                <menu key="submenu" title="File" id="bib-Uj-vzu">
+                                <menu key="submenu" title="File" id="qxf-YY-42S">
                                     <items>
-                                        <menuItem title="Close" keyEquivalent="w" id="DVo-aG-piG">
+                                        <menuItem title="Close" keyEquivalent="w" id="Wld-90-aRp">
                                             <connections>
-                                                <action selector="performClose:" target="Ady-hI-5gd" id="HmO-Ls-i7Q"/>
+                                                <action selector="performClose:" target="Ady-hI-5gd" id="cJD-Nw-WB2"/>
                                             </connections>
+                                        </menuItem>
+                                    </items>
+                                </menu>
+                            </menuItem>
+                            <menuItem title="Edit" id="0MX-2T-2cU">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <menu key="submenu" title="Edit" id="QeV-Nx-PQf">
+                                    <items>
+                                        <menuItem title="Undo" keyEquivalent="z" id="ZkV-dN-yzE">
+                                            <connections>
+                                                <action selector="undo:" target="Ady-hI-5gd" id="Irt-4e-xkk"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="Redo" keyEquivalent="Z" id="kxw-DU-D6r">
+                                            <connections>
+                                                <action selector="redo:" target="Ady-hI-5gd" id="Az4-Zn-FWV"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem isSeparatorItem="YES" id="eZZ-B9-sC9"/>
+                                        <menuItem title="Cut" keyEquivalent="x" id="3Gl-nr-9dY">
+                                            <connections>
+                                                <action selector="cut:" target="Ady-hI-5gd" id="E57-E5-pAf"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="Copy" keyEquivalent="c" id="GvU-I5-E2W">
+                                            <connections>
+                                                <action selector="copy:" target="Ady-hI-5gd" id="kOM-xi-Jmn"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="Paste" keyEquivalent="v" id="STl-Kx-gq7">
+                                            <connections>
+                                                <action selector="paste:" target="Ady-hI-5gd" id="zuJ-Bm-SvE"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="Paste and Match Style" keyEquivalent="V" id="2QB-yP-PAM">
+                                            <modifierMask key="keyEquivalentModifierMask" option="YES" command="YES"/>
+                                            <connections>
+                                                <action selector="pasteAsPlainText:" target="Ady-hI-5gd" id="zgK-ab-6Ch"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="Delete" id="oRp-X9-eNz">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="delete:" target="Ady-hI-5gd" id="aiu-Zu-twg"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="Select All" keyEquivalent="a" id="CGb-aI-gEc">
+                                            <connections>
+                                                <action selector="selectAll:" target="Ady-hI-5gd" id="uNx-vQ-uRL"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem isSeparatorItem="YES" id="2ff-p5-XVh"/>
+                                        <menuItem title="Find" id="NCA-b4-BXL">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <menu key="submenu" title="Find" id="2aH-9V-MWu">
+                                                <items>
+                                                    <menuItem title="Find…" tag="1" keyEquivalent="f" id="i6w-iW-qcZ">
+                                                        <connections>
+                                                            <action selector="performFindPanelAction:" target="Ady-hI-5gd" id="Ces-Ep-ZDV"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                    <menuItem title="Find and Replace…" tag="12" keyEquivalent="f" id="s6T-Rp-cMZ">
+                                                        <modifierMask key="keyEquivalentModifierMask" option="YES" command="YES"/>
+                                                        <connections>
+                                                            <action selector="performTextFinderAction:" target="Ady-hI-5gd" id="g8b-Sh-nNs"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                    <menuItem title="Find Next" tag="2" keyEquivalent="g" id="1eU-cx-5Br">
+                                                        <connections>
+                                                            <action selector="performFindPanelAction:" target="Ady-hI-5gd" id="pBi-8f-Khs"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                    <menuItem title="Find Previous" tag="3" keyEquivalent="G" id="2qz-92-qH2">
+                                                        <connections>
+                                                            <action selector="performFindPanelAction:" target="Ady-hI-5gd" id="AX7-p9-1tI"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                    <menuItem title="Use Selection for Find" tag="7" keyEquivalent="e" id="a3V-C3-PWm">
+                                                        <connections>
+                                                            <action selector="performFindPanelAction:" target="Ady-hI-5gd" id="9lf-7T-OVu"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                    <menuItem title="Jump to Selection" keyEquivalent="j" id="q8B-IG-DFX">
+                                                        <connections>
+                                                            <action selector="centerSelectionInVisibleArea:" target="Ady-hI-5gd" id="eCt-df-OGb"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                </items>
+                                            </menu>
+                                        </menuItem>
+                                        <menuItem title="Spelling and Grammar" id="BOW-8h-Rxx">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <menu key="submenu" title="Spelling" id="uW8-z3-R3c">
+                                                <items>
+                                                    <menuItem title="Show Spelling and Grammar" keyEquivalent=":" id="xyK-Hj-Z2e">
+                                                        <connections>
+                                                            <action selector="showGuessPanel:" target="Ady-hI-5gd" id="n2o-fT-eZO"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                    <menuItem title="Check Document Now" keyEquivalent=";" id="pog-sl-rTp">
+                                                        <connections>
+                                                            <action selector="checkSpelling:" target="Ady-hI-5gd" id="ekR-I2-icj"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                    <menuItem isSeparatorItem="YES" id="oeJ-yT-500"/>
+                                                    <menuItem title="Check Spelling While Typing" id="c42-aF-mmu">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <connections>
+                                                            <action selector="toggleContinuousSpellChecking:" target="Ady-hI-5gd" id="v5G-Kc-9Zy"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                    <menuItem title="Check Grammar With Spelling" id="f3e-1u-VxI">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <connections>
+                                                            <action selector="toggleGrammarChecking:" target="Ady-hI-5gd" id="awI-40-Ppd"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                    <menuItem title="Correct Spelling Automatically" id="KLN-Pz-hMt">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <connections>
+                                                            <action selector="toggleAutomaticSpellingCorrection:" target="Ady-hI-5gd" id="ex8-mL-9cE"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                </items>
+                                            </menu>
+                                        </menuItem>
+                                        <menuItem title="Substitutions" id="XiN-A6-zVS">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <menu key="submenu" title="Substitutions" id="PiY-Kg-NxE">
+                                                <items>
+                                                    <menuItem title="Show Substitutions" id="5jR-Oc-abc">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <connections>
+                                                            <action selector="orderFrontSubstitutionsPanel:" target="Ady-hI-5gd" id="f8M-LN-5cA"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                    <menuItem isSeparatorItem="YES" id="Szi-gO-9kf"/>
+                                                    <menuItem title="Smart Copy/Paste" id="fd8-dy-0co">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <connections>
+                                                            <action selector="toggleSmartInsertDelete:" target="Ady-hI-5gd" id="6My-IQ-Rzp"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                    <menuItem title="Smart Quotes" id="b6b-cK-L1r">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <connections>
+                                                            <action selector="toggleAutomaticQuoteSubstitution:" target="Ady-hI-5gd" id="70v-rI-T0p"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                    <menuItem title="Smart Dashes" id="HQ2-aF-uOA">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <connections>
+                                                            <action selector="toggleAutomaticDashSubstitution:" target="Ady-hI-5gd" id="lFW-fj-q9W"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                    <menuItem title="Smart Links" id="lXS-iA-KYK">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <connections>
+                                                            <action selector="toggleAutomaticLinkDetection:" target="Ady-hI-5gd" id="u9x-OA-tpv"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                    <menuItem title="Data Detectors" id="nad-2E-IdA">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <connections>
+                                                            <action selector="toggleAutomaticDataDetection:" target="Ady-hI-5gd" id="jxD-zq-4r4"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                    <menuItem title="Text Replacement" id="wb5-GC-eik">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <connections>
+                                                            <action selector="toggleAutomaticTextReplacement:" target="Ady-hI-5gd" id="DIK-RL-Xgb"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                </items>
+                                            </menu>
+                                        </menuItem>
+                                        <menuItem title="Transformations" id="3O5-7d-IhI">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <menu key="submenu" title="Transformations" id="PYh-cC-gGk">
+                                                <items>
+                                                    <menuItem title="Make Upper Case" id="pBU-ba-UeJ">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <connections>
+                                                            <action selector="uppercaseWord:" target="Ady-hI-5gd" id="06u-Xf-t5F"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                    <menuItem title="Make Lower Case" id="NK7-8a-5fa">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <connections>
+                                                            <action selector="lowercaseWord:" target="Ady-hI-5gd" id="WTa-Jc-HHU"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                    <menuItem title="Capitalize" id="wkX-aV-HjA">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <connections>
+                                                            <action selector="capitalizeWord:" target="Ady-hI-5gd" id="ySE-Sh-6g1"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                </items>
+                                            </menu>
+                                        </menuItem>
+                                        <menuItem title="Speech" id="ymc-YS-9Lp">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <menu key="submenu" title="Speech" id="H3j-es-rep">
+                                                <items>
+                                                    <menuItem title="Start Speaking" id="PRK-Yh-XJb">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <connections>
+                                                            <action selector="startSpeaking:" target="Ady-hI-5gd" id="G90-x3-q5G"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                    <menuItem title="Stop Speaking" id="5ud-gw-6pG">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <connections>
+                                                            <action selector="stopSpeaking:" target="Ady-hI-5gd" id="gtM-j9-Jeb"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                </items>
+                                            </menu>
                                         </menuItem>
                                     </items>
                                 </menu>
@@ -127,7 +353,108 @@
                 <customObject id="YLy-65-1bz" customClass="NSFontManager"/>
                 <customObject id="Ady-hI-5gd" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="75" y="-54"/>
+            <point key="canvasLocation" x="75" y="-365"/>
+        </scene>
+        <!--Window Controller-->
+        <scene sceneID="FM6-x1-wkY">
+            <objects>
+                <windowController id="PAO-ZD-35T" sceneMemberID="viewController">
+                    <window key="window" title="Custom Music Folder Location" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="GH0-S9-CEd">
+                        <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
+                        <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
+                        <rect key="contentRect" x="196" y="249" width="480" height="270"/>
+                        <rect key="screenRect" x="0.0" y="0.0" width="1440" height="900"/>
+                        <connections>
+                            <outlet property="delegate" destination="PAO-ZD-35T" id="Jcb-UW-Ti7"/>
+                        </connections>
+                    </window>
+                    <connections>
+                        <segue destination="9D2-Ss-2mH" kind="relationship" relationship="window.shadowedContentViewController" id="L7Z-t4-Xin"/>
+                    </connections>
+                </windowController>
+                <customObject id="SSM-lV-SJz" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="639" y="-259"/>
+        </scene>
+        <!--Custom Music Folder Location-->
+        <scene sceneID="Gmc-oE-Bdl">
+            <objects>
+                <viewController title="Custom Music Folder Location" id="9D2-Ss-2mH" customClass="SelectMusicFolderViewController" customModule="SyncWalkman_gui" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="edx-rv-Kpm">
+                        <rect key="frame" x="0.0" y="0.0" width="437" height="148"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <stackView distribution="fill" orientation="vertical" alignment="leading" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RiC-xD-rAu">
+                                <rect key="frame" x="20" y="20" width="397" height="109"/>
+                                <subviews>
+                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="kZv-TX-Clx">
+                                        <rect key="frame" x="-2" y="29" width="401" height="80"/>
+                                        <textFieldCell key="cell" lineBreakMode="clipping" id="sah-ni-2nB">
+                                            <font key="font" usesAppearanceFont="YES"/>
+                                            <string key="title">"Music Media"フォルダの場所を選択します． ミュージックアプリを起動した時に， 「“ミュージック”に自動的に追加」フォルダが生成されるフォルダです． これによって，フォルダ構造を維持して転送することができます． 自動で反映されますが，保存されません．</string>
+                                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                    </textField>
+                                    <stackView distribution="fill" orientation="horizontal" alignment="top" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PwQ-fU-N0n">
+                                        <rect key="frame" x="0.0" y="0.0" width="397" height="21"/>
+                                        <subviews>
+                                            <textField horizontalHuggingPriority="249" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="749" translatesAutoresizingMaskIntoConstraints="NO" id="fBZ-7g-5x8">
+                                                <rect key="frame" x="0.0" y="0.0" width="322" height="21"/>
+                                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" id="OgS-1V-9BG">
+                                                    <font key="font" metaFont="system"/>
+                                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                </textFieldCell>
+                                                <connections>
+                                                    <outlet property="delegate" destination="9D2-Ss-2mH" id="JKt-2P-m0b"/>
+                                                </connections>
+                                            </textField>
+                                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Fd0-ke-ttJ">
+                                                <rect key="frame" x="324" y="-7" width="79" height="32"/>
+                                                <buttonCell key="cell" type="push" title="Select" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="bZX-Hl-OVz">
+                                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                    <font key="font" metaFont="system"/>
+                                                </buttonCell>
+                                                <connections>
+                                                    <action selector="selectButton:" target="9D2-Ss-2mH" id="yXg-ns-Bpi"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <visibilityPriorities>
+                                            <integer value="1000"/>
+                                            <integer value="1000"/>
+                                        </visibilityPriorities>
+                                        <customSpacing>
+                                            <real value="3.4028234663852886e+38"/>
+                                            <real value="3.4028234663852886e+38"/>
+                                        </customSpacing>
+                                    </stackView>
+                                </subviews>
+                                <visibilityPriorities>
+                                    <integer value="1000"/>
+                                    <integer value="1000"/>
+                                </visibilityPriorities>
+                                <customSpacing>
+                                    <real value="3.4028234663852886e+38"/>
+                                    <real value="3.4028234663852886e+38"/>
+                                </customSpacing>
+                            </stackView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="RiC-xD-rAu" firstAttribute="leading" secondItem="edx-rv-Kpm" secondAttribute="leading" constant="20" id="5Os-qj-tfn"/>
+                            <constraint firstItem="RiC-xD-rAu" firstAttribute="centerX" secondItem="edx-rv-Kpm" secondAttribute="centerX" id="J4d-Ts-Lgu"/>
+                            <constraint firstAttribute="trailing" secondItem="RiC-xD-rAu" secondAttribute="trailing" constant="20" id="OZL-16-Hdg"/>
+                            <constraint firstItem="RiC-xD-rAu" firstAttribute="centerY" secondItem="edx-rv-Kpm" secondAttribute="centerY" id="Tgx-TA-0gf"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="pathTextField" destination="fBZ-7g-5x8" id="6oG-24-0uF"/>
+                    </connections>
+                </viewController>
+                <customObject id="IJG-1m-aRx" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1221" y="-259"/>
         </scene>
         <!--Window Controller-->
         <scene sceneID="R2V-B0-nI4">
@@ -207,17 +534,17 @@
             <objects>
                 <viewController id="XfG-lQ-9wD" customClass="ViewController" customModule="SyncWalkman_gui" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" wantsLayer="YES" id="m2S-Jp-Qdl" customClass="NSVisualEffectView">
-                        <rect key="frame" x="0.0" y="0.0" width="535" height="542"/>
+                        <rect key="frame" x="0.0" y="0.0" width="535" height="551"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <stackView distribution="fill" orientation="vertical" alignment="leading" spacing="7" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tfI-vm-TJG">
-                                <rect key="frame" x="20" y="20" width="495" height="502"/>
+                                <rect key="frame" x="20" y="20" width="495" height="511"/>
                                 <subviews>
                                     <stackView distribution="fill" orientation="horizontal" alignment="firstBaseline" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="U4F-ur-FWE">
-                                        <rect key="frame" x="0.0" y="481" width="495" height="21"/>
+                                        <rect key="frame" x="0.0" y="490" width="495" height="21"/>
                                         <subviews>
                                             <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="q0p-qt-hgv">
-                                                <rect key="frame" x="-2" y="1" width="409" height="17"/>
+                                                <rect key="frame" x="-2" y="2" width="409" height="16"/>
                                                 <textFieldCell key="cell" lineBreakMode="clipping" title="iTunesLibrary.xmlのPath" id="CW0-nV-wB5">
                                                     <font key="font" metaFont="system"/>
                                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -238,7 +565,7 @@
                                                 <rect key="frame" x="436" y="-7" width="65" height="32"/>
                                                 <buttonCell key="cell" type="push" title="選択" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Af3-CZ-ae4">
                                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                                    <font key="font" size="13" name=".HiraKakuInterface-W3"/>
+                                                    <font key="font" metaFont="system"/>
                                                 </buttonCell>
                                                 <connections>
                                                     <action selector="selectFile:" target="XfG-lQ-9wD" id="d7Q-E7-6Uo"/>
@@ -257,12 +584,12 @@
                                         </customSpacing>
                                     </stackView>
                                     <stackView distribution="fill" orientation="horizontal" alignment="firstBaseline" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CMB-9F-NWq">
-                                        <rect key="frame" x="0.0" y="453" width="495" height="21"/>
+                                        <rect key="frame" x="0.0" y="462" width="495" height="21"/>
                                         <subviews>
                                             <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="RLN-rV-3Yy">
-                                                <rect key="frame" x="-2" y="2" width="409" height="13"/>
+                                                <rect key="frame" x="-2" y="2" width="409" height="16"/>
                                                 <textFieldCell key="cell" lineBreakMode="clipping" title="音楽転送先のPath (例: /Volumes/MYWALKMAN)" id="w9T-Bn-XKJ">
-                                                    <font key="font" size="13" name=".HiraKakuInterface-W3"/>
+                                                    <font key="font" metaFont="system"/>
                                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                 </textFieldCell>
@@ -281,7 +608,7 @@
                                                 <rect key="frame" x="436" y="-7" width="65" height="32"/>
                                                 <buttonCell key="cell" type="push" title="選択" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="e4z-zo-cwK">
                                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                                    <font key="font" size="13" name=".HiraKakuInterface-W3"/>
+                                                    <font key="font" metaFont="system"/>
                                                 </buttonCell>
                                                 <connections>
                                                     <action selector="selectFile:" target="XfG-lQ-9wD" id="7lw-3M-un7"/>
@@ -300,7 +627,7 @@
                                         </customSpacing>
                                     </stackView>
                                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="2I0-uD-xIZ">
-                                        <rect key="frame" x="-2" y="430" width="95" height="18"/>
+                                        <rect key="frame" x="-2" y="439" width="95" height="18"/>
                                         <buttonCell key="cell" type="check" title="曲を転送する" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="LSD-qc-Y9q">
                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                             <font key="font" metaFont="system"/>
@@ -310,7 +637,7 @@
                                         </connections>
                                     </button>
                                     <button verticalHuggingPriority="750" tag="1" translatesAutoresizingMaskIntoConstraints="NO" id="qfK-Jw-Acv">
-                                        <rect key="frame" x="-2" y="409" width="155" height="18"/>
+                                        <rect key="frame" x="-2" y="418" width="155" height="18"/>
                                         <buttonCell key="cell" type="check" title="プレイリストを転送する" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="Oxk-iA-bJA">
                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                             <font key="font" metaFont="system"/>
@@ -320,7 +647,7 @@
                                         </connections>
                                     </button>
                                     <box title="転送モード" translatesAutoresizingMaskIntoConstraints="NO" id="Bdm-0s-8vl">
-                                        <rect key="frame" x="-3" y="300" width="501" height="104"/>
+                                        <rect key="frame" x="-3" y="310" width="501" height="103"/>
                                         <view key="contentView" id="6aI-Ia-J2J">
                                             <rect key="frame" x="3" y="3" width="495" height="83"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -335,33 +662,33 @@
                                                             </constraints>
                                                             <buttonCell key="cell" type="radio" title="同じ名前のファイルがあればスキップ" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="sfs-Xb-zuQ">
                                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                                                <font key="font" size="13" name=".HiraKakuInterface-W3"/>
+                                                                <font key="font" metaFont="system"/>
                                                             </buttonCell>
                                                             <connections>
                                                                 <action selector="selectedRadioWithSender:" target="XfG-lQ-9wD" id="8ha-tB-2wo"/>
                                                             </connections>
                                                         </button>
                                                         <button verticalHuggingPriority="750" tag="1" translatesAutoresizingMaskIntoConstraints="NO" id="lwK-ZN-bZZ">
-                                                            <rect key="frame" x="-1" y="37" width="247" height="18"/>
+                                                            <rect key="frame" x="-1" y="37" width="248" height="18"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="16" id="RJQ-6t-RJU"/>
                                                             </constraints>
                                                             <buttonCell key="cell" type="radio" title="ファイルの作成日付が違えば上書き(推奨)" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="esh-57-oYn">
                                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                                                <font key="font" size="13" name=".HiraKakuInterface-W3"/>
+                                                                <font key="font" metaFont="system"/>
                                                             </buttonCell>
                                                             <connections>
                                                                 <action selector="selectedRadioWithSender:" target="XfG-lQ-9wD" id="zTL-bZ-cbP"/>
                                                             </connections>
                                                         </button>
                                                         <button verticalHuggingPriority="750" tag="2" translatesAutoresizingMaskIntoConstraints="NO" id="9o6-rp-yuk">
-                                                            <rect key="frame" x="-1" y="18" width="271" height="18"/>
+                                                            <rect key="frame" x="-1" y="18" width="272" height="18"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="16" id="ABh-6R-VmY"/>
                                                             </constraints>
                                                             <buttonCell key="cell" type="radio" title="ファイルのハッシュ値が違えば上書き(非推奨)" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="K4G-8A-6he">
                                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                                                <font key="font" size="13" name=".HiraKakuInterface-W3"/>
+                                                                <font key="font" metaFont="system"/>
                                                             </buttonCell>
                                                             <connections>
                                                                 <action selector="selectedRadioWithSender:" target="XfG-lQ-9wD" id="wS4-zC-szZ"/>
@@ -374,7 +701,7 @@
                                                             </constraints>
                                                             <buttonCell key="cell" type="radio" title="上書き" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="7gW-Jg-LjM">
                                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                                                <font key="font" size="13" name=".HiraKakuInterface-W3"/>
+                                                                <font key="font" metaFont="system"/>
                                                             </buttonCell>
                                                             <connections>
                                                                 <action selector="selectedRadioWithSender:" target="XfG-lQ-9wD" id="ZkH-FL-3ab"/>
@@ -405,10 +732,10 @@
                                         <font key="titleFont" metaFont="system"/>
                                     </box>
                                     <stackView distribution="fill" orientation="horizontal" alignment="centerY" spacing="0.0" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Rn6-xy-ugj">
-                                        <rect key="frame" x="0.0" y="283" width="199" height="14"/>
+                                        <rect key="frame" x="0.0" y="286" width="495" height="21"/>
                                         <subviews>
-                                            <button verticalHuggingPriority="750" tag="2" translatesAutoresizingMaskIntoConstraints="NO" id="t32-bm-wQ3">
-                                                <rect key="frame" x="-2" y="-2" width="203" height="18"/>
+                                            <button horizontalHuggingPriority="249" verticalHuggingPriority="750" tag="2" translatesAutoresizingMaskIntoConstraints="NO" id="t32-bm-wQ3">
+                                                <rect key="frame" x="-2" y="2" width="478" height="18"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="14" id="tqw-Rm-RkU"/>
                                                 </constraints>
@@ -420,19 +747,31 @@
                                                     <action selector="selectedCheckButton:" target="XfG-lQ-9wD" id="2Vx-jp-IUT"/>
                                                 </connections>
                                             </button>
+                                            <button horizontalHuggingPriority="750" verticalHuggingPriority="750" tag="2" translatesAutoresizingMaskIntoConstraints="NO" id="xax-Hh-ndb">
+                                                <rect key="frame" x="472" y="-4" width="25" height="25"/>
+                                                <buttonCell key="cell" type="help" bezelStyle="helpButton" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="COh-WT-6p5">
+                                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                    <font key="font" metaFont="system"/>
+                                                </buttonCell>
+                                                <connections>
+                                                    <action selector="selectHelp:" target="XfG-lQ-9wD" id="S5q-gf-I9i"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <visibilityPriorities>
+                                            <integer value="1000"/>
                                             <integer value="1000"/>
                                         </visibilityPriorities>
                                         <customSpacing>
                                             <real value="3.4028234663852886e+38"/>
+                                            <real value="3.4028234663852886e+38"/>
                                         </customSpacing>
                                     </stackView>
                                     <stackView distribution="fill" orientation="horizontal" alignment="centerY" spacing="12" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MKF-hn-nOg">
-                                        <rect key="frame" x="0.0" y="255" width="495" height="21"/>
+                                        <rect key="frame" x="0.0" y="258" width="495" height="21"/>
                                         <subviews>
                                             <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="mPY-Cp-ypO">
-                                                <rect key="frame" x="-2" y="2" width="113" height="17"/>
+                                                <rect key="frame" x="-2" y="3" width="113" height="16"/>
                                                 <textFieldCell key="cell" lineBreakMode="clipping" title="転送する曲のリスト" id="3dF-mi-IgQ">
                                                     <font key="font" metaFont="system"/>
                                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -443,7 +782,7 @@
                                                 <rect key="frame" x="119" y="-3" width="379" height="25"/>
                                                 <popUpButtonCell key="cell" type="push" title="Item 1" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="VfK-Fe-FET" id="by1-K0-6gc">
                                                     <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
-                                                    <font key="font" metaFont="menu"/>
+                                                    <font key="font" metaFont="system"/>
                                                     <menu key="menu" id="Ks0-bO-FMf">
                                                         <items>
                                                             <menuItem title="Item 1" state="on" id="VfK-Fe-FET"/>
@@ -464,9 +803,9 @@
                                         </customSpacing>
                                     </stackView>
                                     <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="F44-1I-3Wy">
-                                        <rect key="frame" x="-2" y="235" width="125" height="13"/>
+                                        <rect key="frame" x="-2" y="235" width="125" height="16"/>
                                         <textFieldCell key="cell" lineBreakMode="clipping" title="転送するプレイリスト" id="0UR-5n-zZp">
-                                            <font key="font" size="13" name=".HiraKakuInterface-W3"/>
+                                            <font key="font" metaFont="system"/>
                                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                         </textFieldCell>
@@ -479,14 +818,14 @@
                                             <subviews>
                                                 <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnReordering="NO" emptySelection="NO" autosaveColumns="NO" typeSelect="NO" autosaveName="playlistTableViewAutoSave" id="uks-jZ-BRI">
                                                     <rect key="frame" x="0.0" y="0.0" width="493" height="198"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                     <size key="intercellSpacing" width="3" height="2"/>
                                                     <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                     <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
                                                     <tableColumns>
                                                         <tableColumn identifier="check" width="18" minWidth="18" maxWidth="1000" id="nNF-7n-qm6" userLabel="プレイリスト">
                                                             <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border">
-                                                                <font key="font" metaFont="smallSystem"/>
+                                                                <font key="font" metaFont="message" size="11"/>
                                                                 <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                                 <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
                                                             </tableHeaderCell>
@@ -497,7 +836,7 @@
                                                         </tableColumn>
                                                         <tableColumn identifier="title" width="200" minWidth="200" maxWidth="1000" id="EJU-R4-Xcw">
                                                             <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left">
-                                                                <font key="font" metaFont="smallSystem"/>
+                                                                <font key="font" metaFont="message" size="11"/>
                                                                 <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             </tableHeaderCell>
@@ -510,7 +849,7 @@
                                                         </tableColumn>
                                                         <tableColumn identifier="SongsCount" width="44" minWidth="10" maxWidth="3.4028234663852886e+38" id="pqr-be-7gG">
                                                             <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left">
-                                                                <font key="font" metaFont="smallSystem"/>
+                                                                <font key="font" metaFont="message" size="11"/>
                                                                 <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             </tableHeaderCell>
@@ -549,7 +888,7 @@
                                                 <rect key="frame" x="-6" y="-7" width="142" height="32"/>
                                                 <buttonCell key="cell" type="push" title="全選択/全選択解除" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Rcx-CQ-LzP">
                                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                                    <font key="font" size="13" name=".HiraKakuInterface-W3"/>
+                                                    <font key="font" metaFont="system"/>
                                                 </buttonCell>
                                                 <connections>
                                                     <action selector="selectOrDeselectAll:" target="XfG-lQ-9wD" id="dRg-Zk-Dch"/>
@@ -587,6 +926,7 @@
                                     <constraint firstAttribute="trailing" secondItem="CV4-K2-fAS" secondAttribute="trailing" id="akS-1M-jAJ"/>
                                     <constraint firstAttribute="trailing" secondItem="Coa-OV-EyE" secondAttribute="trailing" id="fBW-zp-nqv"/>
                                     <constraint firstAttribute="trailing" secondItem="U4F-ur-FWE" secondAttribute="trailing" id="fyc-pn-802"/>
+                                    <constraint firstAttribute="trailing" secondItem="Rn6-xy-ugj" secondAttribute="trailing" id="lgb-73-Hbh"/>
                                     <constraint firstAttribute="trailing" secondItem="MKF-hn-nOg" secondAttribute="trailing" id="sJi-uR-zPF"/>
                                 </constraints>
                                 <visibilityPriorities>
@@ -599,7 +939,7 @@
                                     <integer value="1000"/>
                                     <integer value="1000"/>
                                     <integer value="1000"/>
-                                    <real value="1000"/>
+                                    <integer value="1000"/>
                                 </visibilityPriorities>
                                 <customSpacing>
                                     <real value="3.4028234663852886e+38"/>
@@ -654,10 +994,10 @@
                                 <rect key="frame" x="20" y="20" width="390" height="502"/>
                                 <subviews>
                                     <stackView distribution="equalSpacing" orientation="horizontal" alignment="centerY" spacing="5" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dpg-Iu-nYa">
-                                        <rect key="frame" x="0.0" y="485" width="390" height="17"/>
+                                        <rect key="frame" x="0.0" y="486" width="390" height="16"/>
                                         <subviews>
                                             <textField horizontalHuggingPriority="249" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="SPP-FF-AoI">
-                                                <rect key="frame" x="-2" y="0.0" width="135" height="17"/>
+                                                <rect key="frame" x="-2" y="0.0" width="135" height="16"/>
                                                 <textFieldCell key="cell" lineBreakMode="clipping" alignment="right" title="Show:" id="60N-rn-otI">
                                                     <font key="font" metaFont="system"/>
                                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -665,7 +1005,7 @@
                                                 </textFieldCell>
                                             </textField>
                                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="8Oj-or-VfV">
-                                                <rect key="frame" x="134" y="0.0" width="60" height="18"/>
+                                                <rect key="frame" x="134" y="-1" width="60" height="18"/>
                                                 <buttonCell key="cell" type="check" title="Found" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="1EK-3n-pqg">
                                                     <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                     <font key="font" metaFont="system"/>
@@ -675,7 +1015,7 @@
                                                 </connections>
                                             </button>
                                             <button verticalHuggingPriority="750" tag="1" translatesAutoresizingMaskIntoConstraints="NO" id="98k-kD-0t7">
-                                                <rect key="frame" x="195" y="0.0" width="53" height="18"/>
+                                                <rect key="frame" x="195" y="-1" width="53" height="18"/>
                                                 <buttonCell key="cell" type="check" title="Send" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="Fyk-EC-CfM">
                                                     <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                     <font key="font" metaFont="system"/>
@@ -685,7 +1025,7 @@
                                                 </connections>
                                             </button>
                                             <button verticalHuggingPriority="750" tag="2" translatesAutoresizingMaskIntoConstraints="NO" id="QjA-IZ-T72">
-                                                <rect key="frame" x="249" y="0.0" width="72" height="18"/>
+                                                <rect key="frame" x="249" y="-1" width="72" height="18"/>
                                                 <buttonCell key="cell" type="check" title="Skipped" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="R9f-es-jej">
                                                     <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                     <font key="font" metaFont="system"/>
@@ -695,7 +1035,7 @@
                                                 </connections>
                                             </button>
                                             <button verticalHuggingPriority="750" tag="3" translatesAutoresizingMaskIntoConstraints="NO" id="UfQ-cz-E4O">
-                                                <rect key="frame" x="322" y="0.0" width="70" height="18"/>
+                                                <rect key="frame" x="322" y="-1" width="70" height="18"/>
                                                 <buttonCell key="cell" type="check" title="Deleted" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="wQ6-yz-zEP">
                                                     <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                     <font key="font" metaFont="system"/>
@@ -721,21 +1061,21 @@
                                         </customSpacing>
                                     </stackView>
                                     <scrollView autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DQF-pq-vsv">
-                                        <rect key="frame" x="0.0" y="44" width="390" height="433"/>
+                                        <rect key="frame" x="0.0" y="44" width="390" height="434"/>
                                         <clipView key="contentView" id="ipX-Z3-Ole">
-                                            <rect key="frame" x="1" y="0.0" width="388" height="432"/>
+                                            <rect key="frame" x="1" y="0.0" width="388" height="433"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <subviews>
                                                 <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnReordering="NO" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowSizeStyle="automatic" headerView="3QP-i9-2OV" viewBased="YES" id="bC3-IO-Eg1">
-                                                    <rect key="frame" x="0.0" y="0.0" width="388" height="407"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="388" height="408"/>
+                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                     <size key="intercellSpacing" width="3" height="2"/>
                                                     <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                     <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
                                                     <tableColumns>
                                                         <tableColumn identifier="Status" editable="NO" width="65" minWidth="40" maxWidth="1000" id="JxW-Cd-AAd">
                                                             <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" title="Status">
-                                                                <font key="font" metaFont="smallSystem"/>
+                                                                <font key="font" metaFont="message" size="11"/>
                                                                 <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                                 <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
                                                             </tableHeaderCell>
@@ -746,9 +1086,9 @@
                                                             </textFieldCell>
                                                             <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                         </tableColumn>
-                                                        <tableColumn identifier="Message" editable="NO" width="317" minWidth="40" maxWidth="1000" id="BF4-1d-dqk">
+                                                        <tableColumn identifier="Message" editable="NO" width="317" minWidth="40" maxWidth="1500" id="BF4-1d-dqk">
                                                             <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" title="Message">
-                                                                <font key="font" metaFont="smallSystem"/>
+                                                                <font key="font" metaFont="message" size="11"/>
                                                                 <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                                 <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
                                                             </tableHeaderCell>

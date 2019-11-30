@@ -182,6 +182,29 @@ extension ViewController{
             alert.messageText = "Walkmanのルートパスを選択"
             alert.informativeText = "Walkmanのルートパスを選択してください．\n例: /Volumes/WALKMAN"
             alert.runModal()
+        case 2:
+            // Delete existing files
+            let alert = NSAlert()
+            alert.messageText = "転送先にのみ存在するファイルを削除します"
+            alert.informativeText = """
+全てのファイルが削除されるわけではありません．
+削除されるファイル
+　拡張子が以下のもの
+　(大文字小文字区別なし)
+　　.mp3
+　　.m4a
+　　.aiff
+　　.aif
+　　.mp4
+　　.wav
+　(大文字小文字区別あり)
+　　.m3u
+　　.m3u8
+            
+FLACファイルなどは，iTunesから転送されることがないことを考慮し，削除されません．
+WALKMAN上で生成されたプレイリストファイルの拡張子は.M3U8となるため，削除されません．(補足:このソフトウェアは，プレイリストファイルを.m3u拡張子で転送します．)
+"""
+            alert.runModal()
         default:
             break
         }

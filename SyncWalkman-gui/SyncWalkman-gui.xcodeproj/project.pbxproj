@@ -12,19 +12,13 @@
 		4B220CFE22356BC700B6F694 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B220CFD22356BC700B6F694 /* ViewController.swift */; };
 		4B220D0022356BC800B6F694 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4B220CFF22356BC800B6F694 /* Assets.xcassets */; };
 		4B220D0322356BC800B6F694 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4B220D0122356BC800B6F694 /* Main.storyboard */; };
+		4B4DD2A9238EE96B00128C1F /* SyncWalkman.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BA31BF92236DB97002C3AB7 /* SyncWalkman.framework */; };
+		4B4DD2AA238EE96B00128C1F /* SyncWalkman.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4BA31BF92236DB97002C3AB7 /* SyncWalkman.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		4B4DD2AD238F010A00128C1F /* SelectMusicFolderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B4DD2AC238F010900128C1F /* SelectMusicFolderViewController.swift */; };
 		4B80E0A3228EF1C700707B34 /* SyncWalkmanManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B80E0A2228EF1C700707B34 /* SyncWalkmanManager.swift */; };
-		4B93843A223A430E004A71FF /* SyncWalkman.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BA31BF92236DB97002C3AB7 /* SyncWalkman.framework */; };
-		4B93843B223A430E004A71FF /* SyncWalkman.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4BA31BF92236DB97002C3AB7 /* SyncWalkman.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		4B93843C223A430E004A71FF /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 4BA31BF42236DB97002C3AB7 /* SyncWalkman.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 4BE6401D22356E8100662FFD;
-			remoteInfo = SyncWalkman;
-		};
 		4BA31BF82236DB97002C3AB7 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 4BA31BF42236DB97002C3AB7 /* SyncWalkman.xcodeproj */;
@@ -35,13 +29,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		4B93843E223A430E004A71FF /* Embed Frameworks */ = {
+		4B4DD2AB238EE96B00128C1F /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				4B93843B223A430E004A71FF /* SyncWalkman.framework in Embed Frameworks */,
+				4B4DD2AA238EE96B00128C1F /* SyncWalkman.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -57,6 +51,7 @@
 		4B220D0222356BC800B6F694 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4B220D0422356BC800B6F694 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4B220D0522356BC800B6F694 /* SyncWalkman_gui.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SyncWalkman_gui.entitlements; sourceTree = "<group>"; };
+		4B4DD2AC238F010900128C1F /* SelectMusicFolderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectMusicFolderViewController.swift; sourceTree = "<group>"; };
 		4B80E0A2228EF1C700707B34 /* SyncWalkmanManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyncWalkmanManager.swift; sourceTree = "<group>"; };
 		4BA31BF42236DB97002C3AB7 /* SyncWalkman.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SyncWalkman.xcodeproj; path = ../SyncWalkman/SyncWalkman.xcodeproj; sourceTree = "<group>"; };
 		4BC2FEF722366A9900039A4E /* SyncWalkman-gui.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "SyncWalkman-gui.entitlements"; sourceTree = "<group>"; };
@@ -67,7 +62,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4B93843A223A430E004A71FF /* SyncWalkman.framework in Frameworks */,
+				4B4DD2A9238EE96B00128C1F /* SyncWalkman.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -80,6 +75,7 @@
 				4BA31BF42236DB97002C3AB7 /* SyncWalkman.xcodeproj */,
 				4B220CFA22356BC700B6F694 /* SyncWalkman-gui */,
 				4B220CF922356BC700B6F694 /* Products */,
+				4B4DD2A8238EE96B00128C1F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -99,12 +95,20 @@
 				4B80E0A2228EF1C700707B34 /* SyncWalkmanManager.swift */,
 				4B220CFD22356BC700B6F694 /* ViewController.swift */,
 				4B0CFE902247D21200E133AC /* LogViewController.swift */,
+				4B4DD2AC238F010900128C1F /* SelectMusicFolderViewController.swift */,
 				4B220CFF22356BC800B6F694 /* Assets.xcassets */,
 				4B220D0122356BC800B6F694 /* Main.storyboard */,
 				4B220D0422356BC800B6F694 /* Info.plist */,
 				4B220D0522356BC800B6F694 /* SyncWalkman_gui.entitlements */,
 			);
 			path = "SyncWalkman-gui";
+			sourceTree = "<group>";
+		};
+		4B4DD2A8238EE96B00128C1F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		4BA31BF52236DB97002C3AB7 /* Products */ = {
@@ -125,12 +129,11 @@
 				4B220CF422356BC700B6F694 /* Sources */,
 				4B220CF522356BC700B6F694 /* Frameworks */,
 				4B220CF622356BC700B6F694 /* Resources */,
-				4B93843E223A430E004A71FF /* Embed Frameworks */,
+				4B4DD2AB238EE96B00128C1F /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				4B93843D223A430E004A71FF /* PBXTargetDependency */,
 			);
 			name = "SyncWalkman-gui";
 			productName = "SyncWalkman-gui";
@@ -144,7 +147,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1010;
-				LastUpgradeCheck = 1010;
+				LastUpgradeCheck = 1120;
 				ORGANIZATIONNAME = "原園征志";
 				TargetAttributes = {
 					4B220CF722356BC700B6F694 = {
@@ -210,6 +213,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4B0CFE912247D21200E133AC /* LogViewController.swift in Sources */,
+				4B4DD2AD238F010A00128C1F /* SelectMusicFolderViewController.swift in Sources */,
 				4B220CFE22356BC700B6F694 /* ViewController.swift in Sources */,
 				4B80E0A3228EF1C700707B34 /* SyncWalkmanManager.swift in Sources */,
 				4B220CFC22356BC700B6F694 /* AppDelegate.swift in Sources */,
@@ -217,14 +221,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		4B93843D223A430E004A71FF /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = SyncWalkman;
-			targetProxy = 4B93843C223A430E004A71FF /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		4B220D0122356BC800B6F694 /* Main.storyboard */ = {
@@ -289,7 +285,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -344,7 +340,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = macosx;
@@ -356,18 +352,22 @@
 		4B220D0922356BC800B6F694 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-1";
+				CODE_SIGN_IDENTITY = "Mac Developer";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = Y6NNK3UQHG;
+				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = "SyncWalkman-gui/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MARKETING_VERSION = 5.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.on0z.SyncWalkman-gui";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
@@ -375,18 +375,22 @@
 		4B220D0A22356BC800B6F694 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-1";
+				CODE_SIGN_IDENTITY = "Mac Developer";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = Y6NNK3UQHG;
+				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = "SyncWalkman-gui/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MARKETING_VERSION = 5.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.on0z.SyncWalkman-gui";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
