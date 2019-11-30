@@ -145,7 +145,7 @@ extension SyncWalkman{
      
      自動でSyncWalkman.existsTrackFileに追加
      
-     - version: 0.0
+     - version: 1.0
      */
     public static func enumerateExistsTrackFiles(config: SyncWalkmanConfig) -> [String]{
         var existsTrackFiles: [String] = []
@@ -155,13 +155,13 @@ extension SyncWalkman{
             return []
         }
         for path in subpaths{
-            let ext = (path as NSString).pathExtension
+            let ext = (path as NSString).pathExtension.lowercased()
             if ext == "mp3"
                 || ext == "m4a"
                 || ext == "aiff"
                 || ext == "aif"
                 || ext == "mp4"
-                || ext == "flac"{
+                || ext == "wav"{
                 NotificationCenter.default.post(name: didFoundTrackFile, object: nil, userInfo: ["path":config.walkmanPath + "/MUSIC/" + path])
                 existsTrackFiles.append(config.walkmanPath + "/MUSIC/" + path)
             }
