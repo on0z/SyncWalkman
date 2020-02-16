@@ -154,7 +154,7 @@ class iTunesXMLParserDelegate: NSObject, XMLParserDelegate{
             }
             NotificationCenter.default.post(name: iTunesXMLParserDelegate.didFoundPlaylist, object: nil, userInfo: ["count" : loadedPlaylistCount, "id" : id, "name" : name])
             itl.playlists.append(
-                Playlist(id: id, name: name, trackIDs: tmppl.tIDs)
+                Playlist(id: id, name: name, parentID: nil, trackIDs: tmppl.tIDs)
             )
             tmppl = (nil, nil, [])
         }

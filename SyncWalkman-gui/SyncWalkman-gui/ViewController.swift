@@ -291,7 +291,7 @@ extension ViewController{
             self.tableView.reloadData()
             self.tableView.sizeToFit()
             self.sendTrackList.removeAllItems()
-            self.sendTrackList.addItems(withTitles: SyncWalkmanManager.shared.syncWalkman.itl.playlists.enumerated().map({"\($0)\t\($1.name)\t - \($1.trackIDs.count)曲"}))
+            self.sendTrackList.addItems(withTitles: SyncWalkmanManager.shared.syncWalkman.itl.playlists.enumerated().map({"\($0)\t\(repeatElement("   ", count: $1.indent).joined())\($1.name)\t - \($1.trackIDs.count)曲"}))
         } catch let error{
             //            "!Error: Unknow Error occurred. Failed to load iTunes Library. \(error)"
             let alert = NSAlert(error: error)
@@ -372,7 +372,8 @@ extension ViewController: NSTableViewDataSource{
                 }
                 return false
             }else if tableColumn.identifier == NSUserInterfaceItemIdentifier("title"){
-                return SyncWalkmanManager.shared.syncWalkman.itl.playlists[row].name
+                let playlist = SyncWalkmanManager.shared.syncWalkman.itl.playlists[row]
+                return repeatElement("   ", count: playlist.indent).joined() + playlist.name
             }else if tableColumn.identifier == NSUserInterfaceItemIdentifier("SongsCount"){
                 return "\(SyncWalkmanManager.shared.syncWalkman.itl.playlists[row].trackIDs.count)曲"
             }

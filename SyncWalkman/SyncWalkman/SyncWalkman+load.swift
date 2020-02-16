@@ -112,6 +112,10 @@ extension SyncWalkman{
                     return Playlist(
                         id: Int(truncating: item.persistentID),
                         name: item.name,
+                        parentID: { (_parentID: NSNumber?) -> Int? in
+                            if let parentID = _parentID { return Int(truncating: parentID) }
+                            else { return nil }
+                        }(item.parentID),
                         trackIDs: item.items.map({Int(truncating: $0.persistentID)})
                     )
                 })

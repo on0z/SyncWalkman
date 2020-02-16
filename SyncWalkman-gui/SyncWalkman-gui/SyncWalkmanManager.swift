@@ -31,3 +31,26 @@ class SyncWalkmanManager {
         )
     )
 }
+
+extension Playlist{
+    
+    var indent: Int{
+        if let indent = self._indent{
+            return indent
+        }else{
+            if let parent = self.getParent(){
+                self._indent = parent.indent + 1
+                return self._indent!
+            }else{
+                self._indent = 0
+                return 0
+            }
+        }
+    }
+    
+    func getParent() -> Playlist?{
+        return SyncWalkmanManager.shared.syncWalkman.itl.playlists.first { (playlist) -> Bool in
+            playlist.id == self.parentID
+        }
+    }
+}

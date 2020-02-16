@@ -12,13 +12,16 @@ public class Playlist{
     
     public var id: Int
     public var name: String
+    public var parentID: Int?
+    public var _indent: Int?  // gui用
     public var trackIDs: [Int] = []
     
     var sendTargetPath: String?
     
-    init(id: Int, name: String, trackIDs: [Int] = []){
+    init(id: Int, name: String, parentID: Int?, trackIDs: [Int] = []){
         self.id = id
         self.name = name
+        self.parentID = parentID
         self.trackIDs = trackIDs
     }
 }
