@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="15505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="15705"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -381,14 +381,14 @@
             <objects>
                 <viewController title="Custom Music Folder Location" id="9D2-Ss-2mH" customClass="SelectMusicFolderViewController" customModule="SyncWalkman_gui" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="edx-rv-Kpm">
-                        <rect key="frame" x="0.0" y="0.0" width="437" height="148"/>
+                        <rect key="frame" x="0.0" y="0.0" width="437" height="166"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <stackView distribution="fill" orientation="vertical" alignment="leading" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RiC-xD-rAu">
-                                <rect key="frame" x="20" y="20" width="397" height="109"/>
+                                <rect key="frame" x="20" y="14" width="397" height="138"/>
                                 <subviews>
                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="kZv-TX-Clx">
-                                        <rect key="frame" x="-2" y="29" width="401" height="80"/>
+                                        <rect key="frame" x="-2" y="58" width="401" height="80"/>
                                         <textFieldCell key="cell" lineBreakMode="clipping" id="sah-ni-2nB">
                                             <font key="font" usesAppearanceFont="YES"/>
                                             <string key="title">"Music Media"フォルダの場所を選択します． ミュージックアプリを起動した時に， 「“ミュージック”に自動的に追加」フォルダが生成されるフォルダです． これによって，フォルダ構造を維持して転送することができます． 自動で反映されますが，保存されません．</string>
@@ -396,10 +396,41 @@
                                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                         </textFieldCell>
                                     </textField>
+                                    <stackView distribution="fill" orientation="horizontal" alignment="firstBaseline" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4wj-M8-rZT">
+                                        <rect key="frame" x="0.0" y="29" width="397" height="21"/>
+                                        <subviews>
+                                            <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="PuC-kf-u6e">
+                                                <rect key="frame" x="-2" y="3" width="323" height="16"/>
+                                                <textFieldCell key="cell" lineBreakMode="clipping" title="Label" id="sl1-qw-oaq">
+                                                    <font key="font" metaFont="system"/>
+                                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                </textFieldCell>
+                                            </textField>
+                                            <button horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="X7R-Cr-5g2">
+                                                <rect key="frame" x="321" y="-7" width="82" height="32"/>
+                                                <buttonCell key="cell" type="push" title="Reload" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="QUA-ot-pV4">
+                                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                    <font key="font" metaFont="system"/>
+                                                </buttonCell>
+                                                <connections>
+                                                    <action selector="reloadMusicFolderPath:" target="9D2-Ss-2mH" id="kRN-N5-UBI"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <visibilityPriorities>
+                                            <integer value="1000"/>
+                                            <integer value="1000"/>
+                                        </visibilityPriorities>
+                                        <customSpacing>
+                                            <real value="3.4028234663852886e+38"/>
+                                            <real value="3.4028234663852886e+38"/>
+                                        </customSpacing>
+                                    </stackView>
                                     <stackView distribution="fill" orientation="horizontal" alignment="top" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PwQ-fU-N0n">
                                         <rect key="frame" x="0.0" y="0.0" width="397" height="21"/>
                                         <subviews>
-                                            <textField horizontalHuggingPriority="249" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="749" translatesAutoresizingMaskIntoConstraints="NO" id="fBZ-7g-5x8">
+                                            <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="749" translatesAutoresizingMaskIntoConstraints="NO" id="fBZ-7g-5x8">
                                                 <rect key="frame" x="0.0" y="0.0" width="322" height="21"/>
                                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" id="OgS-1V-9BG">
                                                     <font key="font" metaFont="system"/>
@@ -410,7 +441,7 @@
                                                     <outlet property="delegate" destination="9D2-Ss-2mH" id="JKt-2P-m0b"/>
                                                 </connections>
                                             </textField>
-                                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Fd0-ke-ttJ">
+                                            <button horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Fd0-ke-ttJ">
                                                 <rect key="frame" x="324" y="-7" width="79" height="32"/>
                                                 <buttonCell key="cell" type="push" title="Select" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="bZX-Hl-OVz">
                                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -431,11 +462,17 @@
                                         </customSpacing>
                                     </stackView>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="PwQ-fU-N0n" secondAttribute="trailing" id="crm-ke-ptw"/>
+                                    <constraint firstAttribute="trailing" secondItem="4wj-M8-rZT" secondAttribute="trailing" id="ojX-hC-Qcq"/>
+                                </constraints>
                                 <visibilityPriorities>
+                                    <integer value="1000"/>
                                     <integer value="1000"/>
                                     <integer value="1000"/>
                                 </visibilityPriorities>
                                 <customSpacing>
+                                    <real value="3.4028234663852886e+38"/>
                                     <real value="3.4028234663852886e+38"/>
                                     <real value="3.4028234663852886e+38"/>
                                 </customSpacing>
@@ -443,18 +480,21 @@
                         </subviews>
                         <constraints>
                             <constraint firstItem="RiC-xD-rAu" firstAttribute="leading" secondItem="edx-rv-Kpm" secondAttribute="leading" constant="20" id="5Os-qj-tfn"/>
+                            <constraint firstAttribute="bottom" secondItem="RiC-xD-rAu" secondAttribute="bottom" constant="14" id="Hdu-ri-KqF"/>
                             <constraint firstItem="RiC-xD-rAu" firstAttribute="centerX" secondItem="edx-rv-Kpm" secondAttribute="centerX" id="J4d-Ts-Lgu"/>
                             <constraint firstAttribute="trailing" secondItem="RiC-xD-rAu" secondAttribute="trailing" constant="20" id="OZL-16-Hdg"/>
                             <constraint firstItem="RiC-xD-rAu" firstAttribute="centerY" secondItem="edx-rv-Kpm" secondAttribute="centerY" id="Tgx-TA-0gf"/>
+                            <constraint firstItem="RiC-xD-rAu" firstAttribute="top" secondItem="edx-rv-Kpm" secondAttribute="top" constant="14" id="Uxm-aV-4LN"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="currentMusicFolderPathLabel" destination="PuC-kf-u6e" id="gka-dc-JbC"/>
                         <outlet property="pathTextField" destination="fBZ-7g-5x8" id="6oG-24-0uF"/>
                     </connections>
                 </viewController>
                 <customObject id="IJG-1m-aRx" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1221" y="-259"/>
+            <point key="canvasLocation" x="1220.5" y="-250"/>
         </scene>
         <!--Window Controller-->
         <scene sceneID="R2V-B0-nI4">

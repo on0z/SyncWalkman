@@ -10,6 +10,7 @@ import Cocoa
 
 class SelectMusicFolderViewController: NSViewController {
 
+    @IBOutlet weak var currentMusicFolderPathLabel: NSTextField!
     @IBOutlet weak var pathTextField: NSTextField!
     @IBAction func selectButton(_ sender: NSButton) {
         let panel = NSOpenPanel()
@@ -26,13 +27,21 @@ class SelectMusicFolderViewController: NSViewController {
                 print(path)
                 SyncWalkmanManager.shared.syncWalkman.itl.musicFolder = path
                 self.pathTextField.stringValue = path
+                
+                self.currentMusicFolderPathLabel.stringValue = SyncWalkmanManager.shared.syncWalkman.itl.musicFolder
             }
         }
+    }
+    
+    @IBAction func reloadMusicFolderPath(_ sender: NSButton) {
+        self.currentMusicFolderPathLabel.stringValue = SyncWalkmanManager.shared.syncWalkman.itl.musicFolder
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do view setup here.
+        
+        self.currentMusicFolderPathLabel.stringValue = SyncWalkmanManager.shared.syncWalkman.itl.musicFolder
     }
     
 }
@@ -42,6 +51,8 @@ extension SelectMusicFolderViewController: NSTextFieldDelegate{
     func controlTextDidChange(_ obj: Notification) {
         SyncWalkmanManager.shared.syncWalkman.itl.musicFolder = self.pathTextField.stringValue
         print(self.pathTextField.stringValue)
+        
+        self.currentMusicFolderPathLabel.stringValue = SyncWalkmanManager.shared.syncWalkman.itl.musicFolder
     }
     
 }
