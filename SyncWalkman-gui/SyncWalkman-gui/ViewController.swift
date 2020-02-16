@@ -49,7 +49,7 @@ class ViewController: NSViewController {
         self.setupState()
         self.setupObserver()
         
-        SyncWalkmanManager.shared.syncWalkman.productName = "SyncWalkman-gui version 5.1\n"
+        SyncWalkmanManager.shared.syncWalkman.productName = "SyncWalkman-gui version 5.2\n"
         //        Log.shared.gui = true
         if !UserDefaults.standard.bool(forKey: "loadFromXML"){
 //            UserDefaults.standard.set(false, forKey: "loadFromXML")
