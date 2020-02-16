@@ -191,6 +191,7 @@ extension LogViewController{
             }
             return false
         })
+        self.logTableView.reloadData()
     }
 }
 
