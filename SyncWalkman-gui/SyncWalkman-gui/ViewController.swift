@@ -49,7 +49,7 @@ class ViewController: NSViewController {
         self.setupState()
         self.setupObserver()
         
-        SyncWalkmanManager.shared.syncWalkman.productName = "SyncWalkman-gui version 3.0\n"
+        SyncWalkmanManager.shared.syncWalkman.productName = "SyncWalkman-gui version 5.1\n"
         //        Log.shared.gui = true
         if !UserDefaults.standard.bool(forKey: "loadFromXML"){
 //            UserDefaults.standard.set(false, forKey: "loadFromXML")
@@ -169,22 +169,18 @@ extension ViewController{
     }
     
     @IBAction func selectHelp(_ sender: NSButton){
+        let alert = NSAlert()
         switch sender.tag {
         case 0:
             //iTunesライブラリ
-            let alert = NSAlert()
-            alert.messageText = "曲/プレイリスト情報はiTunesLibraryから読み込まれています"
+            alert.messageText = "曲/プレイリスト情報はiTunesLibrary.frameworkから読み込まれています"
             alert.informativeText = "再読み込みをするときは再読み込みボタンを押してください"
-            alert.runModal()
         case 1:
             // Walkman path
-            let alert = NSAlert()
             alert.messageText = "Walkmanのルートパスを選択"
             alert.informativeText = "Walkmanのルートパスを選択してください．\n例: /Volumes/WALKMAN"
-            alert.runModal()
         case 2:
             // Delete existing files
-            let alert = NSAlert()
             alert.messageText = "転送先にのみ存在するファイルを削除します"
             alert.informativeText = """
 全てのファイルが削除されるわけではありません．
@@ -204,10 +200,10 @@ extension ViewController{
 FLACファイルなどは，iTunesから転送されることがないことを考慮し，削除されません．
 WALKMAN上で生成されたプレイリストファイルの拡張子は.M3U8となるため，削除されません．(補足:このソフトウェアは，プレイリストファイルを.m3u拡張子で転送します．)
 """
-            alert.runModal()
         default:
             break
         }
+        alert.runModal()
     }
     
     static let didPushStartButton: Notification.Name = Notification.Name("didPushStartButton")
@@ -262,12 +258,12 @@ extension ViewController{
     func setupState(){
         self.isSendTrackButton.state = SyncWalkmanManager.shared.syncWalkman.config.sendTrack ? .on : .off
         self.isSendPlayListButton.state = SyncWalkmanManager.shared.syncWalkman.config.sendPlaylist ? .on : .off
-        switch SyncWalkmanManager.shared.syncWalkman.config.sendMode.rawValue{
-        case 1:
+        switch SyncWalkmanManager.shared.syncWalkman.config.sendMode{
+        case .update:
             self.updateRadioButton.state = .on
-        case 2:
+        case .updateHash:
             self.updateHashRadioButton.state = .on
-        case 3:
+        case .overwrite:
             self.overrideRadioButton.state = .on
         default:
             self.normalRadioButton.state = .on
@@ -332,24 +328,24 @@ extension ViewController{
 extension ViewController{
     
     @objc func didFinish(_ noti: Notification){
-        DispatchQueue.main.async {
-            if ({ () -> NSAlert in
-                    let alert = NSAlert()
-                    alert.messageText = "Please run the below code"
-                    alert.informativeText = "$ " + SyncWalkmanManager.shared.syncWalkman.playlistUpdateCommand(absoluteCommandPath: false)
-                    alert.addButton(withTitle: "Run")
-                    alert.addButton(withTitle: "Close")
-                    return alert
-                }().runModal() == NSApplication.ModalResponse.alertFirstButtonReturn){
-                    DispatchQueue.global().async {
-                        let task = Process()
-                        task.launchPath = "/bin/sh"
-                        task.arguments = ["-c", SyncWalkmanManager.shared.syncWalkman.playlistUpdateCommand(absoluteCommandPath: true)]
-                        task.launch()
-                        task.waitUntilExit()
-                    }
-            }
-        }
+//        DispatchQueue.main.async {
+//            if ({ () -> NSAlert in
+//                    let alert = NSAlert()
+//                    alert.messageText = "Please run the below code"
+//                    alert.informativeText = "$ " + SyncWalkmanManager.shared.syncWalkman.playlistUpdateCommand(absoluteCommandPath: false)
+//                    alert.addButton(withTitle: "Run")
+//                    alert.addButton(withTitle: "Close")
+//                    return alert
+//                }().runModal() == NSApplication.ModalResponse.alertFirstButtonReturn){
+//                    DispatchQueue.global().async {
+        let task = Process()
+        task.launchPath = "/bin/sh"
+        task.arguments = ["-c", SyncWalkmanManager.shared.syncWalkman.playlistUpdateCommand(absoluteCommandPath: true)]
+        task.launch()
+        task.waitUntilExit()
+//                    }
+//            }
+//        }
     }
     
 }
