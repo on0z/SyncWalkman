@@ -274,7 +274,7 @@ extension ViewController{
     func setupObserver(){
         SyncWalkmanManager.shared.syncWalkman.addObserver()
         
-        NotificationCenter.default.addObserver(self, selector: #selector(self.didFinish(_:)), name: SyncWalkman.didFinishSendPlaylist, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.reformatPlaylistFiles(_:)), name: SyncWalkman.didFinishSendPlaylist, object: nil)
         
         self.observers.append(SyncWalkmanManager.shared.syncWalkman.observe(\.progress, options: .new, changeHandler: { (log, change) in
             DispatchQueue.main.async {
@@ -327,7 +327,12 @@ extension ViewController{
 //MARK: noti receive
 extension ViewController{
     
-    @objc func didFinish(_ noti: Notification){
+    
+    /// プレイリストの文字コードを変換する
+    /// - Parameter noti: notificaiton
+    ///
+    /// そのままではプレイリストがWalkman上で空になるので文字コードを変えて対応する
+    @objc func reformatPlaylistFiles(_ noti: Notification){
 //        DispatchQueue.main.async {
 //            if ({ () -> NSAlert in
 //                    let alert = NSAlert()

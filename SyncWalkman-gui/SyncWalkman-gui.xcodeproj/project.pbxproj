@@ -15,6 +15,7 @@
 		4B4DD2A9238EE96B00128C1F /* SyncWalkman.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BA31BF92236DB97002C3AB7 /* SyncWalkman.framework */; };
 		4B4DD2AA238EE96B00128C1F /* SyncWalkman.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4BA31BF92236DB97002C3AB7 /* SyncWalkman.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		4B4DD2AD238F010A00128C1F /* SelectMusicFolderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B4DD2AC238F010900128C1F /* SelectMusicFolderViewController.swift */; };
+		4B64D7F2253EB0B2002E7201 /* SyncWalkman.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BA31BF92236DB97002C3AB7 /* SyncWalkman.framework */; };
 		4B80E0A3228EF1C700707B34 /* SyncWalkmanManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B80E0A2228EF1C700707B34 /* SyncWalkmanManager.swift */; };
 /* End PBXBuildFile section */
 
@@ -63,6 +64,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4B4DD2A9238EE96B00128C1F /* SyncWalkman.framework in Frameworks */,
+				4B64D7F2253EB0B2002E7201 /* SyncWalkman.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -357,7 +359,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 13;
-				DEVELOPMENT_TEAM = Y6NNK3UQHG;
+				DEVELOPMENT_TEAM = MU7M8NU5KN;
 				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = "SyncWalkman-gui/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -381,7 +383,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 13;
-				DEVELOPMENT_TEAM = Y6NNK3UQHG;
+				DEVELOPMENT_TEAM = MU7M8NU5KN;
 				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = "SyncWalkman-gui/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (

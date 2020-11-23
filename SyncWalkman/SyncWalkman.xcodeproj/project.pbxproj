@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4B0CFE8D2247B72400E133AC /* iTunesLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B0CFE8C2247B72400E133AC /* iTunesLibrary.framework */; };
 		4B0CFE8F2247D02D00E133AC /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B0CFE8E2247D02D00E133AC /* Log.swift */; };
+		4B31163E256BA15200C5F2C3 /* iTunesLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B64D7ED253EB04F002E7201 /* iTunesLibrary.framework */; };
 		4B9925B1224904C100741D2F /* SyncWalkman+Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9925B0224904C100741D2F /* SyncWalkman+Error.swift */; };
 		4B9925B3224908A600741D2F /* GeneralError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9925B2224908A600741D2F /* GeneralError.swift */; };
 		4B9925B52249120200741D2F /* SyncWalkman+Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9925B42249120200741D2F /* SyncWalkman+Notification.swift */; };
@@ -26,8 +26,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		4B0CFE8C2247B72400E133AC /* iTunesLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iTunesLibrary.framework; path = ../../../../../../../System/Library/Frameworks/iTunesLibrary.framework; sourceTree = "<group>"; };
 		4B0CFE8E2247D02D00E133AC /* Log.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
+		4B64D7ED253EB04F002E7201 /* iTunesLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iTunesLibrary.framework; path = System/Library/Frameworks/iTunesLibrary.framework; sourceTree = SDKROOT; };
 		4B9925B0224904C100741D2F /* SyncWalkman+Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SyncWalkman+Error.swift"; sourceTree = "<group>"; };
 		4B9925B2224908A600741D2F /* GeneralError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralError.swift; sourceTree = "<group>"; };
 		4B9925B42249120200741D2F /* SyncWalkman+Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SyncWalkman+Notification.swift"; sourceTree = "<group>"; };
@@ -51,7 +51,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4B0CFE8D2247B72400E133AC /* iTunesLibrary.framework in Frameworks */,
+				4B31163E256BA15200C5F2C3 /* iTunesLibrary.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -61,7 +61,7 @@
 		4B0CFE8B2247B72400E133AC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				4B0CFE8C2247B72400E133AC /* iTunesLibrary.framework */,
+				4B64D7ED253EB04F002E7201 /* iTunesLibrary.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -331,11 +331,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = Y6NNK3UQHG;
+				DEVELOPMENT_TEAM = MU7M8NU5KN;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -363,11 +363,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = Y6NNK3UQHG;
+				DEVELOPMENT_TEAM = MU7M8NU5KN;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";

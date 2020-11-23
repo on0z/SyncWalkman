@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="15705"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="17506"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -388,7 +388,7 @@
                                 <rect key="frame" x="20" y="14" width="397" height="138"/>
                                 <subviews>
                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="kZv-TX-Clx">
-                                        <rect key="frame" x="-2" y="58" width="401" height="80"/>
+                                        <rect key="frame" x="-2" y="58" width="400" height="80"/>
                                         <textFieldCell key="cell" lineBreakMode="clipping" id="sah-ni-2nB">
                                             <font key="font" usesAppearanceFont="YES"/>
                                             <string key="title">"Music Media"フォルダの場所を選択します． ミュージックアプリを起動した時に， 「“ミュージック”に自動的に追加」フォルダが生成されるフォルダです． これによって，フォルダ構造を維持して転送することができます． 自動で反映されますが，保存されません．</string>
@@ -396,19 +396,19 @@
                                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                         </textFieldCell>
                                     </textField>
-                                    <stackView distribution="fill" orientation="horizontal" alignment="firstBaseline" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4wj-M8-rZT">
+                                    <stackView distribution="fill" orientation="horizontal" alignment="firstBaseline" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" ambiguous="YES" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4wj-M8-rZT">
                                         <rect key="frame" x="0.0" y="29" width="397" height="21"/>
                                         <subviews>
-                                            <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="PuC-kf-u6e">
-                                                <rect key="frame" x="-2" y="3" width="323" height="16"/>
+                                            <textField verticalHuggingPriority="750" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PuC-kf-u6e">
+                                                <rect key="frame" x="-2" y="4" width="331" height="16"/>
                                                 <textFieldCell key="cell" lineBreakMode="clipping" title="Label" id="sl1-qw-oaq">
                                                     <font key="font" metaFont="system"/>
                                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                 </textFieldCell>
                                             </textField>
-                                            <button horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="X7R-Cr-5g2">
-                                                <rect key="frame" x="321" y="-7" width="82" height="32"/>
+                                            <button horizontalHuggingPriority="251" verticalHuggingPriority="750" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="X7R-Cr-5g2">
+                                                <rect key="frame" x="328" y="-6" width="76" height="32"/>
                                                 <buttonCell key="cell" type="push" title="Reload" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="QUA-ot-pV4">
                                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                     <font key="font" metaFont="system"/>
@@ -427,11 +427,11 @@
                                             <real value="3.4028234663852886e+38"/>
                                         </customSpacing>
                                     </stackView>
-                                    <stackView distribution="fill" orientation="horizontal" alignment="top" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PwQ-fU-N0n">
+                                    <stackView distribution="fill" orientation="horizontal" alignment="top" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" ambiguous="YES" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PwQ-fU-N0n">
                                         <rect key="frame" x="0.0" y="0.0" width="397" height="21"/>
                                         <subviews>
-                                            <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="749" translatesAutoresizingMaskIntoConstraints="NO" id="fBZ-7g-5x8">
-                                                <rect key="frame" x="0.0" y="0.0" width="322" height="21"/>
+                                            <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="749" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fBZ-7g-5x8">
+                                                <rect key="frame" x="0.0" y="0.0" width="330" height="21"/>
                                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" id="OgS-1V-9BG">
                                                     <font key="font" metaFont="system"/>
                                                     <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
@@ -441,8 +441,8 @@
                                                     <outlet property="delegate" destination="9D2-Ss-2mH" id="JKt-2P-m0b"/>
                                                 </connections>
                                             </textField>
-                                            <button horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Fd0-ke-ttJ">
-                                                <rect key="frame" x="324" y="-7" width="79" height="32"/>
+                                            <button horizontalHuggingPriority="251" verticalHuggingPriority="750" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Fd0-ke-ttJ">
+                                                <rect key="frame" x="331" y="-6" width="73" height="32"/>
                                                 <buttonCell key="cell" type="push" title="Select" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="bZX-Hl-OVz">
                                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                     <font key="font" metaFont="system"/>
@@ -488,7 +488,7 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="currentMusicFolderPathLabel" destination="PuC-kf-u6e" id="gka-dc-JbC"/>
+                        <outlet property="currentMediaFolderPathLabel" destination="PuC-kf-u6e" id="gka-dc-JbC"/>
                         <outlet property="pathTextField" destination="fBZ-7g-5x8" id="6oG-24-0uF"/>
                     </connections>
                 </viewController>
@@ -580,19 +580,19 @@
                             <stackView distribution="fill" orientation="vertical" alignment="leading" spacing="7" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tfI-vm-TJG">
                                 <rect key="frame" x="20" y="20" width="495" height="511"/>
                                 <subviews>
-                                    <stackView distribution="fill" orientation="horizontal" alignment="firstBaseline" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="U4F-ur-FWE">
+                                    <stackView distribution="fill" orientation="horizontal" alignment="firstBaseline" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" ambiguous="YES" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="U4F-ur-FWE">
                                         <rect key="frame" x="0.0" y="490" width="495" height="21"/>
                                         <subviews>
-                                            <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="q0p-qt-hgv">
-                                                <rect key="frame" x="-2" y="2" width="409" height="16"/>
+                                            <textField verticalHuggingPriority="750" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="q0p-qt-hgv">
+                                                <rect key="frame" x="-2" y="1" width="418" height="16"/>
                                                 <textFieldCell key="cell" lineBreakMode="clipping" title="iTunesLibrary.xmlのPath" id="CW0-nV-wB5">
                                                     <font key="font" metaFont="system"/>
                                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                 </textFieldCell>
                                             </textField>
-                                            <button horizontalHuggingPriority="750" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="LnN-wF-VgU">
-                                                <rect key="frame" x="411" y="-4" width="25" height="25"/>
+                                            <button horizontalHuggingPriority="750" verticalHuggingPriority="750" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LnN-wF-VgU">
+                                                <rect key="frame" x="419" y="-3" width="25" height="25"/>
                                                 <buttonCell key="cell" type="help" bezelStyle="helpButton" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="xbb-9x-QER">
                                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                     <font key="font" metaFont="system"/>
@@ -602,7 +602,7 @@
                                                 </connections>
                                             </button>
                                             <button horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="lAg-AM-FfQ">
-                                                <rect key="frame" x="436" y="-7" width="65" height="32"/>
+                                                <rect key="frame" x="443" y="-7" width="59" height="32"/>
                                                 <buttonCell key="cell" type="push" title="選択" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Af3-CZ-ae4">
                                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                     <font key="font" metaFont="system"/>
@@ -623,19 +623,19 @@
                                             <real value="3.4028234663852886e+38"/>
                                         </customSpacing>
                                     </stackView>
-                                    <stackView distribution="fill" orientation="horizontal" alignment="firstBaseline" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CMB-9F-NWq">
-                                        <rect key="frame" x="0.0" y="462" width="495" height="21"/>
+                                    <stackView distribution="fill" orientation="horizontal" alignment="firstBaseline" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" ambiguous="YES" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CMB-9F-NWq">
+                                        <rect key="frame" x="0.0" y="463" width="495" height="20"/>
                                         <subviews>
-                                            <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="RLN-rV-3Yy">
-                                                <rect key="frame" x="-2" y="2" width="409" height="16"/>
+                                            <textField verticalHuggingPriority="750" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RLN-rV-3Yy">
+                                                <rect key="frame" x="-2" y="0.0" width="418" height="16"/>
                                                 <textFieldCell key="cell" lineBreakMode="clipping" title="音楽転送先のPath (例: /Volumes/MYWALKMAN)" id="w9T-Bn-XKJ">
                                                     <font key="font" metaFont="system"/>
                                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                 </textFieldCell>
                                             </textField>
-                                            <button horizontalHuggingPriority="750" verticalHuggingPriority="750" tag="1" translatesAutoresizingMaskIntoConstraints="NO" id="aNp-Xm-Ad8">
-                                                <rect key="frame" x="411" y="-4" width="25" height="25"/>
+                                            <button horizontalHuggingPriority="750" verticalHuggingPriority="750" ambiguous="YES" tag="1" translatesAutoresizingMaskIntoConstraints="NO" id="aNp-Xm-Ad8">
+                                                <rect key="frame" x="419" y="-4" width="25" height="25"/>
                                                 <buttonCell key="cell" type="help" bezelStyle="helpButton" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="R9T-sD-4nY">
                                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                     <font key="font" metaFont="system"/>
@@ -645,7 +645,7 @@
                                                 </connections>
                                             </button>
                                             <button horizontalHuggingPriority="251" verticalHuggingPriority="750" tag="1" translatesAutoresizingMaskIntoConstraints="NO" id="g5t-kl-xel">
-                                                <rect key="frame" x="436" y="-7" width="65" height="32"/>
+                                                <rect key="frame" x="443" y="-7" width="59" height="32"/>
                                                 <buttonCell key="cell" type="push" title="選択" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="e4z-zo-cwK">
                                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                     <font key="font" metaFont="system"/>
@@ -667,7 +667,7 @@
                                         </customSpacing>
                                     </stackView>
                                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="2I0-uD-xIZ">
-                                        <rect key="frame" x="-2" y="439" width="95" height="18"/>
+                                        <rect key="frame" x="-2" y="439" width="99" height="18"/>
                                         <buttonCell key="cell" type="check" title="曲を転送する" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="LSD-qc-Y9q">
                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                             <font key="font" metaFont="system"/>
@@ -677,7 +677,7 @@
                                         </connections>
                                     </button>
                                     <button verticalHuggingPriority="750" tag="1" translatesAutoresizingMaskIntoConstraints="NO" id="qfK-Jw-Acv">
-                                        <rect key="frame" x="-2" y="418" width="155" height="18"/>
+                                        <rect key="frame" x="-2" y="416" width="159" height="18"/>
                                         <buttonCell key="cell" type="check" title="プレイリストを転送する" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="Oxk-iA-bJA">
                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                             <font key="font" metaFont="system"/>
@@ -687,7 +687,7 @@
                                         </connections>
                                     </button>
                                     <box title="転送モード" translatesAutoresizingMaskIntoConstraints="NO" id="Bdm-0s-8vl">
-                                        <rect key="frame" x="-3" y="310" width="501" height="103"/>
+                                        <rect key="frame" x="-3" y="307" width="501" height="103"/>
                                         <view key="contentView" id="6aI-Ia-J2J">
                                             <rect key="frame" x="3" y="3" width="495" height="83"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -696,7 +696,7 @@
                                                     <rect key="frame" x="5" y="5" width="485" height="73"/>
                                                     <subviews>
                                                         <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="qrX-m3-dvF">
-                                                            <rect key="frame" x="-1" y="56" width="227" height="18"/>
+                                                            <rect key="frame" x="-2" y="56" width="231" height="18"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="16" id="Xbu-i9-6Eg"/>
                                                             </constraints>
@@ -709,7 +709,7 @@
                                                             </connections>
                                                         </button>
                                                         <button verticalHuggingPriority="750" tag="1" translatesAutoresizingMaskIntoConstraints="NO" id="lwK-ZN-bZZ">
-                                                            <rect key="frame" x="-1" y="37" width="248" height="18"/>
+                                                            <rect key="frame" x="-2" y="37" width="252" height="18"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="16" id="RJQ-6t-RJU"/>
                                                             </constraints>
@@ -722,7 +722,7 @@
                                                             </connections>
                                                         </button>
                                                         <button verticalHuggingPriority="750" tag="2" translatesAutoresizingMaskIntoConstraints="NO" id="9o6-rp-yuk">
-                                                            <rect key="frame" x="-1" y="18" width="272" height="18"/>
+                                                            <rect key="frame" x="-2" y="18" width="276" height="18"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="16" id="ABh-6R-VmY"/>
                                                             </constraints>
@@ -735,7 +735,7 @@
                                                             </connections>
                                                         </button>
                                                         <button verticalHuggingPriority="750" tag="3" translatesAutoresizingMaskIntoConstraints="NO" id="DaN-Zi-GcU">
-                                                            <rect key="frame" x="-1" y="-1" width="59" height="18"/>
+                                                            <rect key="frame" x="-2" y="-1" width="63" height="18"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="16" id="ajB-ux-eeb"/>
                                                             </constraints>
@@ -772,10 +772,10 @@
                                         <font key="titleFont" metaFont="system"/>
                                     </box>
                                     <stackView distribution="fill" orientation="horizontal" alignment="centerY" spacing="0.0" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Rn6-xy-ugj">
-                                        <rect key="frame" x="0.0" y="286" width="495" height="21"/>
+                                        <rect key="frame" x="0.0" y="284" width="495" height="20"/>
                                         <subviews>
                                             <button horizontalHuggingPriority="249" verticalHuggingPriority="750" tag="2" translatesAutoresizingMaskIntoConstraints="NO" id="t32-bm-wQ3">
-                                                <rect key="frame" x="-2" y="2" width="478" height="18"/>
+                                                <rect key="frame" x="-2" y="2" width="477" height="16"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="14" id="tqw-Rm-RkU"/>
                                                 </constraints>
@@ -808,10 +808,10 @@
                                         </customSpacing>
                                     </stackView>
                                     <stackView distribution="fill" orientation="horizontal" alignment="centerY" spacing="12" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MKF-hn-nOg">
-                                        <rect key="frame" x="0.0" y="258" width="495" height="21"/>
+                                        <rect key="frame" x="0.0" y="257" width="495" height="20"/>
                                         <subviews>
                                             <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="mPY-Cp-ypO">
-                                                <rect key="frame" x="-2" y="3" width="113" height="16"/>
+                                                <rect key="frame" x="-2" y="2" width="113" height="16"/>
                                                 <textFieldCell key="cell" lineBreakMode="clipping" title="転送する曲のリスト" id="3dF-mi-IgQ">
                                                     <font key="font" metaFont="system"/>
                                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -819,10 +819,10 @@
                                                 </textFieldCell>
                                             </textField>
                                             <popUpButton horizontalHuggingPriority="249" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="vlf-g1-UfK">
-                                                <rect key="frame" x="119" y="-3" width="379" height="25"/>
+                                                <rect key="frame" x="118" y="-4" width="381" height="25"/>
                                                 <popUpButtonCell key="cell" type="push" title="Item 1" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="VfK-Fe-FET" id="by1-K0-6gc">
                                                     <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
-                                                    <font key="font" metaFont="system"/>
+                                                    <font key="font" metaFont="menu"/>
                                                     <menu key="menu" id="Ks0-bO-FMf">
                                                         <items>
                                                             <menuItem title="Item 1" state="on" id="VfK-Fe-FET"/>
@@ -843,7 +843,7 @@
                                         </customSpacing>
                                     </stackView>
                                     <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="F44-1I-3Wy">
-                                        <rect key="frame" x="-2" y="235" width="125" height="16"/>
+                                        <rect key="frame" x="-2" y="234" width="125" height="16"/>
                                         <textFieldCell key="cell" lineBreakMode="clipping" title="転送するプレイリスト" id="0UR-5n-zZp">
                                             <font key="font" metaFont="system"/>
                                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -851,7 +851,7 @@
                                         </textFieldCell>
                                     </textField>
                                     <scrollView autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CV4-K2-fAS">
-                                        <rect key="frame" x="0.0" y="28" width="495" height="200"/>
+                                        <rect key="frame" x="0.0" y="27" width="495" height="200"/>
                                         <clipView key="contentView" id="M5n-ar-fh3">
                                             <rect key="frame" x="1" y="1" width="493" height="198"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -865,7 +865,6 @@
                                                     <tableColumns>
                                                         <tableColumn identifier="check" width="18" minWidth="18" maxWidth="1000" id="nNF-7n-qm6" userLabel="プレイリスト">
                                                             <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border">
-                                                                <font key="font" metaFont="message" size="11"/>
                                                                 <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                                 <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
                                                             </tableHeaderCell>
@@ -876,7 +875,6 @@
                                                         </tableColumn>
                                                         <tableColumn identifier="title" width="200" minWidth="200" maxWidth="1000" id="EJU-R4-Xcw">
                                                             <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left">
-                                                                <font key="font" metaFont="message" size="11"/>
                                                                 <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             </tableHeaderCell>
@@ -889,7 +887,6 @@
                                                         </tableColumn>
                                                         <tableColumn identifier="SongsCount" width="44" minWidth="10" maxWidth="3.4028234663852886e+38" id="pqr-be-7gG">
                                                             <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left">
-                                                                <font key="font" metaFont="message" size="11"/>
                                                                 <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             </tableHeaderCell>
@@ -922,10 +919,10 @@
                                         </scroller>
                                     </scrollView>
                                     <stackView distribution="fill" orientation="horizontal" alignment="top" spacing="6" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Coa-OV-EyE">
-                                        <rect key="frame" x="0.0" y="0.0" width="495" height="21"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="495" height="20"/>
                                         <subviews>
                                             <button verticalHuggingPriority="751" translatesAutoresizingMaskIntoConstraints="NO" id="nJg-et-RY8">
-                                                <rect key="frame" x="-6" y="-7" width="142" height="32"/>
+                                                <rect key="frame" x="-7" y="-7" width="152" height="32"/>
                                                 <buttonCell key="cell" type="push" title="全選択/全選択解除" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Rcx-CQ-LzP">
                                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                     <font key="font" metaFont="system"/>
@@ -935,10 +932,10 @@
                                                 </connections>
                                             </button>
                                             <progressIndicator wantsLayer="YES" maxValue="1" displayedWhenStopped="NO" style="bar" translatesAutoresizingMaskIntoConstraints="NO" id="aJZ-b5-xaI">
-                                                <rect key="frame" x="136" y="2" width="300" height="20"/>
+                                                <rect key="frame" x="144" y="1" width="300" height="20"/>
                                             </progressIndicator>
                                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="gp9-dD-JwS">
-                                                <rect key="frame" x="436" y="-7" width="65" height="32"/>
+                                                <rect key="frame" x="443" y="-7" width="59" height="32"/>
                                                 <buttonCell key="cell" type="push" title="転送" bezelStyle="rounded" alignment="center" borderStyle="border" inset="2" id="sFB-Qm-FgJ">
                                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                     <font key="font" metaFont="system"/>
@@ -1037,7 +1034,7 @@
                                         <rect key="frame" x="0.0" y="486" width="390" height="16"/>
                                         <subviews>
                                             <textField horizontalHuggingPriority="249" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="SPP-FF-AoI">
-                                                <rect key="frame" x="-2" y="0.0" width="135" height="16"/>
+                                                <rect key="frame" x="-2" y="0.0" width="111" height="16"/>
                                                 <textFieldCell key="cell" lineBreakMode="clipping" alignment="right" title="Show:" id="60N-rn-otI">
                                                     <font key="font" metaFont="system"/>
                                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -1045,7 +1042,7 @@
                                                 </textFieldCell>
                                             </textField>
                                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="8Oj-or-VfV">
-                                                <rect key="frame" x="134" y="-1" width="60" height="18"/>
+                                                <rect key="frame" x="110" y="-1" width="64" height="18"/>
                                                 <buttonCell key="cell" type="check" title="Found" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="1EK-3n-pqg">
                                                     <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                     <font key="font" metaFont="system"/>
@@ -1055,7 +1052,7 @@
                                                 </connections>
                                             </button>
                                             <button verticalHuggingPriority="750" tag="1" translatesAutoresizingMaskIntoConstraints="NO" id="98k-kD-0t7">
-                                                <rect key="frame" x="195" y="-1" width="53" height="18"/>
+                                                <rect key="frame" x="177" y="-1" width="57" height="18"/>
                                                 <buttonCell key="cell" type="check" title="Send" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="Fyk-EC-CfM">
                                                     <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                     <font key="font" metaFont="system"/>
@@ -1065,7 +1062,7 @@
                                                 </connections>
                                             </button>
                                             <button verticalHuggingPriority="750" tag="2" translatesAutoresizingMaskIntoConstraints="NO" id="QjA-IZ-T72">
-                                                <rect key="frame" x="249" y="-1" width="72" height="18"/>
+                                                <rect key="frame" x="237" y="-1" width="76" height="18"/>
                                                 <buttonCell key="cell" type="check" title="Skipped" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="R9f-es-jej">
                                                     <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                     <font key="font" metaFont="system"/>
@@ -1075,7 +1072,7 @@
                                                 </connections>
                                             </button>
                                             <button verticalHuggingPriority="750" tag="3" translatesAutoresizingMaskIntoConstraints="NO" id="UfQ-cz-E4O">
-                                                <rect key="frame" x="322" y="-1" width="70" height="18"/>
+                                                <rect key="frame" x="316" y="-1" width="74" height="18"/>
                                                 <buttonCell key="cell" type="check" title="Deleted" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="wQ6-yz-zEP">
                                                     <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                     <font key="font" metaFont="system"/>
@@ -1103,11 +1100,11 @@
                                     <scrollView autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DQF-pq-vsv">
                                         <rect key="frame" x="0.0" y="44" width="390" height="434"/>
                                         <clipView key="contentView" id="ipX-Z3-Ole">
-                                            <rect key="frame" x="1" y="0.0" width="388" height="433"/>
+                                            <rect key="frame" x="1" y="1" width="388" height="432"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <subviews>
                                                 <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnReordering="NO" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowSizeStyle="automatic" headerView="3QP-i9-2OV" viewBased="YES" id="bC3-IO-Eg1">
-                                                    <rect key="frame" x="0.0" y="0.0" width="388" height="408"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="388" height="407"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                     <size key="intercellSpacing" width="3" height="2"/>
                                                     <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -1115,7 +1112,6 @@
                                                     <tableColumns>
                                                         <tableColumn identifier="Status" editable="NO" width="65" minWidth="40" maxWidth="1000" id="JxW-Cd-AAd">
                                                             <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" title="Status">
-                                                                <font key="font" metaFont="message" size="11"/>
                                                                 <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                                 <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
                                                             </tableHeaderCell>
@@ -1126,9 +1122,8 @@
                                                             </textFieldCell>
                                                             <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                         </tableColumn>
-                                                        <tableColumn identifier="Message" editable="NO" width="317" minWidth="40" maxWidth="1500" id="BF4-1d-dqk">
+                                                        <tableColumn identifier="Message" editable="NO" width="279" minWidth="40" maxWidth="1500" id="BF4-1d-dqk">
                                                             <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" title="Message">
-                                                                <font key="font" metaFont="message" size="11"/>
                                                                 <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                                 <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
                                                             </tableHeaderCell>
@@ -1151,7 +1146,7 @@
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="300" id="C6H-Xc-wmP"/>
                                         </constraints>
                                         <scroller key="horizontalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="YES" id="DYt-Cx-Nzo">
-                                            <rect key="frame" x="1" y="441" width="388" height="16"/>
+                                            <rect key="frame" x="1" y="417" width="388" height="16"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </scroller>
                                         <scroller key="verticalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="NO" id="xw6-ie-7sE">

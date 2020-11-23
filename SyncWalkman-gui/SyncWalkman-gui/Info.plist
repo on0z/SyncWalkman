@@ -34,6 +34,8 @@
 	<string>Main</string>
 	<key>NSPrincipalClass</key>
 	<string>NSApplication</string>
+	<key>NSRemovableVolumesUsageDescription</key>
+	<string>WALKMAN上のファイルを操作します</string>
 	<key>kTCCServiceMediaLibrary</key>
 	<string>iTunesライブラリにアクセスします music</string>
 </dict>

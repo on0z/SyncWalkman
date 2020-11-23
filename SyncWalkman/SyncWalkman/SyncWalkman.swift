@@ -52,6 +52,9 @@ Options:    -s: send song
         self.init(config: SyncWalkmanConfig(argc: argc, argv: argv))
     }
     
+    
+    /// XMLから読み込む(deprecated)
+    /// 動作の流れのイメージを掴むのに参考にしてください．
     public func main_(){
         do{
             try self.requiresCheck()
@@ -105,6 +108,9 @@ Options:    -s: send song
         }
     }
     
+    
+    /// ITLibraryから読み込む
+    /// 動作の流れのイメージを掴むのに参考にしてください．
     public func main(){
         do{
             try self.requiresCheck()
