@@ -135,12 +135,12 @@ extension SyncWalkman{
                     NotificationCenter.default.post(name: notfoundTrack, object: nil, userInfo: ["id" : tid, "didSentCount" : sentCount, "progress" : Double(sentCount)/Double(willSendCount)])
                     continue
                 }
-                track.sendTargetPath = track.sendTargetPath ?? config.walkmanPath + "/MUSIC/" + track.getRelativePath(itl.musicFolder)
-                playlistText += "/MUSIC/" + track.getRelativePath(itl.musicFolder) + "\n"
+                track.sendTargetPath = track.sendTargetPath ?? config.walkmanMUSICPath + "/" + track.getRelativePath(itl.mediaFolder)
+                playlistText += "/MUSIC" + "/" + track.getRelativePath(itl.mediaFolder) + "\n"
             }
             
             
-            pl.sendTargetPath = pl.sendTargetPath ?? config.walkmanPath + "/MUSIC/" + pl.name + ".m3u"
+            pl.sendTargetPath = pl.sendTargetPath ?? config.walkmanMUSICPath + "/" + pl.name + ".m3u"
             //--- update array of existsPlaylistFiles
             existsPlaylistFiles = existsPlaylistFiles.filter({$0 != pl.sendTargetPath!})
             
@@ -238,7 +238,11 @@ extension SyncWalkman{
     }
     
     public static func playlistUpdateCommand(config: SyncWalkmanConfig, absoluteCommandPath acp: Bool) -> String{
-        return "cd \(config.walkmanPath)/MUSIC/ && for i in *.m3u; do mv \"$i\" \"$i.ori\"; cat \"$i.ori\" | iconv -c -f utf8-mac > \"$i\"; rm -rf \"$i.ori\"; done"
+        if acp{
+            return "cd \(config.walkmanPath)/MUSIC/ && for i in *.m3u; do /bin/mv \"$i\" \"$i.ori\"; /bin/cat \"$i.ori\" | /usr/bin/iconv -c -f utf8-mac > \"$i\"; /bin/rm -rf \"$i.ori\"; done"
+        }else{
+            return "cd \(config.walkmanPath)/MUSIC/ && for i in *.m3u; do mv \"$i\" \"$i.ori\"; cat \"$i.ori\" | iconv -c -f utf8-mac > \"$i\"; rm -rf \"$i.ori\"; done"
+        }
         /*
         if acp{
 //            let str = { () -> String in

@@ -13,12 +13,20 @@ public class SyncWalkmanConfig{
     public var guiMode = false
 
     public var itunesXmlPath: String
-    public var walkmanPath: String{ // Walkmanのルートパス
+    /// Walkmanのルートパス
+    public var walkmanPath: String{
         didSet {
             if walkmanPath.hasSuffix("/"){
                 walkmanPath.removeLast()
             }
         }
+    }
+    
+    /// WalkmanのMusicパス
+    /// ここ以下に音楽ファイルを入れないと，Walkmanで聴けない
+    /// 末尾はフォルダ名
+    public var walkmanMUSICPath: String{
+        return walkmanPath + "/MUSIC"
     }
 
     public var sendTrack: Bool

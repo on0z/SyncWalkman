@@ -99,7 +99,7 @@ extension SyncWalkman {
                 NotificationCenter.default.post(name: notfoundTrack, object: nil, userInfo: ["id" : tid, "didSentCount" : sentCount, "progress" : Double(sentCount)/Double(willSendCount)])
                 continue
             }
-            track.sendTargetPath = track.sendTargetPath ?? config.walkmanPath + "/MUSIC/" + track.getRelativePath(itl.musicFolder)
+            track.sendTargetPath = track.sendTargetPath ?? config.walkmanMUSICPath + "/" + track.getRelativePath(itl.mediaFolder)
             //--- update array of existsTrackFiles
             existsTrackFiles = existsTrackFiles.filter({$0 != track.sendTargetPath!})
             //--- send tracks

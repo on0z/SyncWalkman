@@ -123,7 +123,7 @@ extension SyncWalkman{
                 { (location: String?) -> String in
                     guard var location = location else { return "" }
                     if location.hasPrefix("file://"){
-                        location = String(location.dropFirst(7))
+                        location = String(location.dropFirst("file://".count))
                     }
                     if location.hasSuffix("/"){
                         location = String(location.dropLast())
@@ -155,7 +155,7 @@ extension SyncWalkman{
         var existsTrackFiles: [String] = []
         
         NotificationCenter.default.post(name: didStartEnumTrackFiles, object: nil, userInfo: nil)
-        guard let subpaths = FileManager.default.subpaths(atPath: config.walkmanPath + "/MUSIC/") else {
+        guard let subpaths = FileManager.default.subpaths(atPath: config.walkmanMUSICPath + "/") else {
             return []
         }
         for path in subpaths{
@@ -166,8 +166,8 @@ extension SyncWalkman{
                 || ext == "aif"
                 || ext == "mp4"
                 || ext == "wav"{
-                NotificationCenter.default.post(name: didFoundTrackFile, object: nil, userInfo: ["path":config.walkmanPath + "/MUSIC/" + path])
-                existsTrackFiles.append(config.walkmanPath + "/MUSIC/" + path)
+                NotificationCenter.default.post(name: didFoundTrackFile, object: nil, userInfo: ["path":config.walkmanMUSICPath + "/" + path])
+                existsTrackFiles.append(config.walkmanMUSICPath + "/" + path)
             }
         }
         NotificationCenter.default.post(name: didFinishEnumTrackFiles, object: nil, userInfo: ["count" : existsTrackFiles.count])
@@ -189,15 +189,15 @@ extension SyncWalkman{
         var existsPlaylistFiles: [String] = []
         
         NotificationCenter.default.post(name: didStartEnumPlaylistFiles, object: nil, userInfo: nil)
-        guard let subpaths = FileManager.default.subpaths(atPath: config.walkmanPath + "/MUSIC/") else {
+        guard let subpaths = FileManager.default.subpaths(atPath: config.walkmanMUSICPath + "/") else {
             return []
         }
         for path in subpaths{
             let ext = (path as NSString).pathExtension
             if ext == "m3u"
                 || ext == "m3u8"{
-                NotificationCenter.default.post(name: didFoundPlaylistFile, object: nil, userInfo: ["path" : config.walkmanPath + "/MUSIC/" + path])
-                existsPlaylistFiles.append(config.walkmanPath + "/MUSIC/" + path)
+                NotificationCenter.default.post(name: didFoundPlaylistFile, object: nil, userInfo: ["path" : config.walkmanMUSICPath + "/" + path])
+                existsPlaylistFiles.append(config.walkmanMUSICPath + "/" + path)
             }
         }
         NotificationCenter.default.post(name: didFinishEnumPlaylistFiles, object: nil, userInfo: ["count" : existsPlaylistFiles.count])
