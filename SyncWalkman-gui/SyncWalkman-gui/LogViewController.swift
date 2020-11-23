@@ -67,10 +67,10 @@ extension LogViewController{
         NotificationCenter.default.addObserver(self, selector: #selector(self.didSkipFile(_:)), name: SyncWalkman.didSkipPlaylist, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.didDeleteFile(_:)), name: SyncWalkman.didDeleteTrack, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.didDeleteFile(_:)), name: SyncWalkman.didDeletePlaylist, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(self.didFinish(_:)), name: SyncWalkman.didFinishSendTrack, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(self.didFinish(_:)), name: SyncWalkman.didFinishDeleteTrack, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(self.didFinish(_:)), name: SyncWalkman.didFinishSendPlaylist, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(self.didFinish(_:)), name: SyncWalkman.didFinishDeletePlaylist, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.didFinishEachProcess(_:)), name: SyncWalkman.didFinishSendTrack, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.didFinishEachProcess(_:)), name: SyncWalkman.didFinishDeleteTrack, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.didFinishEachProcess(_:)), name: SyncWalkman.didFinishSendPlaylist, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.didFinishEachProcess(_:)), name: SyncWalkman.didFinishDeletePlaylist, object: nil)
     }
     
     func setupCheckButtonState(){
@@ -127,7 +127,7 @@ extension LogViewController{
         }
     }
     
-    @objc func didFinish(_ noti: Notification){
+    @objc func didFinishEachProcess(_ noti: Notification){
         DispatchQueue.main.async {
             switch noti.name{
             case SyncWalkman.didFinishSendTrack:
