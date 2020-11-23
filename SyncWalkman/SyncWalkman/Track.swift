@@ -19,11 +19,11 @@ public class Track{
     /**
      自身のiTunes Music Folderからの相対パスを返します
      
-     正しい iTunesLibraryDataStore.shared.musicFolder がセット済である必要があります
+     正しい iTunesLibraryDataStore.shared.mediaFolder がセット済である必要があります
      */
-    func getRelativePath(_ musicFolder: String) -> String{
-        if self.path.hasPrefix(musicFolder + "/" + "Music/"){
-            return String(self.path.dropFirst((musicFolder + "/" + "Music/").count))
+    func getRelativePath(_ mediaFolder: String) -> String{
+        if self.path.hasPrefix(mediaFolder + "/"){
+            return String(self.path.dropFirst((mediaFolder + "/").count))
         } else {
             return (self.path as NSString).lastPathComponent
         }

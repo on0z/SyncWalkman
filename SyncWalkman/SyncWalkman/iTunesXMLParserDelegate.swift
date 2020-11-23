@@ -23,7 +23,7 @@ class iTunesXMLParserDelegate: NSObject, XMLParserDelegate{
     private var tmpt: (id: Int?, path: String?) = (nil, nil) //tmpTrack
     private var tmppl: (id: Int?, name: String?, tIDs: [Int]) = (nil, nil, []) //tempPlaylist
     
-    private var optmusicFolder: String?
+    private var optmediaFolder: String?
 
     func parserDidStartDocument(_ parser: XMLParser) {
         NotificationCenter.default.post(name: iTunesXMLParserDelegate.didStartParseXML, object: nil, userInfo: nil)
@@ -93,14 +93,14 @@ class iTunesXMLParserDelegate: NSObject, XMLParserDelegate{
                 }
                 tmppl.tIDs.append(id)
             }else if elements == ["plist", "dict", "string"] && keys == ["", "", "Music Folder"]{
-                if optmusicFolder == nil{
-                    optmusicFolder = ""
+                if optmediaFolder == nil{
+                    optmediaFolder = ""
                 }
                 let removed: String = string.removingPercentEncoding ?? ""
                 if removed.hasPrefix("file://"){
-                    optmusicFolder! += String(removed.dropFirst(7))
+                    optmediaFolder! += String(removed.dropFirst(7))
                 }else{
-                    optmusicFolder! += removed
+                    optmediaFolder! += removed
                 }
             }
         }
@@ -117,12 +117,12 @@ class iTunesXMLParserDelegate: NSObject, XMLParserDelegate{
         }
         //---
         if elements == ["plist", "dict", "string"], keys == ["", "", "Music Folder"]{
-            guard let musicFolder = optmusicFolder else {
+            guard let mediaFolder = optmediaFolder else {
                 NotificationCenter.default.post(name: iTunesXMLParserDelegate.notfoundMusicFolderPath, object: nil, userInfo: nil)
                 return
             }
-            NotificationCenter.default.post(name: iTunesXMLParserDelegate.didFoundMusicFolderPath, object: nil, userInfo: ["path" : musicFolder])
-            itl.musicFolder = musicFolder
+            NotificationCenter.default.post(name: iTunesXMLParserDelegate.didFoundMusicFolderPath, object: nil, userInfo: ["path" : mediaFolder])
+            itl.mediaFolder = mediaFolder
         }else if elements == ["plist", "dict", "dict", "dict"], keys[2] == "Tracks"{
             loadedTrackCount += 1
             guard let id = tmpt.id else{

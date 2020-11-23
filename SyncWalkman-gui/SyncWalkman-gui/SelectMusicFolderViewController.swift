@@ -10,7 +10,7 @@ import Cocoa
 
 class SelectMusicFolderViewController: NSViewController {
 
-    @IBOutlet weak var currentMusicFolderPathLabel: NSTextField!
+    @IBOutlet weak var currentMediaFolderPathLabel: NSTextField!
     @IBOutlet weak var pathTextField: NSTextField!
     @IBAction func selectButton(_ sender: NSButton) {
         let panel = NSOpenPanel()
@@ -25,23 +25,23 @@ class SelectMusicFolderViewController: NSViewController {
                     path = String(path.dropFirst(7))
                 }
                 print(path)
-                SyncWalkmanManager.shared.syncWalkman.itl.musicFolder = path
+                SyncWalkmanManager.shared.syncWalkman.itl.mediaFolder = path
                 self.pathTextField.stringValue = path
                 
-                self.currentMusicFolderPathLabel.stringValue = SyncWalkmanManager.shared.syncWalkman.itl.musicFolder
+                self.currentMediaFolderPathLabel.stringValue = SyncWalkmanManager.shared.syncWalkman.itl.mediaFolder
             }
         }
     }
     
     @IBAction func reloadMusicFolderPath(_ sender: NSButton) {
-        self.currentMusicFolderPathLabel.stringValue = SyncWalkmanManager.shared.syncWalkman.itl.musicFolder
+        self.currentMediaFolderPathLabel.stringValue = SyncWalkmanManager.shared.syncWalkman.itl.mediaFolder
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do view setup here.
         
-        self.currentMusicFolderPathLabel.stringValue = SyncWalkmanManager.shared.syncWalkman.itl.musicFolder
+        self.currentMediaFolderPathLabel.stringValue = SyncWalkmanManager.shared.syncWalkman.itl.mediaFolder
     }
     
 }
@@ -49,10 +49,10 @@ class SelectMusicFolderViewController: NSViewController {
 extension SelectMusicFolderViewController: NSTextFieldDelegate{
     
     func controlTextDidChange(_ obj: Notification) {
-        SyncWalkmanManager.shared.syncWalkman.itl.musicFolder = self.pathTextField.stringValue
+        SyncWalkmanManager.shared.syncWalkman.itl.mediaFolder = self.pathTextField.stringValue
         print(self.pathTextField.stringValue)
         
-        self.currentMusicFolderPathLabel.stringValue = SyncWalkmanManager.shared.syncWalkman.itl.musicFolder
+        self.currentMediaFolderPathLabel.stringValue = SyncWalkmanManager.shared.syncWalkman.itl.mediaFolder
     }
     
 }

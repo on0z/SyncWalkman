@@ -119,7 +119,7 @@ extension SyncWalkman{
                         trackIDs: item.items.map({Int(truncating: $0.persistentID)})
                     )
                 })
-            , musicFolder:
+            , mediaFolder:
                 { (location: String?) -> String in
                     guard var location = location else { return "" }
                     if location.hasPrefix("file://"){

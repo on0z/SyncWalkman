@@ -17,20 +17,25 @@ public class iTunesLibraryDataStore{
 //        }
 //    }
     
-    public init(tracks: [Track] = [], playlists: [Playlist] = [], musicFolder: String = ""){
+    public init(tracks: [Track] = [], playlists: [Playlist] = [], mediaFolder: String = ""){
         self.tracks = tracks
         self.playlists = playlists
-        self.musicFolder = musicFolder
+        self.mediaFolder = mediaFolder
     }
     
     public internal(set) var tracks: [Track]
     public internal(set) var playlists: [Playlist]
     
+    /// MusicやiTunesで「ミュージックのメディアフォルダの場所」と指定されているフォルダ．
+    /// ここを音源ファイルのルートディレクトリとし，このディレクトリ以下のディレクトリ構造を保ってWalkmanへ転送することを目標とする．
     /// 始端は/で、終端はフォルダ名です
-    public var musicFolder: String = ""{
+    public var mediaFolder: String = ""{
         didSet{
-            if musicFolder.hasSuffix("/"){
-                musicFolder = String(musicFolder.dropLast())
+            if mediaFolder.hasPrefix("file://"){
+                mediaFolder = String(mediaFolder.dropFirst("file://".count))
+            }
+            if mediaFolder.hasSuffix("/"){
+                mediaFolder = String(mediaFolder.dropLast())
             }
         }
     }
